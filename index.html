@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="shortcut icon" href="#" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<link rel="preconnect" href="https://scripts.sirv.com" crossorigin />
+		<link rel="preconnect" href="https://listyara.sirv.com" crossorigin />
+		<link rel="dns-prefetch" href="https://scripts.sirv.com" />
+		<link rel="dns-prefetch" href="https://listyara.sirv.com" />
+
+		<title>Data Server</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="subVideo3" class="videoContainer"></div>
+			<div id="subVideo2" class="videoContainer"></div>
+			<div id="subVideo1" class="videoContainer"></div>
+			<div id="video3" class="videoContainer"></div>
+			<div id="video2" class="videoContainer"></div>
+			<div id="video1" class="videoContainer"></div>
+			<div id="loop" class="videoContainer">
+				<video
+					id="loopVideo"
+					src="./assets/loop.mp4"
+					playsinline
+					muted
+					autoplay
+					loop
+				></video>
+			</div>
+			<div id="subVideoBackLoop" class="videoContainer"></div>
+			<div id="subVideoTurn" class="videoContainer"></div>
+			<div id="mainButtons" class="show">
+				<div class="centerContainer">
+					<div class="buttonContainer">
+						<button id="fullscreen_button" class="button">
+							<i
+								id="expand"
+								class="fa-solid fa-up-right-and-down-left-from-center"
+							></i>
+							<i
+								id="contract"
+								class="fa-solid fa-down-left-and-up-right-to-center disabledb"
+							></i>
+						</button>
+					</div>
+				</div>
+				<div class="centerContainer">
+					<div class="buttonContainer"></div>
+				</div>
+				<div class="centerContainer">
+					<div class="buttonContainer">
+						<div class="threeButtons">
+							<div class="titulo">DATA CENTER</div>
+							<button id="cabinetSolutions" class="button mainMenuB">
+								<span>Turnlock 100</span>
+								<img
+									src="assets/icons/homeLifeline100.png"
+									alt=""
+									class="iconImg"
+								/>
+							</button>
+							<button id="button2_button" class="button mainMenuB">
+								Turnlock 180
+								<img
+									src="assets/icons/homeTourlock180.png"
+									alt=""
+									class="iconImg"
+								/>
+							</button>
+							<button id="button3_button" class="button mainMenuB">
+								LifeLine Swing
+								<img
+									src="assets/icons/homeLifelineSwing.png"
+									alt=""
+									class="iconImg"
+								/>
+							</button>
+							<button id="button4_button" class="button mainMenuB">
+								Circlelock Solo
+								<img
+									src="assets/icons/homeCirclelockSolo.png"
+									alt=""
+									class="iconImg"
+								/>
+							</button>
+							<!-- <button
+									id="viewR_button"
+									class="button mainMenuB"
+									style="right: 77%; top: 12%"
+								>
+									View 360 Rotation
+								</button> -->
+						</div>
+					</div>
+				</div>
+				<div class="centerContainer">
+					<div class="buttonContainer">
+						<div class="mainBox">
+							<img src="assets/icons/150logo.png" alt="" />
+						</div>
+					</div>
+				</div>
+				<!-- <div class="centerContainer">
+					<div class="svgContainer">
+						<svg id="button1_line_svg" class="svg" width="100%" height="100%">
+							<line x1="22%" y1="15%" x2="34%" y2="35.8%" stroke="#f04923" />
+							<circle
+								class="svgDot"
+								id="button1_circle"
+								cx="34%"
+								cy="35.8%"
+								fill="#f04923"
+							/>
+						</svg>
+					</div>
+				</div> -->
+
+				<!-- <div class="centerContainer">
+					<div class="buttonContainer">
+						<button
+							id="button2_button"
+							class="button mainMenuB"
+							style="left: 68%; top: 8%"
+						>
+							Detect Tape Related Errors
+						</button>
+					</div>
+				</div>
+				<div class="centerContainer">
+					<div class="svgContainer">
+						<svg id="button2_line_svg" class="svg" width="100%" height="100%">
+							<line x1="69%" y1="12%" x2="60.5%" y2="40.5%" stroke="#f04923" />
+							<circle
+								id="button2_circle"
+								class="svgDot"
+								cx="60.5%"
+								cy="40.5%"
+								fill="#f04923"
+							/>
+						</svg>
+					</div>
+				</div> -->
+
+				<!-- <div class="centerContainer">
+					<div class="buttonContainer">
+						<button
+							id="button4_button"
+							class="button mainMenuB"
+							style="left: 86%; top: 30%"
+						>
+							Bypass Option
+						</button>
+					</div>
+				</div>
+
+				<div class="centerContainer">
+					<div class="svgContainer">
+						<svg id="button4_line_svg" class="svg" width="100%" height="100%">
+							<line
+								x1="86.5%"
+								y1="34.5%"
+								x2="76.5%"
+								y2="48%"
+								stroke="#f04923"
+							/>
+							<circle
+								id="button4_circle"
+								class="svgDot"
+								cx="76.5%"
+								cy="48%"
+								fill="#f04923"
+							/>
+						</svg>
+					</div>
+				</div> -->
+
+				<!-- <div class="centerContainer">
+					<div class="buttonContainer">
+						<button
+							id="button3_button"
+							class="button mainMenuB"
+							style="left: 83%; top: 59%"
+						>
+							Sealing Options
+						</button>
+					</div>
+				</div>
+				<div class="centerContainer">
+					<div class="svgContainer">
+						<svg id="button3_line_svg" class="svg" width="100%" height="100%">
+							<line
+								x1="83.5%"
+								y1="60%"
+								x2="65.8%"
+								y2="47.5%"
+								stroke="#f04923"
+							/>
+							<circle
+								id="button3_circle"
+								class="svgDot"
+								cx="65.8%"
+								cy="47.5%"
+								fill="#f04923"
+							/>
+						</svg>
+					</div>
+				</div>
+
+				<div class="centerContainer">
+					<div class="buttonContainer">
+						<button
+							id="button5_button"
+							class="button mainMenuB"
+							style="left: 75%; top: 73.5%"
+						>
+							Case Squareness
+						</button>
+					</div>
+				</div>
+
+				<div class="centerContainer">
+					<div class="svgContainer">
+						<svg id="button5_line_svg" class="svg" width="100%" height="100%">
+							<line x1="76%" y1="76%" x2="64%" y2="51%" stroke="#f04923" />
+							<circle
+								id="button5_circle"
+								class="svgDot"
+								cx="64%"
+								cy="51%"
+								fill="#f04923"
+							/>
+						</svg>
+					</div>
+				</div>
+
+				<div class="centerContainer">
+					<div class="buttonContainer">
+						<button
+							id="button6_button"
+							class="button mainMenuB"
+							style="right: 69%; top: 83.5%"
+						>
+							Optimal Case Infeed
+						</button>
+					</div>
+				</div>
+
+				<div class="centerContainer">
+					<div class="svgContainer">
+						<svg id="button6_line_svg" class="svg" width="100%" height="100%">
+							<line x1="28%" y1="88%" x2="37.5%" y2="63%" stroke="#f04923" />
+							<circle
+								id="button6_circle"
+								class="svgDot"
+								cx="37.5%"
+								cy="63%"
+								fill="#f04923"
+							/>
+						</svg>
+					</div>
+				</div> -->
+
+				<!-- <div class="centerContainer">
+					<div class="buttonContainer">
+						<button
+							id="button7_button"
+							class="button mainMenuB"
+							style="right: 71.8%; top: 86.5%"
+						>
+							Top and Bottom Sealing
+						</button>
+					</div>
+				</div>
+
+				<div class="centerContainer">
+					<div class="svgContainer">
+						<svg id="button7_line_svg" class="svg" width="100%" height="100%">
+							<line x1="25%" y1="88%" x2="48%" y2="50.5%" stroke="#f04923" />
+							<circle
+								id="button7_circle"
+								class="svgDot"
+								cx="48%"
+								cy="50.5%"
+								fill="#f04923"
+							/>
+						</svg>
+					</div>
+				</div>
+
+				<div class="centerContainer">
+					<div class="buttonContainer">
+						<button
+							id="button5_button"
+							class="button mainMenuB"
+							style="right: 78.5%; top: 50%"
+						>
+							Simplified Changeover
+						</button>
+					</div>
+				</div>
+
+				<div class="centerContainer">
+					<div class="svgContainer">
+						<svg id="button5_line_svg" class="svg" width="100%" height="100%">
+							<line x1="20%" y1="52.5%" x2="30.5%" y2="52%" stroke="#f04923" />
+							<circle
+								id="button3_circle"
+								class="svgDot"
+								cx="30.5%"
+								cy="52%"
+								fill="#f04923"
+							/>
+						</svg>
+					</div>
+				</div> -->
+
+				<!-- <div class="centerContainer">
+					<div class="buttonContainer">
+						<div class="viewR_container">
+							<button id="viewR_button" class="viewR_a">View Rotation</button>
+						</div>
+					</div>
+				</div> -->
+			</div>
+
+			<div id="showCont" class="showCont hidden short-vanish"></div>
+			<div class="warning">
+				<div class="modal">
+					<i class="fa-solid fa-circle-exclamation warnIcon"></i>
+					<span class="warningText"></span>
+				</div>
+			</div>
+			<div class="alertdiv">
+				<div class="modalalert">
+					<span id="close" class="x" value=""> &#x2715; </span>
+					<i class="fa-solid fa-circle-exclamation alertIcon"></i>
+					<span class="alertText">
+						Using this website on a Chrome web browser is recommended
+					</span>
+				</div>
+			</div>
+			<div class="loader">
+				<i class="fa-solid fa-spinner loadingIcon"></i>
+			</div>
+			<div class="initial"></div>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+	<script src="https://scripts.sirv.com/sirv.js"></script>
+
+	<script src="js/main.js"></script>
+</html>
