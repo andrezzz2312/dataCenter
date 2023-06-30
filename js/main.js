@@ -15,6 +15,8 @@ let label = ''
 let labelCont = ''
 let paragraph = ''
 let greenLine = ''
+let titleH2 = ''
+let createdSubTitle = ''
 let span = ''
 let line = ''
 let svg1 = ''
@@ -91,7 +93,7 @@ mainMenuB.forEach((e, i) => {
 
 const buttonContent = {
 	turnlock10: {
-		textLeft: '5%',
+		textLeft: '0%',
 		textBottom: '0%',
 		title: `<span><span style = 'font-weight:bold'>FULL HEIGHT</span>  <span>TURNSTILE</span></span>`,
 		subTitle: `Turnlock 100`,
@@ -317,17 +319,29 @@ function animations() {
 		// paragraph.style.animation = 'fadein 0.5s ease-in-out forwards'
 		console.log(paragraph)
 		const elementContainers = document.querySelectorAll('.elementContainer')
-		let counter = 0
+
+		titleH2.style.animation = 'fadein 0.5s ease-in-out forwards'
+		greenLine.style.animation = 'growWide 0.5s ease-in-out forwards'
+		greenLine.style.animationDelay = '0.1s'
+		createdSubTitle.style.animation = 'fadein 0.5s ease-in-out forwards'
+		createdSubTitle.style.animationDelay = '0.2s'
+		let counter = 0.3
+
 		elementContainers.forEach((element, i) => {
 			element.style.animation = 'fadein 0.5s ease-in-out forwards'
 			console.log(counter)
 			element.style.animationDelay = `${counter}s`
-			counter += 0.25
+			counter += 0.1
 
 			// setTimeout(() => {
 			// 	element.style.animation = 'fadein 0.5s ease-in-out forwards'
 			// }, 2000)
 		})
+		console.log(backButton)
+		console.log(counter)
+		backButtonContainer.style.animation =
+			'slideFromTop 0.5s ease-in-out forwards'
+		backButtonContainer.style.animationDelay = `${counter}s`
 	}
 
 	if (boxVideo) {
@@ -711,12 +725,24 @@ function createContent(
 		greenLine = document.createElement('hr')
 		paragraph = document.createElement('p')
 
+		// paragraph.textContent = pContent
+		// titleH2.style.fontSize = globalFontvar
+		paragraph.style.fontSize = globalFontvar
+		if (subTitle) {
+			createdSubTitle = document.createElement('span')
+			createdSubTitle.classList.add('createdSubtitle')
+			createdSubTitle.textContent = subTitle
+			createdSubTitle.style.fontWeight = 'bold'
+			createdSubTitle.style.fontSize = globalMediumTitleFontvar
+		}
+
 		pContent.forEach((e) => {
 			elementContainer = document.createElement('span')
 			elementContainer.classList.add('elementContainer')
 			icon = document.createElement('img')
 			icon.src = './../assets/icons/bp.png'
 			icon.style.width = '6%'
+			console.log(icon)
 
 			element = document.createElement('span')
 			element.textContent = e
@@ -725,15 +751,6 @@ function createContent(
 			elementContainer.appendChild(element)
 			paragraph.appendChild(elementContainer)
 		})
-		// paragraph.textContent = pContent
-		// titleH2.style.fontSize = globalFontvar
-		paragraph.style.fontSize = globalFontvar
-		if (subTitle) {
-			createdSubTitle = document.createElement('span')
-			createdSubTitle.textContent = subTitle
-			createdSubTitle.style.fontWeight = 'bold'
-			createdSubTitle.style.fontSize = globalMediumTitleFontvar
-		}
 		titleH2.appendChild(greenLine)
 		titleH2.appendChild(createdSubTitle)
 		pCont.appendChild(titleH2)
@@ -1272,100 +1289,6 @@ var SirvOptions = {
 	},
 }
 
-// viewR_button.addEventListener('click', function (e) {
-// 	loader.classList.remove('short-vanish')
-// 	loader.style.zIndex = '1'
-// 	initial.style.zIndex = '0'
-// 	initial.classList.remove('short-vanish')
-// 	initial.classList.add('show')
-
-// 	HideShowMainButtons()
-// 	HideShowCont()
-
-// 	const centerContainerMade = document.createElement('div')
-// 	centerContainerMade.classList.add('centerContainer')
-// 	centerContainerMade.style.opacity = '0'
-// 	centerContainerMade.classList.add('showBack')
-// 	centerContainerMade.style.zIndex = '100'
-// 	centerContainerMade.setAttribute('id', 'centerContainer_backButton')
-// 	const buttonContainerMade = document.createElement('div')
-// 	buttonContainerMade.classList.add('buttonContainer')
-// 	buttonContainerMade.setAttribute('id', 'buttonContainer_backButton')
-// 	buttonContainerMade.style.width = containVideoWidth + 'px'
-// 	buttonContainerMade.style.height = containVideoHeight + 'px'
-// 	backButton = document.createElement('button')
-// 	backButton.classList.add('backButton')
-// 	backButton.classList.add('button')
-// 	backButton.textContent = 'Back'
-// 	let fontvar = `calc(7px + (17 - 7) * ((${
-// 		containVideoWidth + 'px'
-// 	} - 320px) / (1440 - 320)))`
-// 	backButton.style.fontSize = fontvar
-// 	backButtonContainer = document.createElement('div')
-// 	backButtonContainer.classList.add('viewR_container')
-// 	// createBackButton()
-// 	mainContainer.appendChild(centerContainerMade)
-// 	centerContainerMade.append(buttonContainerMade)
-// 	buttonContainerMade.appendChild(backButtonContainer)
-
-// 	backButtonContainer.appendChild(backButton)
-
-// 	window.addEventListener('resize', function (e) {
-// 		if (centerContainerMade.hasChildNodes()) {
-// 			buttonContainerMade.style.width = containVideoWidth + 'px'
-// 			buttonContainerMade.style.height = containVideoHeight + 'px'
-
-// 			let fontvar = `calc(7px + (17 - 7) * ((${
-// 				containVideoWidth + 'px'
-// 			} - 320px) / (1440 - 320)))`
-// 			backButton.style.fontSize = fontvar
-// 		}
-// 	})
-
-// 	backButton.addEventListener('click', function () {
-// 		ArreglarLineas()
-// 		backButton.style.pointerEvents = 'none'
-// 		loop.style.zIndex = '-5'
-// 		loop.currentTime = 0
-// 		loop.classList.remove('short-vanish')
-
-// 		centerContainerMade.classList.remove('showBack')
-// 		centerContainerMade.classList.add('short-vanish')
-
-// 		HideShowCont()
-// 		setTimeout(() => {
-// 			initial.classList.remove('show')
-// 			initial.classList.add('short-vanish')
-// 			loader.style.zIndex = '-100'
-// 			setTimeout(() => {
-// 				initial.style.zIndex = '-200'
-// 			}, 300)
-// 		}, 500)
-
-// 		HideShowMainButtons()
-
-// 		setTimeout(() => {
-// 			loop.style.zIndex = '-1'
-// 			showCont.innerHTML = ''
-
-// 			centerContainer_backButton.remove()
-// 		}, 1000)
-// 	})
-
-// 	setTimeout(() => {
-// 		const centerContainerMade = document.createElement('div')
-// 		centerContainerMade.classList.add('centerContainer')
-// 		centerContainerMade.setAttribute('id', 'centerContainer_model')
-// 		const model = document.createElement('div')
-// 		model.classList.add('Sirv')
-// 		model.setAttribute(
-// 			'data-src',
-// 			'https://rotation.marketscale.com/Companies/Premio/fanless_PC/fanless_PC.spin'
-// 		)
-
-// 		showCont.appendChild(model)
-// 	}, 1000)
-// })
 close.addEventListener('click', function (e) {
 	modalalert.style.pointerEvents = 'none'
 	modalalert.style.transform = 'scale(0)'
