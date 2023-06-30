@@ -805,7 +805,7 @@ function createContent(
 			elementContainer = document.createElement('span')
 			elementContainer.classList.add('elementContainer')
 			icon = document.createElement('img')
-			icon.src = './../assets/icons/bp.png'
+			icon.src = 'assets/icons/bp.png'
 			icon.style.width = '6%'
 			console.log(icon)
 
