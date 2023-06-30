@@ -359,7 +359,7 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 	videoToPlay.style.opacity = 1
 	setTimeout(() => {
 		videoToPlay.play()
-	}, 250)
+	}, 0)
 }
 
 // loop.currentTime = 60
@@ -742,7 +742,7 @@ function createContent(
 										// createBackButton()
 										HideShowCont()
 									})
-								}, 500)
+								}, 0)
 							}
 						}
 					}
@@ -891,7 +891,7 @@ function backButtonFunction() {
 			video1.remove()
 			video2.remove()
 			video3.remove()
-		}, 500)
+		}, 0)
 
 		HideShowMainButtons()
 
@@ -926,7 +926,7 @@ function backButtonFunctionFromBack() {
 		HideShowMainButtons()
 		setTimeout(() => {
 			loop.play()
-		}, 500)
+		}, 0)
 		subVideoTurn.classList.add('short-vanish')
 		console.log(pageIndex)
 		loop.style.zIndex = '-1'
@@ -1124,7 +1124,7 @@ loop.addEventListener('loadedmetadata', function (e) {
 	initial.classList.add('short-vanish')
 	setTimeout(() => {
 		initial.style.zIndex = '-200'
-	}, 500)
+	}, 0)
 })
 
 if (loop.readyState >= 1) {
@@ -1136,7 +1136,7 @@ if (loop.readyState >= 1) {
 	initial.classList.add('short-vanish')
 	setTimeout(() => {
 		initial.style.zIndex = '-200'
-	}, 500)
+	}, 0)
 }
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -1215,7 +1215,7 @@ mainMenuB.forEach((e, i) => {
 		if (showCont.innerHTML !== '') {
 			setTimeout(() => {
 				showCont.innerHTML = ''
-			}, 500)
+			}, 0)
 		}
 
 		// console.log(buttonContent.buttonsText[1])
@@ -1333,7 +1333,7 @@ mainMenuB.forEach((e, i) => {
 							}
 							HideShowCont()
 						})
-					}, 500)
+					}, 0)
 				}
 			}
 		}
@@ -1350,7 +1350,7 @@ var SirvOptions = {
 			loader.style.zIndex = '-100'
 			setTimeout(() => {
 				initial.style.zIndex = '-200'
-			}, 300)
+			}, 0)
 		},
 	},
 }
