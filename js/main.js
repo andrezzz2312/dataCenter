@@ -339,9 +339,9 @@ function animations() {
 		})
 		console.log(backButton)
 		console.log(counter)
-		backButtonContainer.style.animation =
-			'slideFromTop 0.5s ease-in-out forwards'
-		backButtonContainer.style.animationDelay = `${counter}s`
+		// backButtonContainer.style.animation =
+		// 	'slideFromTop 0.5s ease-in-out forwards'
+		// backButtonContainer.style.animationDelay = `${counter}s`
 	}
 
 	if (boxVideo) {
