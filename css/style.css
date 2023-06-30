@@ -318,8 +318,8 @@ a {
 	justify-content: flex-start;
 	align-items: flex-start;
 	width: 100%;
-	height: 100%;
-	/* opacity: 0; */
+	height: 10%;
+	opacity: 0;
 	/* pointer-events: none; */
 }
 #centerContainer_backButton {
@@ -366,12 +366,24 @@ a {
 .buttonGrid {
 	display: flex;
 	flex-direction: row;
+	width: 80%;
+	gap: 0.7vw;
+}
+.buttonGridContainer {
+	display: flex;
+	flex-direction: row;
 	width: max-content;
 	gap: 0.5vw;
-	margin-bottom: 8%;
-	margin-left: 20%;
+	height: 10%;
+	width: 100%;
 }
 .text {
+	height: 80%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
 	/* position: absolute; */
 	/* z-index: 1; */
 }
@@ -402,23 +414,26 @@ a {
 .firstPage {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	position: absolute;
 	height: 100%;
+	width: 100%;
+	padding: 5%;
 	z-index: 1;
 	/* gap: 2vh; */
 }
 .pCont {
 	/* border-radius: 4vh; */
-	position: absolute;
+	/* position: absolute;
 	left: 0%;
-	top: 15%;
-	padding-left: 10%;
+	top: 15%; */
+	/* padding-left: 10%; */
 	/* border-radius: 3vh; */
 	/* background: hsla(322, 50%, 21%, 90%); */
 	/* padding: 3vh; */
 	color: white;
+
 	/* width: calc(250px + (480 - 250) * ((100vw - 320px) / (1440 - 320))); */
 	/* transform: scale(0); */
 	overflow: hidden;
@@ -456,11 +471,11 @@ li:last-child {
 .backButton {
 	padding: 1% 1%;
 	pointer-events: all;
-	position: absolute;
+	/* position: absolute; */
 	/* margin-left: 5%;
 	margin-top: 3%; */
-	left: 5%;
-	top: 5%;
+	/* left: 5%;
+	top: 5%; */
 }
 
 .short-vanish {
@@ -632,7 +647,7 @@ li:last-child {
 @keyframes slideFromTop {
 	0% {
 		opacity: 0;
-		transform: translate3d(0, -25%, 0);
+		transform: translate3d(0, -100%, 0);
 	}
 
 	100% {

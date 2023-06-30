@@ -24,6 +24,7 @@ let circle = ''
 let backButton = ''
 let boxVideo = []
 let backButtonContainer = ''
+let buttongridContainer = ''
 let buttonFontvar = ''
 let globalFontvar = ''
 let containVideoWidth = ''
@@ -112,93 +113,156 @@ const buttonContent = {
 		],
 		// src: buttonsText[1],
 	},
-	'7-stepB': {
-		textRight: '2%',
-		textTop: '0%',
-		title: '7-Step Process',
-		content: `Building fanless PCs requires seven steps.\nClick to learn more.`,
-		inputButtonGrid: [
-			'1. CPU',
-			'2. Hard Drives',
-			'3. Heatsinks',
-			'4. Case',
-			'5. EDGEBoost',
-			'6. Assembly',
-			'7. Test/Validate',
+	tourlock18: {
+		textLeft: '0%',
+		textBottom: '0%',
+		title: `<span><span style = 'font-weight:bold'>SECURITY</span> <span>REVOLVING DOOR</span></span>`,
+		subTitle: `Tourlock 180`,
+		content: [
+			`Prevent unauthorized entry`,
+			`In and out simultaneous 2-way traffic`,
+			`High Throughput - 10 min. Peak of 150 people, each way`,
+			`Integrates with any ACS or multi-factor schema`,
+			`Risk Score - 2.7%, Efficiency Score - 97.3%`,
 		],
-		boxInfo: {
-			'1.C': {
-				textLeft: '20%',
-				textTop: '20%',
-				title: 'Step 1: CPU',
-				content: `Choose a CPU with 10w - 65w thermal\ndesign power.`,
-			},
-			'2.H': {
-				textLeft: '15%',
-				textTop: '35%',
-				title: 'Step 2: SSDs',
-				content: `Replace hard disk drives with solid state\ndrives, which are more durable, compact,\nand faster.`,
-			},
-			'3.H': {
-				textLeft: '8%',
-				textTop: '30%',
-				title: 'Step 3: Heatsinks',
-				content: `Use ultra-conductive heatsinks, which allow\nfor efficient heat dissipation.`,
-			},
-			'4.C': {
-				textLeft: '5%',
-				textTop: '30%',
-				title: 'Step 4: Extruded Aluminum PC Case',
-				content: `House parts in a fanless PC case made from\nextruded aluminum, with heavy-duty metal\nmolded into one piece.`,
-			},
-			'5.E': {
-				textLeft: '20%',
-				textTop: '20%',
-				title: 'Step 5: EDGEBoost Nodes',
-				content: `Use modular EDGEBoost nodes for\n performance acceleration, that are purpose-\nbuilt for machine learning and real-time\nprocessing.`,
-			},
-			'6.A': {
-				textRight: '10%',
-				textTop: '20%',
-				title: 'Step 6: Assemble the Parts',
-				content: `Put the pieces together.`,
-			},
-			'7.T': {
-				textRight: '10%',
-				textTop: '20%',
-				title: 'Step 7: Test and Validate',
-				content: `Test and validate for design quality\nassurance.`,
-			},
-		},
+		inputButtonGrid: [
+			`Standard \nOperation`,
+			`Piggybacking \n Prevention`,
+			`Tailgating \nPrevention 1`,
+			`Tailgating \nPrevention 2`,
+			`Emergency \nEgress`,
+			`Glass \nOptions`,
+		],
+		// src: buttonsText[1],
 	},
-	view3: {
-		textRight: '15%',
-		textTop: '15%',
-		title: '',
-		content: ``,
-		inputButtonGrid: [],
+	turnlock10: {
+		textLeft: '0%',
+		textBottom: '0%',
+		title: `<span><span style = 'font-weight:bold'>FULL HEIGHT</span>  <span>TURNSTILE</span></span>`,
+		subTitle: `Turnlock 100`,
+		content: [
+			`Deter unauthorized entry`,
+			`Prevent unauthorized entry with optional\n BE Secure Optional Overhead Sensor System`,
+			`2-way traffic, one direction at a time`,
+			`High capacity - 200 people in 10 minutes (in one direction)`,
+			`Integrates with any ACS or multi-factor schema`,
+		],
+		inputButtonGrid: [
+			`Standard\nOperation`,
+			`Piggybacking\nPrevention`,
+			`Emergency\nEgress`,
+			`Finish\nOptions`,
+		],
+		// src: buttonsText[1],
 	},
-	whyF: {
-		textRight: '15%',
-		textTop: '15%',
-		title: '',
-		content: ``,
-		inputButtonGrid: [],
+	turnlock10: {
+		textLeft: '0%',
+		textBottom: '0%',
+		title: `<span><span style = 'font-weight:bold'>FULL HEIGHT</span>  <span>TURNSTILE</span></span>`,
+		subTitle: `Turnlock 100`,
+		content: [
+			`Deter unauthorized entry`,
+			`Prevent unauthorized entry with optional\n BE Secure Optional Overhead Sensor System`,
+			`2-way traffic, one direction at a time`,
+			`High capacity - 200 people in 10 minutes (in one direction)`,
+			`Integrates with any ACS or multi-factor schema`,
+		],
+		inputButtonGrid: [
+			`Standard\nOperation`,
+			`Piggybacking\nPrevention`,
+			`Emergency\nEgress`,
+			`Finish\nOptions`,
+		],
+		// src: buttonsText[1],
 	},
-	'in-houseT': {
-		textRight: '15%',
-		textTop: '15%',
-		title: '',
-		content: ``,
-		inputButtonGrid: [],
-	},
-	useC: {
-		textRight: '15%',
-		textTop: '15%',
-		title: '',
-		content: ``,
-		inputButtonGrid: [],
-	},
+
+	// '7-stepB': {
+	// 	textRight: '2%',
+	// 	textTop: '0%',
+	// 	title: '7-Step Process',
+	// 	content: `Building fanless PCs requires seven steps.\nClick to learn more.`,
+	// 	inputButtonGrid: [
+	// 		'1. CPU',
+	// 		'2. Hard Drives',
+	// 		'3. Heatsinks',
+	// 		'4. Case',
+	// 		'5. EDGEBoost',
+	// 		'6. Assembly',
+	// 		'7. Test/Validate',
+	// 	],
+	// 	boxInfo: {
+	// 		'1.C': {
+	// 			textLeft: '20%',
+	// 			textTop: '20%',
+	// 			title: 'Step 1: CPU',
+	// 			content: `Choose a CPU with 10w - 65w thermal\ndesign power.`,
+	// 		},
+	// 		'2.H': {
+	// 			textLeft: '15%',
+	// 			textTop: '35%',
+	// 			title: 'Step 2: SSDs',
+	// 			content: `Replace hard disk drives with solid state\ndrives, which are more durable, compact,\nand faster.`,
+	// 		},
+	// 		'3.H': {
+	// 			textLeft: '8%',
+	// 			textTop: '30%',
+	// 			title: 'Step 3: Heatsinks',
+	// 			content: `Use ultra-conductive heatsinks, which allow\nfor efficient heat dissipation.`,
+	// 		},
+	// 		'4.C': {
+	// 			textLeft: '5%',
+	// 			textTop: '30%',
+	// 			title: 'Step 4: Extruded Aluminum PC Case',
+	// 			content: `House parts in a fanless PC case made from\nextruded aluminum, with heavy-duty metal\nmolded into one piece.`,
+	// 		},
+	// 		'5.E': {
+	// 			textLeft: '20%',
+	// 			textTop: '20%',
+	// 			title: 'Step 5: EDGEBoost Nodes',
+	// 			content: `Use modular EDGEBoost nodes for\n performance acceleration, that are purpose-\nbuilt for machine learning and real-time\nprocessing.`,
+	// 		},
+	// 		'6.A': {
+	// 			textRight: '10%',
+	// 			textTop: '20%',
+	// 			title: 'Step 6: Assemble the Parts',
+	// 			content: `Put the pieces together.`,
+	// 		},
+	// 		'7.T': {
+	// 			textRight: '10%',
+	// 			textTop: '20%',
+	// 			title: 'Step 7: Test and Validate',
+	// 			content: `Test and validate for design quality\nassurance.`,
+	// 		},
+	// 	},
+	// },
+	// view3: {
+	// 	textRight: '15%',
+	// 	textTop: '15%',
+	// 	title: '',
+	// 	content: ``,
+	// 	inputButtonGrid: [],
+	// },
+	// whyF: {
+	// 	textRight: '15%',
+	// 	textTop: '15%',
+	// 	title: '',
+	// 	content: ``,
+	// 	inputButtonGrid: [],
+	// },
+	// 'in-houseT': {
+	// 	textRight: '15%',
+	// 	textTop: '15%',
+	// 	title: '',
+	// 	content: ``,
+	// 	inputButtonGrid: [],
+	// },
+	// useC: {
+	// 	textRight: '15%',
+	// 	textTop: '15%',
+	// 	title: '',
+	// 	content: ``,
+	// 	inputButtonGrid: [],
+	// },
 
 	// {
 	// 	textLeft: '8%',
@@ -339,9 +403,9 @@ function animations() {
 		})
 		console.log(backButton)
 		console.log(counter)
-		// backButtonContainer.style.animation =
-		// 	'slideFromTop 0.5s ease-in-out forwards'
-		// backButtonContainer.style.animationDelay = `${counter}s`
+		backButtonContainer.style.animation =
+			'slideFromTop 0.5s ease-in-out forwards'
+		backButtonContainer.style.animationDelay = `${counter}s`
 	}
 
 	if (boxVideo) {
@@ -473,7 +537,8 @@ function createContent(
 
 	textContent = document.createElement('div')
 	textContent.classList.add('text')
-
+	buttongridContainer = document.createElement('div')
+	buttongridContainer.classList.add('buttonGridContainer')
 	buttonGrid = document.createElement('div')
 	buttonGrid.classList.add('buttonGrid')
 	// let buttonShort = []
@@ -591,7 +656,7 @@ function createContent(
 													subVideoTurn.pause()
 
 													console.log('cbb trigger')
-													createBackButton()
+													// createBackButton()
 
 													// createBackButton()
 													HideShowCont()
@@ -617,7 +682,7 @@ function createContent(
 										animations()
 										InterpolateVideo(subVideoTurn, subVideo1, subVideo2)
 										console.log('cbb trigger')
-										createBackButton()
+										// createBackButton()
 										HideShowCont()
 									})
 								}
@@ -674,7 +739,7 @@ function createContent(
 										animations()
 										InterpolateVideo(video3, subVideo1, subVideo2)
 										console.log('cbb trigger')
-										createBackButton()
+										// createBackButton()
 										HideShowCont()
 									})
 								}, 500)
@@ -735,7 +800,7 @@ function createContent(
 			createdSubTitle.style.fontWeight = 'bold'
 			createdSubTitle.style.fontSize = globalMediumTitleFontvar
 		}
-
+		createBackButton()
 		pContent.forEach((e) => {
 			elementContainer = document.createElement('span')
 			elementContainer.classList.add('elementContainer')
@@ -758,7 +823,8 @@ function createContent(
 		textContent.appendChild(pCont)
 	}
 	firstPage.appendChild(textContent)
-	firstPage.appendChild(buttonGrid)
+	buttongridContainer.appendChild(buttonGrid)
+	firstPage.appendChild(buttongridContainer)
 
 	showCont.appendChild(centerContainerMade)
 
@@ -907,7 +973,7 @@ function backButtonFunctionFront() {
 		animations()
 		backButton.style.pointerEvents = 'all'
 		pageIndex = 'mainMenuFront'
-		createBackButton()
+		// createBackButton()
 		HideShowCont()
 		subVideo1.remove()
 		subVideo2.remove()
@@ -937,7 +1003,7 @@ function backButtonFunctionBack() {
 		)
 		backButton.style.pointerEvents = 'all'
 		pageIndex = 'mainMenuBack'
-		createBackButton()
+		// createBackButton()
 		HideShowCont()
 		// subVideo1.remove()
 		// subVideo2.remove()
@@ -977,7 +1043,7 @@ function createBackButton(pos) {
 	}
 	showCont.appendChild(centerContainerMade)
 	centerContainerMade.append(buttonContainerMade)
-	buttonContainerMade.appendChild(backButtonContainer)
+	firstPage.appendChild(backButtonContainer)
 	backButtonContainer.appendChild(backButton)
 	if (
 		pageIndex === '1.C' ||
@@ -1210,7 +1276,7 @@ mainMenuB.forEach((e, i) => {
 				// if (buttonsText[i] === 'whyF') {
 				// 	createBackButton('pos')
 				// } else {
-				createBackButton()
+				// createBackButton()
 				// }
 			}
 		})
@@ -1246,7 +1312,7 @@ mainMenuB.forEach((e, i) => {
 							// if (buttonsText[i] === 'whyF') {
 							// 	createBackButton('pos')
 							// } else {
-							createBackButton()
+							// createBackButton()
 							// }
 
 							animations()
