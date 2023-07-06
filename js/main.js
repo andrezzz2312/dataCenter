@@ -1,11 +1,15 @@
 // Variables
-let videoloop = ''
-let video1 = ''
-let video2 = ''
-let video3 = ''
-let subVideo1 = ''
-let subVideo2 = ''
-let subVideo3 = ''
+let videoloop,
+	video1,
+	video2,
+	video3,
+	subVideo1,
+	subVideo2,
+	subVideo3,
+	buttonContainerMade,
+	buttonGrid,
+	threesixty
+
 let subVideoTurn = ''
 let subVideoBackLoop = ''
 let buttonDimensions = ''
@@ -22,9 +26,10 @@ let line = ''
 let svg1 = ''
 let circle = ''
 let backButton = ''
+let brandIcon = ''
 let boxVideo = []
 let backButtonContainer = ''
-let buttongridContainer = ''
+let buttonGridContainer = ''
 let buttonFontvar = ''
 let globalFontvar = ''
 let containVideoWidth = ''
@@ -79,7 +84,6 @@ let pageIndex = ''
 
 var buttonsText = []
 mainMenuB.forEach((e, i) => {
-	console.log(buttonsText[i])
 	// const splitText = e.textContent.trim().split('\n')
 	const splitText = e.textContent
 		.replace(/[\n\r]+|[\s]{2,}/g, ' ')
@@ -111,6 +115,74 @@ const buttonContent = {
 			`Emergency\nEgress`,
 			`Finish\nOptions`,
 		],
+		boxInfo: {
+			standardO: {
+				textLeft: '0%',
+				textTop: '0%',
+				title: `<span><span style = 'font-weight:bold'>Standard Operation</span>`,
+				// subTitle: `asdd`,
+				content: [
+					`Credential or biometric`,
+					`Valid credential turns LED green`,
+					`Turnstile rotates 120\u00B0, relocks, and sends a door closure signal,\nlogging the user into the space  `,
+					`An authorized user can exit after the authorized user has entered`,
+					`Exiting can also be set up as free out, requiring no credentials`,
+					`Turnstile does not allow tailgating as it only rotates 120\u00B0 then relocks`,
+				],
+			},
+			piggybackingP: {
+				textLeft: '0%',
+				textTop: '0%',
+				title: 'Piggybacking Prevention',
+				content: [
+					`Piggybacking is an attempt to enter in same compartment`,
+					`Credential or biometric is presented`,
+					`Valid credential turns LED green, unlocks turnstile and provides audible tone/voice`,
+					`Door rotates about 30\u00B0, then stops as...`,
+					`BE Secure Overhead Sensor System detects two people`,
+					`Turnstile remains locked, forcing both people\nto exit the compartment backwards`,
+					`With optional BE Secure Overhead Sensor System, there is never a breach.\nUnauthorized user always exits to the unsecured side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
+				],
+			},
+			emergencyE: {
+				textLeft: '0%',
+				textTop: '0%',
+				title: 'Emergency Egress',
+				content: [
+					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
+				],
+			},
+			'3.H': {
+				textLeft: '8%',
+				textTop: '30%',
+				title: 'Step 3: Heatsinks',
+				content: `Use ultra-conductive heatsinks, which allow\nfor efficient heat dissipation.`,
+			},
+			'4.C': {
+				textLeft: '5%',
+				textTop: '30%',
+				title: 'Step 4: Extruded Aluminum PC Case',
+				content: `House parts in a fanless PC case made from\nextruded aluminum, with heavy-duty metal\nmolded into one piece.`,
+			},
+			'5.E': {
+				textLeft: '20%',
+				textTop: '20%',
+				title: 'Step 5: EDGEBoost Nodes',
+				content: `Use modular EDGEBoost nodes for\n performance acceleration, that are purpose-\nbuilt for machine learning and real-time\nprocessing.`,
+			},
+			'6.A': {
+				textRight: '10%',
+				textTop: '20%',
+				title: 'Step 6: Assemble the Parts',
+				content: `Put the pieces together.`,
+			},
+			'7.T': {
+				textRight: '10%',
+				textTop: '20%',
+				title: 'Step 7: Test and Validate',
+				content: `Test and validate for design quality\nassurance.`,
+			},
+		},
 		// src: buttonsText[1],
 	},
 	tourlock18: {
@@ -135,204 +207,6 @@ const buttonContent = {
 		],
 		// src: buttonsText[1],
 	},
-	turnlock10: {
-		textLeft: '0%',
-		textBottom: '0%',
-		title: `<span><span style = 'font-weight:bold'>FULL HEIGHT</span>  <span>TURNSTILE</span></span>`,
-		subTitle: `Turnlock 100`,
-		content: [
-			`Deter unauthorized entry`,
-			`Prevent unauthorized entry with optional\n BE Secure Optional Overhead Sensor System`,
-			`2-way traffic, one direction at a time`,
-			`High capacity - 200 people in 10 minutes (in one direction)`,
-			`Integrates with any ACS or multi-factor schema`,
-		],
-		inputButtonGrid: [
-			`Standard\nOperation`,
-			`Piggybacking\nPrevention`,
-			`Emergency\nEgress`,
-			`Finish\nOptions`,
-		],
-		// src: buttonsText[1],
-	},
-	turnlock10: {
-		textLeft: '0%',
-		textBottom: '0%',
-		title: `<span><span style = 'font-weight:bold'>FULL HEIGHT</span>  <span>TURNSTILE</span></span>`,
-		subTitle: `Turnlock 100`,
-		content: [
-			`Deter unauthorized entry`,
-			`Prevent unauthorized entry with optional\n BE Secure Optional Overhead Sensor System`,
-			`2-way traffic, one direction at a time`,
-			`High capacity - 200 people in 10 minutes (in one direction)`,
-			`Integrates with any ACS or multi-factor schema`,
-		],
-		inputButtonGrid: [
-			`Standard\nOperation`,
-			`Piggybacking\nPrevention`,
-			`Emergency\nEgress`,
-			`Finish\nOptions`,
-		],
-		// src: buttonsText[1],
-	},
-
-	// '7-stepB': {
-	// 	textRight: '2%',
-	// 	textTop: '0%',
-	// 	title: '7-Step Process',
-	// 	content: `Building fanless PCs requires seven steps.\nClick to learn more.`,
-	// 	inputButtonGrid: [
-	// 		'1. CPU',
-	// 		'2. Hard Drives',
-	// 		'3. Heatsinks',
-	// 		'4. Case',
-	// 		'5. EDGEBoost',
-	// 		'6. Assembly',
-	// 		'7. Test/Validate',
-	// 	],
-	// 	boxInfo: {
-	// 		'1.C': {
-	// 			textLeft: '20%',
-	// 			textTop: '20%',
-	// 			title: 'Step 1: CPU',
-	// 			content: `Choose a CPU with 10w - 65w thermal\ndesign power.`,
-	// 		},
-	// 		'2.H': {
-	// 			textLeft: '15%',
-	// 			textTop: '35%',
-	// 			title: 'Step 2: SSDs',
-	// 			content: `Replace hard disk drives with solid state\ndrives, which are more durable, compact,\nand faster.`,
-	// 		},
-	// 		'3.H': {
-	// 			textLeft: '8%',
-	// 			textTop: '30%',
-	// 			title: 'Step 3: Heatsinks',
-	// 			content: `Use ultra-conductive heatsinks, which allow\nfor efficient heat dissipation.`,
-	// 		},
-	// 		'4.C': {
-	// 			textLeft: '5%',
-	// 			textTop: '30%',
-	// 			title: 'Step 4: Extruded Aluminum PC Case',
-	// 			content: `House parts in a fanless PC case made from\nextruded aluminum, with heavy-duty metal\nmolded into one piece.`,
-	// 		},
-	// 		'5.E': {
-	// 			textLeft: '20%',
-	// 			textTop: '20%',
-	// 			title: 'Step 5: EDGEBoost Nodes',
-	// 			content: `Use modular EDGEBoost nodes for\n performance acceleration, that are purpose-\nbuilt for machine learning and real-time\nprocessing.`,
-	// 		},
-	// 		'6.A': {
-	// 			textRight: '10%',
-	// 			textTop: '20%',
-	// 			title: 'Step 6: Assemble the Parts',
-	// 			content: `Put the pieces together.`,
-	// 		},
-	// 		'7.T': {
-	// 			textRight: '10%',
-	// 			textTop: '20%',
-	// 			title: 'Step 7: Test and Validate',
-	// 			content: `Test and validate for design quality\nassurance.`,
-	// 		},
-	// 	},
-	// },
-	// view3: {
-	// 	textRight: '15%',
-	// 	textTop: '15%',
-	// 	title: '',
-	// 	content: ``,
-	// 	inputButtonGrid: [],
-	// },
-	// whyF: {
-	// 	textRight: '15%',
-	// 	textTop: '15%',
-	// 	title: '',
-	// 	content: ``,
-	// 	inputButtonGrid: [],
-	// },
-	// 'in-houseT': {
-	// 	textRight: '15%',
-	// 	textTop: '15%',
-	// 	title: '',
-	// 	content: ``,
-	// 	inputButtonGrid: [],
-	// },
-	// useC: {
-	// 	textRight: '15%',
-	// 	textTop: '15%',
-	// 	title: '',
-	// 	content: ``,
-	// 	inputButtonGrid: [],
-	// },
-
-	// {
-	// 	textLeft: '8%',
-	// 	textBottom: '12%',
-	// 	title: mainMenuB[1].innerText + '&nbsp;',
-	// 	content: ['Sensors detect:', 'Fail to apply', 'Fail to cut', 'Low Tape'],
-
-	// 	src: buttonsText[1],
-	// },
-
-	// {
-	// 	textRight: '8%',
-	// 	textTop: '8%',
-	// 	title:
-	// 		mainMenuB[2].innerText +
-	// 		'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-	// 	content: [
-	// 		'For presealed or open cases',
-	// 		'Eliminates need for bypass conveyors',
-	// 	],
-
-	// 	src: buttonsText[2],
-	// },
-	// {
-	// 	textLeft: '5%',
-	// 	textTop: '5%',
-	// 	title:
-	// 		mainMenuB[3].innerText +
-	// 		'&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp&nbsp;&nbsp',
-	// 	content: [
-	// 		'Also available for hot melt glue',
-	// 		'Additional compression wheels provide secure glue bond through regulatable pressure',
-	// 	],
-
-	// 	src: buttonsText[3],
-	// 	video: [buttonsText[3], 2],
-	// },
-	// {
-	// 	textRight: '10%',
-	// 	textBottom: '20%',
-	// 	title:
-	// 		mainMenuB[4].innerText +
-	// 		'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-	// 	content: [
-	// 		'Steady and even case transfer using:',
-	// 		'Synchronous compensating side belts',
-	// 		'Squaring wheels',
-	// 	],
-
-	// 	src: buttonsText[4],
-	// },
-	// {
-	// 	textLeft: '8%',
-	// 	textBottom: '8%',
-	// 	title: mainMenuB[5].innerText + '&nbsp;&nbsp;',
-	// 	content: [
-	// 		'Metering stop creates\ngaps between cases',
-	// 		'Removes need for infeed conveyor speed adjustments',
-	// 	],
-
-	// 	src: buttonsText[5],
-	// },
-	// {
-	// 	textLeft: '5%',
-	// 	textTop: '5%',
-	// 	title: mainMenuB[6].innerText + '&nbsp;&nbsp;',
-	// 	content: ['Machine is capable of top and/or bottom case sealing'],
-
-	// 	src: buttonsText[6],
-	// },
 }
 
 // Display fullscreen button
@@ -381,19 +255,19 @@ function HideShowCont() {
 function animations() {
 	if (pCont) {
 		// paragraph.style.animation = 'fadein 0.5s ease-in-out forwards'
-		console.log(paragraph)
+
 		const elementContainers = document.querySelectorAll('.elementContainer')
 
 		titleH2.style.animation = 'fadein 0.5s ease-in-out forwards'
 		greenLine.style.animation = 'growWide 0.5s ease-in-out forwards'
-		greenLine.style.animationDelay = '0.1s'
+		greenLine.style.animationDelay = '0.4s'
 		createdSubTitle.style.animation = 'fadein 0.5s ease-in-out forwards'
-		createdSubTitle.style.animationDelay = '0.2s'
-		let counter = 0.3
+		createdSubTitle.style.animationDelay = '0.4s'
+		let counter = 0.7
 
 		elementContainers.forEach((element, i) => {
 			element.style.animation = 'fadein 0.5s ease-in-out forwards'
-			console.log(counter)
+
 			element.style.animationDelay = `${counter}s`
 			counter += 0.1
 
@@ -401,10 +275,14 @@ function animations() {
 			// 	element.style.animation = 'fadein 0.5s ease-in-out forwards'
 			// }, 2000)
 		})
-		console.log(backButton)
-		console.log(counter)
+
+		buttonGridContainer.style.animation =
+			'slideFromBottom 0.5s ease-in-out forwards'
+		buttonGridContainer.style.animationDelay = `${counter}s`
 		backButtonContainer.style.animation =
 			'slideFromTop 0.5s ease-in-out forwards'
+		brandIcon.style.animation = 'show 0.5s ease-in-out forwards'
+		brandIcon.style.animationDelay = `${counter}s`
 		backButtonContainer.style.animationDelay = `${counter}s`
 	}
 
@@ -436,7 +314,7 @@ function createSubVideos(source1, source2, source3) {
 	if (source2) {
 		subVideo2 = document.createElement('video')
 		subVideo2.src = source2
-		subVideo2.loop = true
+		// subVideo2.loop = true
 		subVideo2.muted = true
 		subVideo2.setAttribute('playsinline', 'playsinline')
 		subVideo2.controls = false
@@ -518,7 +396,8 @@ function createContent(
 	inputButtonGrid,
 	parent
 ) {
-	console.log(inputButtonGrid)
+	console.trace()
+
 	const centerContainerMade = document.createElement('div')
 	centerContainerMade.classList.add('centerContainer')
 	centerContainerMade.setAttribute('id', 'centerContainer_text')
@@ -537,9 +416,12 @@ function createContent(
 
 	textContent = document.createElement('div')
 	textContent.classList.add('text')
-	buttongridContainer = document.createElement('div')
-	buttongridContainer.classList.add('buttonGridContainer')
+	buttonGridContainer = document.createElement('div')
+	buttonGridContainer.classList.add('buttonGridContainer')
 	buttonGrid = document.createElement('div')
+	threesixty = document.createElement('img')
+	threesixty.classList.add('threesixty')
+	threesixty.src = '../assets/icons/360logo.png'
 	buttonGrid.classList.add('buttonGrid')
 	// let buttonShort = []
 	if (inputButtonGrid) {
@@ -564,6 +446,7 @@ function createContent(
 			buttonGrid.appendChild(subButton)
 			buttonDimensions = subButton
 
+			// subbutton function
 			subButton.addEventListener('click', function () {
 				HideShowCont()
 
@@ -655,7 +538,6 @@ function createContent(
 													subVideoTurn.currentTime = 0
 													subVideoTurn.pause()
 
-													console.log('cbb trigger')
 													// createBackButton()
 
 													// createBackButton()
@@ -681,7 +563,7 @@ function createContent(
 										console.log('subVideo1 ending')
 										animations()
 										InterpolateVideo(subVideoTurn, subVideo1, subVideo2)
-										console.log('cbb trigger')
+
 										// createBackButton()
 										HideShowCont()
 									})
@@ -721,6 +603,10 @@ function createContent(
 								// console.log('creando contenido')
 								// console.log(parent)
 								globalParent = parent
+								// aaa
+								console.log(parent)
+								console.log(pageIndex)
+								console.log(buttonContent[parent].boxInfo[pageIndex])
 								createContent(
 									buttonContent[parent].boxInfo[pageIndex].textLeft,
 									buttonContent[parent].boxInfo[pageIndex].textTop,
@@ -728,7 +614,9 @@ function createContent(
 									buttonContent[parent].boxInfo[pageIndex].textBottom,
 									buttonContent[parent].boxInfo[pageIndex].title,
 									buttonContent[parent].boxInfo[pageIndex].content,
-									buttonContent[parent].boxInfo[pageIndex].inputButtonGrid
+									buttonContent[parent].boxInfo[pageIndex].subTitle,
+									buttonContent[parent].boxInfo[pageIndex].inputButtonGrid,
+									parent
 								)
 								video2.classList.add('short-vanish')
 								subVideo1.style.opacity = 1
@@ -738,7 +626,7 @@ function createContent(
 										console.log('subVideo1 ending')
 										animations()
 										InterpolateVideo(video3, subVideo1, subVideo2)
-										console.log('cbb trigger')
+
 										// createBackButton()
 										HideShowCont()
 									})
@@ -789,42 +677,47 @@ function createContent(
 		titleH2.innerHTML = labelTitle
 		greenLine = document.createElement('hr')
 		paragraph = document.createElement('p')
+		titleH2.appendChild(greenLine)
 
 		// paragraph.textContent = pContent
 		// titleH2.style.fontSize = globalFontvar
 		paragraph.style.fontSize = globalFontvar
+		console.log(subTitle)
 		if (subTitle) {
 			createdSubTitle = document.createElement('span')
 			createdSubTitle.classList.add('createdSubtitle')
 			createdSubTitle.textContent = subTitle
 			createdSubTitle.style.fontWeight = 'bold'
 			createdSubTitle.style.fontSize = globalMediumTitleFontvar
+			titleH2.appendChild(createdSubTitle)
 		}
 		createBackButton()
-		pContent.forEach((e) => {
-			elementContainer = document.createElement('span')
-			elementContainer.classList.add('elementContainer')
-			icon = document.createElement('img')
-			icon.src = 'assets/icons/bp.png'
-			icon.style.width = '6%'
-			console.log(icon)
+		if (Array.isArray(pContent)) {
+			pContent.forEach((e) => {
+				elementContainer = document.createElement('span')
+				elementContainer.classList.add('elementContainer')
+				icon = document.createElement('img')
+				icon.src = 'assets/icons/bp.png'
+				icon.style.width = '6%'
 
-			element = document.createElement('span')
-			element.textContent = e
-			element.style.fontSize = globalFontvar
-			elementContainer.appendChild(icon)
-			elementContainer.appendChild(element)
-			paragraph.appendChild(elementContainer)
-		})
-		titleH2.appendChild(greenLine)
-		titleH2.appendChild(createdSubTitle)
+				element = document.createElement('span')
+				element.textContent = e
+				element.style.fontSize = globalFontvar
+				elementContainer.appendChild(icon)
+				elementContainer.appendChild(element)
+				paragraph.appendChild(elementContainer)
+			})
+		}
+
 		pCont.appendChild(titleH2)
 		pCont.appendChild(paragraph)
 		textContent.appendChild(pCont)
 	}
 	firstPage.appendChild(textContent)
-	buttongridContainer.appendChild(buttonGrid)
-	firstPage.appendChild(buttongridContainer)
+	buttonGridContainer.appendChild(buttonGrid)
+	buttonGridContainer.appendChild(threesixty)
+
+	firstPage.appendChild(buttonGridContainer)
 
 	showCont.appendChild(centerContainerMade)
 
@@ -959,16 +852,17 @@ function backButtonFunctionFront() {
 		video2.classList.remove('short-vanish')
 		showCont.innerHTML = ''
 		console.log('back from back')
-		console.log(buttonContent[buttonsText[1]].content)
+		console.log(buttonContent[buttonsText[0]].content)
 		createContent(
-			buttonContent[buttonsText[1]].textLeft,
-			buttonContent[buttonsText[1]].textTop,
-			buttonContent[buttonsText[1]].textRight,
-			buttonContent[buttonsText[1]].textBottom,
-			buttonContent[buttonsText[1]].title,
-			buttonContent[buttonsText[1]].content,
-			buttonContent[buttonsText[1]].inputButtonGrid,
-			buttonsText[1]
+			buttonContent[buttonsText[0]].textLeft,
+			buttonContent[buttonsText[0]].textTop,
+			buttonContent[buttonsText[0]].textRight,
+			buttonContent[buttonsText[0]].textBottom,
+			buttonContent[buttonsText[0]].title,
+			buttonContent[buttonsText[0]].content,
+			buttonContent[buttonsText[0]].subTitle,
+			buttonContent[buttonsText[0]].inputButtonGrid,
+			buttonsText[0]
 		)
 		animations()
 		backButton.style.pointerEvents = 'all'
@@ -1016,7 +910,7 @@ function createBackButton(pos) {
 	const centerContainerMade = document.createElement('div')
 	centerContainerMade.classList.add('centerContainer')
 	centerContainerMade.setAttribute('id', 'centerContainer_backButton')
-	const buttonContainerMade = document.createElement('div')
+	buttonContainerMade = document.createElement('div')
 	buttonContainerMade.classList.add('buttonContainer')
 	buttonContainerMade.style.width = containVideoWidth + 'px'
 	buttonContainerMade.style.height = containVideoHeight + 'px'
@@ -1036,6 +930,9 @@ function createBackButton(pos) {
 
 	backButton.textContent = 'Back'
 	backButtonContainer = document.createElement('div')
+	brandIcon = document.createElement('img')
+	brandIcon.src = '../assets/icons/150logo.png'
+	brandIcon.classList.add('brandIcon')
 	backButtonContainer.classList.add('viewR_container')
 	if (pos) {
 		backButtonContainer.style.justifyContent = 'flex-end'
@@ -1044,9 +941,13 @@ function createBackButton(pos) {
 	showCont.appendChild(centerContainerMade)
 	centerContainerMade.append(buttonContainerMade)
 	firstPage.appendChild(backButtonContainer)
+
 	backButtonContainer.appendChild(backButton)
+	backButtonContainer.appendChild(brandIcon)
 	if (
-		pageIndex === '1.C' ||
+		pageIndex === 'standardO' ||
+		pageIndex === 'piggybackingP' ||
+		pageIndex === 'emergencyE' ||
 		pageIndex === '2.H' ||
 		pageIndex === '3.H' ||
 		pageIndex === '4.C' ||
@@ -1218,7 +1119,6 @@ mainMenuB.forEach((e, i) => {
 			}, 0)
 		}
 
-		// console.log(buttonContent.buttonsText[1])
 		createContent(
 			buttonContent[buttonsText[i]].textLeft,
 			buttonContent[buttonsText[i]].textTop,
@@ -1230,7 +1130,7 @@ mainMenuB.forEach((e, i) => {
 			buttonContent[buttonsText[i]].inputButtonGrid,
 			buttonsText[i]
 		)
-		console.log('cbb trigger')
+		console.log(buttonsText[i])
 
 		window.addEventListener('resize', function (e) {
 			if (showCont.hasChildNodes()) {
@@ -1272,7 +1172,7 @@ mainMenuB.forEach((e, i) => {
 				}
 
 				animations()
-				console.log('cbb trigger')
+
 				// if (buttonsText[i] === 'whyF') {
 				// 	createBackButton('pos')
 				// } else {
