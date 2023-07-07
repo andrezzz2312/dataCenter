@@ -735,7 +735,7 @@ function createContent(
 				elementContainer.classList.add('elementContainer')
 				icon = document.createElement('img')
 				icon.src = 'assets/icons/bp.png'
-				icon.style.width = '2em'
+				icon.style.width = '1.3em'
 
 				element = document.createElement('span')
 				element.textContent = e
@@ -770,14 +770,14 @@ function setFontSizes() {
 	const titulo = document.querySelector('.titulo')
 	const mainBoxText = document.querySelector('.mainBoxText')
 
-	globalFontvar = `calc(6px + (20 - 6) * ((${
+	globalFontvar = `calc(6px + (18 - 6) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 
 	globalTitleFontvar = `calc(14px + (27 - 14) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
-	globalMediumTitleFontvar = `calc(12px + (42 - 12) * ((${
+	globalMediumTitleFontvar = `calc(12px + (35 - 12) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 	globalBigTitleFontvar = `calc(14px + (45 - 14) * ((${
