@@ -152,35 +152,15 @@ const buttonContent = {
 					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
 				],
 			},
-			'3.H': {
-				textLeft: '8%',
-				textTop: '30%',
-				title: 'Step 3: Heatsinks',
-				content: `Use ultra-conductive heatsinks, which allow\nfor efficient heat dissipation.`,
-			},
-			'4.C': {
-				textLeft: '5%',
-				textTop: '30%',
-				title: 'Step 4: Extruded Aluminum PC Case',
-				content: `House parts in a fanless PC case made from\nextruded aluminum, with heavy-duty metal\nmolded into one piece.`,
-			},
-			'5.E': {
-				textLeft: '20%',
-				textTop: '20%',
-				title: 'Step 5: EDGEBoost Nodes',
-				content: `Use modular EDGEBoost nodes for\n performance acceleration, that are purpose-\nbuilt for machine learning and real-time\nprocessing.`,
-			},
-			'6.A': {
-				textRight: '10%',
-				textTop: '20%',
-				title: 'Step 6: Assemble the Parts',
-				content: `Put the pieces together.`,
-			},
-			'7.T': {
-				textRight: '10%',
-				textTop: '20%',
-				title: 'Step 7: Test and Validate',
-				content: `Test and validate for design quality\nassurance.`,
+			finishO: {
+				textLeft: '0%',
+				textTop: '0%',
+				title: 'Finish Options',
+				content: [
+					`Turnstile available in galvanized steel, powder-coated steel or stainless steel`,
+					`Tandem space-saving models available`,
+					`Metal screens can be installed in addition to horizontal bars`,
+				],
 			},
 		},
 		// src: buttonsText[1],
@@ -253,6 +233,7 @@ function HideShowCont() {
 
 // Set animations for the buttons
 function animations() {
+	console.trace()
 	if (pCont) {
 		// paragraph.style.animation = 'fadein 0.5s ease-in-out forwards'
 
@@ -540,7 +521,6 @@ function createContent(
 
 													// createBackButton()
 
-													// createBackButton()
 													HideShowCont()
 												}
 											}
@@ -603,10 +583,7 @@ function createContent(
 								// console.log('creando contenido')
 								// console.log(parent)
 								globalParent = parent
-								// aaa
-								console.log(parent)
-								console.log(pageIndex)
-								console.log(buttonContent[parent].boxInfo[pageIndex])
+
 								createContent(
 									buttonContent[parent].boxInfo[pageIndex].textLeft,
 									buttonContent[parent].boxInfo[pageIndex].textTop,
@@ -624,10 +601,10 @@ function createContent(
 									subVideo1.play()
 									subVideo1.addEventListener('ended', () => {
 										console.log('subVideo1 ending')
+										// createBackButton()
 										animations()
 										InterpolateVideo(video3, subVideo1, subVideo2)
 
-										// createBackButton()
 										HideShowCont()
 									})
 								}, 0)
@@ -682,7 +659,7 @@ function createContent(
 		// paragraph.textContent = pContent
 		// titleH2.style.fontSize = globalFontvar
 		paragraph.style.fontSize = globalFontvar
-		console.log(subTitle)
+
 		if (subTitle) {
 			createdSubTitle = document.createElement('span')
 			createdSubTitle.classList.add('createdSubtitle')
@@ -691,6 +668,7 @@ function createContent(
 			createdSubTitle.style.fontSize = globalMediumTitleFontvar
 			titleH2.appendChild(createdSubTitle)
 		}
+		// el unico vivo
 		createBackButton()
 		if (Array.isArray(pContent)) {
 			pContent.forEach((e) => {
@@ -698,7 +676,7 @@ function createContent(
 				elementContainer.classList.add('elementContainer')
 				icon = document.createElement('img')
 				icon.src = 'assets/icons/bp.png'
-				icon.style.width = '6%'
+				icon.style.width = '2em'
 
 				element = document.createElement('span')
 				element.textContent = e
@@ -713,6 +691,7 @@ function createContent(
 		pCont.appendChild(paragraph)
 		textContent.appendChild(pCont)
 	}
+
 	firstPage.appendChild(textContent)
 	buttonGridContainer.appendChild(buttonGrid)
 	buttonGridContainer.appendChild(threesixty)
@@ -766,7 +745,7 @@ function setFontSizes() {
 }
 
 function backButtonFunction() {
-	console.log('functioning')
+	console.log('backbuttonfunction')
 	ArreglarLineas()
 
 	backButton.style.pointerEvents = 'none'
@@ -843,6 +822,7 @@ function backButtonFunctionFromBack() {
 
 function backButtonFunctionFront() {
 	ArreglarLineas()
+	console.log('backbuttonfunctionfront')
 	backButton.style.pointerEvents = 'none'
 
 	InterpolateVideo(subVideo2, subVideo2, subVideo3)
@@ -853,6 +833,7 @@ function backButtonFunctionFront() {
 		showCont.innerHTML = ''
 		console.log('back from back')
 		console.log(buttonContent[buttonsText[0]].content)
+		pageIndex = 'mainMenuFront'
 		createContent(
 			buttonContent[buttonsText[0]].textLeft,
 			buttonContent[buttonsText[0]].textTop,
@@ -866,7 +847,7 @@ function backButtonFunctionFront() {
 		)
 		animations()
 		backButton.style.pointerEvents = 'all'
-		pageIndex = 'mainMenuFront'
+
 		// createBackButton()
 		HideShowCont()
 		subVideo1.remove()
@@ -885,6 +866,7 @@ function backButtonFunctionBack() {
 		subVideo3.classList.add('short-vanish')
 		subVideoTurn.classList.remove('short-vanish')
 		showCont.innerHTML = ''
+		pageIndex = 'mainMenuBack'
 		createContent(
 			buttonContent[buttonsText[1]].textLeft,
 			buttonContent[buttonsText[1]].textTop,
@@ -896,7 +878,7 @@ function backButtonFunctionBack() {
 			buttonsText[1]
 		)
 		backButton.style.pointerEvents = 'all'
-		pageIndex = 'mainMenuBack'
+
 		// createBackButton()
 		HideShowCont()
 		// subVideo1.remove()
@@ -907,13 +889,13 @@ function backButtonFunctionBack() {
 
 function createBackButton(pos) {
 	console.log(pageIndex)
-	const centerContainerMade = document.createElement('div')
-	centerContainerMade.classList.add('centerContainer')
-	centerContainerMade.setAttribute('id', 'centerContainer_backButton')
-	buttonContainerMade = document.createElement('div')
-	buttonContainerMade.classList.add('buttonContainer')
-	buttonContainerMade.style.width = containVideoWidth + 'px'
-	buttonContainerMade.style.height = containVideoHeight + 'px'
+	// const centerContainerMade = document.createElement('div')
+	// centerContainerMade.classList.add('centerContainer')
+	// centerContainerMade.setAttribute('id', 'centerContainer_backButton')
+	// buttonContainerMade = document.createElement('div')
+	// buttonContainerMade.classList.add('buttonContainer')
+	// buttonContainerMade.style.width = containVideoWidth + 'px'
+	// buttonContainerMade.style.height = containVideoHeight + 'px'
 	backButton = document.createElement('button')
 	backButton.classList.add('backButton')
 	backButton.style.fontSize = buttonFontvar
@@ -938,8 +920,8 @@ function createBackButton(pos) {
 		backButtonContainer.style.justifyContent = 'flex-end'
 		backButton.style.marginRight = '4%'
 	}
-	showCont.appendChild(centerContainerMade)
-	centerContainerMade.append(buttonContainerMade)
+	// showCont.appendChild(centerContainerMade)
+	// centerContainerMade.append(buttonContainerMade)
 	firstPage.appendChild(backButtonContainer)
 
 	backButtonContainer.appendChild(backButton)
@@ -948,13 +930,9 @@ function createBackButton(pos) {
 		pageIndex === 'standardO' ||
 		pageIndex === 'piggybackingP' ||
 		pageIndex === 'emergencyE' ||
-		pageIndex === '2.H' ||
-		pageIndex === '3.H' ||
-		pageIndex === '4.C' ||
-		pageIndex === '5.E' ||
-		pageIndex === '6.A' ||
-		pageIndex === '7.T'
+		pageIndex === 'finishO'
 	) {
+		console.log('submenu')
 		backButton.addEventListener('click', backButtonFunctionFront)
 	} else if (
 		pageIndex === 'easyR' ||
@@ -963,7 +941,9 @@ function createBackButton(pos) {
 	) {
 		backButton.addEventListener('click', backButtonFunctionBack)
 	} else if (pageIndex === 'mainMenuFront') {
+		console.log('mainmenu')
 		backButton.addEventListener('click', backButtonFunction)
+		console.log('wtf???')
 	} else if (pageIndex === 'mainMenuBack') {
 		backButton.addEventListener('click', backButtonFunctionFromBack)
 	}
@@ -1130,7 +1110,6 @@ mainMenuB.forEach((e, i) => {
 			buttonContent[buttonsText[i]].inputButtonGrid,
 			buttonsText[i]
 		)
-		console.log(buttonsText[i])
 
 		window.addEventListener('resize', function (e) {
 			if (showCont.hasChildNodes()) {
@@ -1160,6 +1139,7 @@ mainMenuB.forEach((e, i) => {
 				} else {
 					console.log(globalParent)
 					console.log(buttonContent[globalParent])
+
 					createContent(
 						buttonContent[globalParent].boxInfo[pageIndex].textLeft,
 						buttonContent[globalParent].boxInfo[pageIndex].textTop,
