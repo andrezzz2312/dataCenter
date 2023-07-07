@@ -8,7 +8,8 @@ let videoloop,
 	subVideo3,
 	buttonContainerMade,
 	buttonGrid,
-	threesixty
+	threesixty,
+	delay
 
 let subVideoTurn = ''
 let subVideoBackLoop = ''
@@ -245,17 +246,67 @@ function animations() {
 		createdSubTitle.style.animation = 'fadein 0.5s ease-in-out forwards'
 		createdSubTitle.style.animationDelay = '0.4s'
 		let counter = 0.7
+		if (delay) {
+			console.log(delay)
+			let inputArray = []
+			subVideo2.addEventListener('timeupdate', function () {
+				console.log(subVideo2.currentTime)
+				//currentTime use second, if you want min *60
 
-		elementContainers.forEach((element, i) => {
-			element.style.animation = 'fadein 0.5s ease-in-out forwards'
+				delay.forEach((element, i) => {
+					if (Math.floor(subVideo2.currentTime) === element) {
+						if (inputArray.length === 0) {
+							elementContainers[i].style.animation =
+								'fadein 0.5s ease-in-out forwards'
 
-			element.style.animationDelay = `${counter}s`
-			counter += 0.1
+							inputArray.push(Math.floor(subVideo2.currentTime))
+							console.log(inputArray)
+						} else {
+							if (
+								element ===
+								inputArray.find((num) => {
+									return num === element
+								})
+							) {
+							} else {
+								elementContainers[i].style.animation =
+									'fadein 0.5s ease-in-out forwards'
+								inputArray.push(Math.floor(subVideo2.currentTime))
+								console.log(inputArray)
+								console.log(inputArray.length)
+								console.log(delay)
+								console.log(delay.length)
+							}
+						}
+					}
+				})
 
-			// setTimeout(() => {
-			// 	element.style.animation = 'fadein 0.5s ease-in-out forwards'
-			// }, 2000)
-		})
+				if (inputArray.length === delay.length) {
+					let removeCount = inputArray.length
+					console.log(elementContainers)
+					// elementContainers.splice(0, removeCount)
+
+					// elementContainers.forEach((element, i) => {
+					// 	element.style.animation = 'fadein 0.5s ease-in-out forwards'
+
+					// 	element.style.animationDelay = `${counter}s`
+					// 	counter += 0.1
+					// 	console.log(i)
+					// })
+				}
+			})
+		} else {
+			elementContainers.forEach((element, i) => {
+				element.style.animation = 'fadein 0.5s ease-in-out forwards'
+
+				element.style.animationDelay = `${counter}s`
+				counter += 0.1
+
+				// setTimeout(() => {
+				// 	element.style.animation = 'fadein 0.5s ease-in-out forwards'
+				// }, 2000)
+			})
+		}
 
 		buttonGridContainer.style.animation =
 			'slideFromBottom 0.5s ease-in-out forwards'
@@ -375,7 +426,8 @@ function createContent(
 	pContent,
 	subTitle,
 	inputButtonGrid,
-	parent
+	parent,
+	delayInput
 ) {
 	console.trace()
 
@@ -404,7 +456,9 @@ function createContent(
 	threesixty.classList.add('threesixty')
 	threesixty.src = '../assets/icons/360logo.png'
 	buttonGrid.classList.add('buttonGrid')
+
 	// let buttonShort = []
+
 	if (inputButtonGrid) {
 		inputButtonGrid.forEach((e, i) => {
 			const splitText = e
@@ -419,7 +473,7 @@ function createContent(
 
 			const subButton = document.createElement('button')
 			subButton.classList.add('pageButton')
-			subButton.style.width = `calc(50px + (150 - 50) * ((${
+			subButton.style.width = `calc(60px + (145 - 60) * ((${
 				containVideoWidth + 'px'
 			} - 320px) / (1440 - 320)))`
 			subButton.textContent = e
@@ -593,7 +647,8 @@ function createContent(
 									buttonContent[parent].boxInfo[pageIndex].content,
 									buttonContent[parent].boxInfo[pageIndex].subTitle,
 									buttonContent[parent].boxInfo[pageIndex].inputButtonGrid,
-									parent
+									parent,
+									[1, 2]
 								)
 								video2.classList.add('short-vanish')
 								subVideo1.style.opacity = 1
@@ -671,6 +726,10 @@ function createContent(
 		// el unico vivo
 		createBackButton()
 		if (Array.isArray(pContent)) {
+			if (delayInput) {
+				console.log('delayDiff')
+				delay = delayInput
+			}
 			pContent.forEach((e) => {
 				elementContainer = document.createElement('span')
 				elementContainer.classList.add('elementContainer')
@@ -711,21 +770,21 @@ function setFontSizes() {
 	const titulo = document.querySelector('.titulo')
 	const mainBoxText = document.querySelector('.mainBoxText')
 
-	globalFontvar = `calc(8px + (17 - 8) * ((${
+	globalFontvar = `calc(6px + (20 - 6) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 
 	globalTitleFontvar = `calc(14px + (27 - 14) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
-	globalMediumTitleFontvar = `calc(15px + (30 - 15) * ((${
+	globalMediumTitleFontvar = `calc(12px + (42 - 12) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
-	globalBigTitleFontvar = `calc(19px + (34 - 19) * ((${
+	globalBigTitleFontvar = `calc(14px + (45 - 14) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 
-	buttonFontvar = `calc(5px + (17 - 5) * ((${
+	buttonFontvar = `calc(4px + (15 - 4) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 
@@ -899,7 +958,7 @@ function createBackButton(pos) {
 	backButton = document.createElement('button')
 	backButton.classList.add('backButton')
 	backButton.style.fontSize = buttonFontvar
-	backButton.style.width = `calc(50px + (150 - 50) * ((${
+	backButton.style.width = `calc(47px + (147 - 47) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 	// if (buttonDimensions !== 0) {
@@ -1120,7 +1179,7 @@ mainMenuB.forEach((e, i) => {
 				)
 				textContainer.remove()
 
-				backButtonContainer.remove()
+				// backButtonContainer.remove()
 				console.log(pageIndex)
 				if (pageIndex === 'mainMenuFront') {
 					console.log(globalParent)
