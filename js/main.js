@@ -245,10 +245,11 @@ function animations() {
 		greenLine.style.animationDelay = '0.4s'
 		createdSubTitle.style.animation = 'fadein 0.5s ease-in-out forwards'
 		createdSubTitle.style.animationDelay = '0.4s'
-		let counter = 0.7
+		let counter = 0.3
 		if (delay) {
 			console.log(delay)
 			let inputArray = []
+			let bool = false
 			subVideo2.addEventListener('timeupdate', function () {
 				console.log(subVideo2.currentTime)
 				//currentTime use second, if you want min *60
@@ -281,18 +282,18 @@ function animations() {
 					}
 				})
 
-				if (inputArray.length === delay.length) {
+				if (inputArray.length === delay.length && !bool) {
 					let removeCount = inputArray.length
-					console.log(elementContainers)
-					// elementContainers.splice(0, removeCount)
+					let elementContainersArray = Array.from(elementContainers)
+					// console.log(elementContainersArray)
+					elementContainersArray.splice(0, removeCount)
 
-					// elementContainers.forEach((element, i) => {
-					// 	element.style.animation = 'fadein 0.5s ease-in-out forwards'
-
-					// 	element.style.animationDelay = `${counter}s`
-					// 	counter += 0.1
-					// 	console.log(i)
-					// })
+					elementContainersArray.forEach((element, i) => {
+						element.style.animation = 'fadein 0.5s ease-in-out forwards'
+						element.style.animationDelay = `${counter}s`
+						counter += 0.3
+					})
+					bool = true
 				}
 			})
 		} else {
@@ -452,9 +453,7 @@ function createContent(
 	buttonGridContainer = document.createElement('div')
 	buttonGridContainer.classList.add('buttonGridContainer')
 	buttonGrid = document.createElement('div')
-	threesixty = document.createElement('img')
-	threesixty.classList.add('threesixty')
-	threesixty.src = '../assets/icons/360logo.png'
+
 	buttonGrid.classList.add('buttonGrid')
 
 	// let buttonShort = []
@@ -648,7 +647,7 @@ function createContent(
 									buttonContent[parent].boxInfo[pageIndex].subTitle,
 									buttonContent[parent].boxInfo[pageIndex].inputButtonGrid,
 									parent,
-									[1, 2]
+									[0, 3, 7]
 								)
 								video2.classList.add('short-vanish')
 								subVideo1.style.opacity = 1
@@ -753,7 +752,12 @@ function createContent(
 
 	firstPage.appendChild(textContent)
 	buttonGridContainer.appendChild(buttonGrid)
-	buttonGridContainer.appendChild(threesixty)
+	if (pageIndex === 'mainMenuFront') {
+		threesixty = document.createElement('img')
+		threesixty.classList.add('threesixty')
+		threesixty.src = '../assets/icons/360logo.png'
+		buttonGridContainer.appendChild(threesixty)
+	}
 
 	firstPage.appendChild(buttonGridContainer)
 
