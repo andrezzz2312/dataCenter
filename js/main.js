@@ -297,6 +297,7 @@ function animations() {
 				}
 			})
 		} else {
+			console.log('else delay')
 			elementContainers.forEach((element, i) => {
 				element.style.animation = 'fadein 0.5s ease-in-out forwards'
 
@@ -431,7 +432,7 @@ function createContent(
 	delayInput
 ) {
 	console.trace()
-
+	delay = ''
 	const centerContainerMade = document.createElement('div')
 	centerContainerMade.classList.add('centerContainer')
 	centerContainerMade.setAttribute('id', 'centerContainer_text')
@@ -726,7 +727,6 @@ function createContent(
 		createBackButton()
 		if (Array.isArray(pContent)) {
 			if (delayInput) {
-				console.log('delayDiff')
 				delay = delayInput
 			}
 			pContent.forEach((e) => {
@@ -885,6 +885,7 @@ function backButtonFunctionFromBack() {
 
 function backButtonFunctionFront() {
 	ArreglarLineas()
+
 	console.log('backbuttonfunctionfront')
 	backButton.style.pointerEvents = 'none'
 
@@ -950,7 +951,7 @@ function backButtonFunctionBack() {
 	})
 }
 
-function createBackButton(pos) {
+function createBackButton() {
 	console.log(pageIndex)
 	// const centerContainerMade = document.createElement('div')
 	// centerContainerMade.classList.add('centerContainer')
@@ -979,10 +980,10 @@ function createBackButton(pos) {
 	brandIcon.src = '../assets/icons/150logo.png'
 	brandIcon.classList.add('brandIcon')
 	backButtonContainer.classList.add('viewR_container')
-	if (pos) {
-		backButtonContainer.style.justifyContent = 'flex-end'
-		backButton.style.marginRight = '4%'
-	}
+	// if (pos) {
+	// 	backButtonContainer.style.justifyContent = 'flex-end'
+	// 	backButton.style.marginRight = '4%'
+	// }
 	// showCont.appendChild(centerContainerMade)
 	// centerContainerMade.append(buttonContainerMade)
 	firstPage.appendChild(backButtonContainer)
