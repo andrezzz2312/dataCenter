@@ -258,10 +258,10 @@ function animations() {
 
 		const elementContainers = document.querySelectorAll('.elementContainer')
 
-		titleH2.style.animation = 'fadein 0.5s ease-in-out forwards'
-		greenLine.style.animation = 'growWide 0.5s ease-in-out forwards'
+		titleH2.style.animation = 'fadein 0.5s ease-out forwards'
+		greenLine.style.animation = 'growWide 0.5s ease-out forwards'
 		greenLine.style.animationDelay = '0.4s'
-		createdSubTitle.style.animation = 'fadein 0.5s ease-in-out forwards'
+		createdSubTitle.style.animation = 'fadein 0.5s ease-out forwards'
 		createdSubTitle.style.animationDelay = '0.4s'
 		let counter = 0.3
 		if (delay) {
@@ -276,7 +276,7 @@ function animations() {
 					if (Math.floor(subVideo2.currentTime) === element) {
 						if (inputArray.length === 0) {
 							elementContainers[i].style.animation =
-								'fadein 0.5s ease-in-out forwards'
+								'fadein 0.5s ease-out forwards'
 
 							inputArray.push(Math.floor(subVideo2.currentTime))
 							console.log(inputArray)
@@ -289,7 +289,7 @@ function animations() {
 							) {
 							} else {
 								elementContainers[i].style.animation =
-									'fadein 0.5s ease-in-out forwards'
+									'fadein 0.5s ease-out forwards'
 								inputArray.push(Math.floor(subVideo2.currentTime))
 								console.log(inputArray)
 								console.log(inputArray.length)
@@ -307,9 +307,9 @@ function animations() {
 					elementContainersArray.splice(0, removeCount)
 
 					elementContainersArray.forEach((element, i) => {
-						element.style.animation = 'fadein 0.5s ease-in-out forwards'
+						element.style.animation = 'fadein 0.5s ease-out forwards'
 						element.style.animationDelay = `${counter}s`
-						counter += 0.3
+						counter += 0.2
 					})
 					bool = true
 				}
@@ -317,10 +317,10 @@ function animations() {
 		} else {
 			console.log('else delay')
 			elementContainers.forEach((element, i) => {
-				element.style.animation = 'fadein 0.5s ease-in-out forwards'
+				element.style.animation = 'fadein 0.5s ease-out forwards'
 
 				element.style.animationDelay = `${counter}s`
-				counter += 0.1
+				counter += 0.2
 
 				// setTimeout(() => {
 				// 	element.style.animation = 'fadein 0.5s ease-in-out forwards'
@@ -329,11 +329,10 @@ function animations() {
 		}
 
 		buttonGridContainer.style.animation =
-			'slideFromBottom 0.5s ease-in-out forwards'
+			'slideFromBottom 0.5s ease-out forwards'
 		buttonGridContainer.style.animationDelay = `${counter}s`
-		backButtonContainer.style.animation =
-			'slideFromTop 0.5s ease-in-out forwards'
-		brandIcon.style.animation = 'show 0.5s ease-in-out forwards'
+		backButtonContainer.style.animation = 'slideFromTop 0.5s ease-out forwards'
+		brandIcon.style.animation = 'show 0.5s ease-out forwards'
 		brandIcon.style.animationDelay = `${counter}s`
 		backButtonContainer.style.animationDelay = `${counter}s`
 	}
@@ -666,7 +665,7 @@ function createContent(
 									buttonContent[parent].boxInfo[pageIndex].subTitle,
 									buttonContent[parent].boxInfo[pageIndex].inputButtonGrid,
 									parent,
-									[0, 5, 8, 14, 17]
+									[0, 5, 9, 14, 17]
 								)
 								video2.classList.add('short-vanish')
 								subVideo1.style.opacity = 1
