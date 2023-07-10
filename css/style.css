@@ -263,6 +263,7 @@ video::slotted::-webkit-media-controls-container {
 
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 .pageButton {
 	text-align: center;
 	white-space: pre-line;
@@ -311,8 +312,28 @@ a {
 }
 
 #fullscreen_button {
-	right: 1%;
+	position: absolute;
+	left: 3%;
 	top: 5%;
+}
+.buttonFull {
+	text-align: center;
+	border-radius: 3vh;
+	font-weight: bold;
+	/* position: absolute; */
+	border: none;
+	/* padding: 5% 5%; */
+	color: white;
+	cursor: pointer;
+	/* pointer-events: all; */
+	z-index: 2;
+	overflow: hidden;
+	background: #018c3c;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5%;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #quality_button {
