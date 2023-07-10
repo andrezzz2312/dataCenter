@@ -144,7 +144,7 @@ const buttonContent = {
 			standardO: {
 				textLeft: '0%',
 				textTop: '0%',
-				title: `<span><span style = 'font-weight:bold'>Standard Operation</span>`,
+				title: `<span style = 'font-weight:bold'>Standard Operation</span>`,
 				// subTitle: `asdd`,
 				content: [
 					`Credential or biometric`,
@@ -158,7 +158,7 @@ const buttonContent = {
 			piggybackingP: {
 				textLeft: '0%',
 				textTop: '0%',
-				title: 'Piggybacking Prevention',
+				title: `<span style = 'font-weight:bold'>Piggybacking Prevention</span>`,
 				content: [
 					`Piggybacking is an attempt to enter in same compartment`,
 					`Credential or biometric is presented`,
@@ -168,11 +168,12 @@ const buttonContent = {
 					`Turnstile remains locked, forcing both people\nto exit the compartment backwards`,
 					`With optional BE Secure Overhead Sensor System, there is never a breach.\nUnauthorized user always exits to the unsecured side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
 				],
+				delay: [0, 5, 9, 14, 17, 19],
 			},
 			emergencyE: {
 				textLeft: '0%',
 				textTop: '0%',
-				title: 'Emergency Egress',
+				title: `<span style = 'font-weight:bold'>Emergency Egress</span>`,
 				content: [
 					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
 				],
@@ -180,7 +181,7 @@ const buttonContent = {
 			finishO: {
 				textLeft: '0%',
 				textTop: '0%',
-				title: 'Finish Options',
+				title: `<span style = 'font-weight:bold'>Finish Options</span>`,
 				content: [
 					`Turnstile available in galvanized steel, powder-coated steel or stainless steel`,
 					`Tandem space-saving models available`,
@@ -682,7 +683,7 @@ function createContent(
 									buttonContent[parent].boxInfo[pageIndex].subTitle,
 									buttonContent[parent].boxInfo[pageIndex].inputButtonGrid,
 									parent,
-									[0, 5, 9, 14, 17]
+									buttonContent[parent].boxInfo[pageIndex].delay
 								)
 								video2.classList.add('short-vanish')
 								subVideo1.style.opacity = 1
