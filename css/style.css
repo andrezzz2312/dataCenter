@@ -615,6 +615,19 @@ li:last-child {
 	opacity: 1;
 	transition: 1s all ease-in-out;
 }
+
+.rotation {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#rotation_backButton {
+	pointer-events: none;
+}
+
 .x {
 	position: absolute;
 	right: 2rem;
