@@ -921,7 +921,7 @@ function backButtonFunction() {
 			subVideoTurn = ''
 		}
 
-		// showCont.innerHTML = ''
+		showCont.innerHTML = ''
 	})
 }
 function backButtonFunctionFromBack() {
@@ -1260,10 +1260,10 @@ fullscreen_button.addEventListener('click', function (e) {
 
 mainMenuB.forEach((e, i) => {
 	e.addEventListener('click', function (e) {
-		if (dataId[i] === 'view3') {
-			console.log('perraje')
-			return
-		}
+		// if (dataId[i] === 'view3') {
+		// 	console.log('perraje')
+		// 	return
+		// }
 		console.log(dataId[i])
 		pageIndex = 'mainMenuFront'
 		currentButton = dataId[i]
