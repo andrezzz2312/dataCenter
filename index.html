@@ -67,7 +67,7 @@
 					<div class="buttonContainer">
 						<div class="threeButtons">
 							<div class="titulo">DATA CENTER</div>
-							<button id="cabinetSolutions" class="button mainMenuB mainB">
+							<button class="button mainMenuB mainB" data-id="turnlock10">
 								<span>Turnlock 100</span>
 								<img
 									src="assets/icons/homeLifeline100.png"
@@ -75,7 +75,7 @@
 									class="iconImg"
 								/>
 							</button>
-							<button id="button2_button" class="button mainMenuB mainB">
+							<button class="button mainMenuB mainB" data-id="tourlock18">
 								Tourlock 180
 								<img
 									src="assets/icons/homeTourlock180.png"
@@ -83,7 +83,7 @@
 									class="iconImg"
 								/>
 							</button>
-							<button id="button3_button" class="button mainMenuB mainB">
+							<button class="button mainMenuB mainB" data-id="lifelineSw">
 								Lifeline Swing
 								<img
 									src="assets/icons/homeLifelineSwing.png"
@@ -91,7 +91,7 @@
 									class="iconImg"
 								/>
 							</button>
-							<button id="button4_button" class="button mainMenuB mainB">
+							<button class="button mainMenuB mainB" data-id="circlelockSo">
 								Circlelock Solo
 								<img
 									src="assets/icons/homeCirclelockSolo.png"
@@ -185,6 +185,7 @@
 			</div>
 
 			<div id="showCont" class="showCont hidden short-vanish"></div>
+			<div id="rotation" class="rotation hidden short-vanish"></div>
 			<div class="warning">
 				<div class="modal">
 					<i class="fa-solid fa-circle-exclamation warnIcon"></i>
@@ -200,11 +201,11 @@
 					</span>
 				</div>
 			</div>
+
 			<div class="loader">
 				<i class="fa-solid fa-spinner loadingIcon"></i>
 			</div>
 			<div class="initial"></div>
-			<div id="rotation" class="rotation hidden short-vanish"></div>
 		</div>
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>

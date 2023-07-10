@@ -9,38 +9,42 @@ let videoloop,
 	buttonContainerMade,
 	buttonGrid,
 	threesixty,
-	delay
+	delay,
+	subVideoTurn,
+	subVideoBackLoop,
+	buttonDimensions,
+	firstPage,
+	textContent,
+	label,
+	labelCont,
+	paragraph,
+	greenLine,
+	titleH2,
+	createdSubTitle,
+	span,
+	line,
+	svg1,
+	circle,
+	backButton,
+	brandIcon,
+	backButtonContainer,
+	buttonGridContainer,
+	buttonFontvar,
+	globalFontvar,
+	containVideoWidth,
+	containVideoHeight,
+	pCont,
+	list,
+	globalParent,
+	pageIndex
 
-let subVideoTurn = ''
-let subVideoBackLoop = ''
-let buttonDimensions = ''
-let firstPage = ''
-let textContent = ''
-let label = ''
-let labelCont = ''
-let paragraph = ''
-let greenLine = ''
-let titleH2 = ''
-let createdSubTitle = ''
-let span = ''
-let line = ''
-let svg1 = ''
-let circle = ''
-let backButton = ''
-let brandIcon = ''
 let boxVideo = []
-let backButtonContainer = ''
-let buttonGridContainer = ''
-let buttonFontvar = ''
-let globalFontvar = ''
-let containVideoWidth = ''
-let containVideoHeight = ''
+let buttonShort = []
+let dataId = []
 let video1check = false
 let video2check = false
 let video3check = false
-let pCont = ''
-let list = ''
-let globalParent = ''
+
 let x = window.matchMedia('(max-height: 550px)')
 const loop = document.querySelector('#loopVideo')
 const loopContainer = document.querySelector('#loop')
@@ -52,7 +56,7 @@ const subVideo2Container = document.querySelector('#subVideo2')
 const subVideo3Container = document.querySelector('#subVideo3')
 const subVideoTurnContainer = document.querySelector('#subVideoTurn')
 const subVideoBackLoopContainer = document.querySelector('#subVideoBackLoop')
-
+const rotation = document.querySelector('#rotation')
 const videoHolder = document.querySelector('#videoHolder')
 const mainButtons = document.querySelector('#mainButtons')
 const showCont = document.querySelector('#showCont')
@@ -72,6 +76,7 @@ const modalalert = document.querySelector('.modalalert')
 const quality = document.querySelector('#quality_button')
 const mainMenuB = document.querySelectorAll('.mainMenuB')
 const titulo = document.querySelectorAll('.titulo')
+
 let details = navigator.userAgent
 let regexp = /android|iphone|kindle|ipad/i
 let ios = /iphone|ipad/i
@@ -80,24 +85,21 @@ let isMobileDevice = regexp.test(details)
 let isIOS = ios.test(details)
 let isMac = macosPlatforms.test(details)
 
-let buttonShort = []
-let pageIndex = ''
+// var buttonsText = []
 
-var buttonsText = []
-var dataId = []
 mainMenuB.forEach((e, i) => {
 	dataId[i] = e.dataset.id
 	console.log(dataId[i])
 	// const splitText = e.textContent.trim().split('\n')
-	const splitText = e.textContent
-		.replace(/[\n\r]+|[\s]{2,}/g, ' ')
-		.trim()
-		.split(' ')
-	splitText[1]
-		? (buttonsText[i] =
-				splitText[0].toLowerCase() + splitText[1].substring(0, 2))
-		: (buttonsText[i] = splitText[0].toLowerCase())
-	console.log(buttonsText[i])
+	// const splitText = e.textContent
+	// 	.replace(/[\n\r]+|[\s]{2,}/g, ' ')
+	// 	.trim()
+	// 	.split(' ')
+	// splitText[1]
+	// 	? (buttonsText[i] =
+	// 			splitText[0].toLowerCase() + splitText[1].substring(0, 2))
+	// 	: (buttonsText[i] = splitText[0].toLowerCase())
+	// console.log(buttonsText[i])
 })
 
 const buttonContent = {
@@ -193,6 +195,16 @@ const buttonContent = {
 	},
 }
 
+const rotationContent = {
+	turnlock10:
+		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock100/Turnlock100.spin',
+	tourlock18:
+		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin',
+	lifelineSw:
+		'https://rotation.marketscale.com/Companies/BoonEdam/LifeLineSwing/LifeLineSwing.spin',
+	circlelockSo:
+		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin',
+}
 // Display fullscreen button
 if (!isMobileDevice) {
 	fullscreen_button.style.display = 'none'
@@ -674,6 +686,56 @@ function createContent(
 		})
 	}
 
+	function createRotation() {
+		console.log(pageIndex)
+		if (rotation) {
+			rotation.innerHTML = ''
+		}
+		loader.classList.remove('short-vanish')
+		loader.style.zIndex = '1'
+		initial.style.zIndex = '0'
+		initial.classList.remove('short-vanish')
+		initial.classList.add('show')
+
+		// HideShowMainButtons()
+		HideShowCont()
+		rotation.classList.toggle('show')
+		rotation.classList.toggle('hidden')
+
+		window.addEventListener(
+			'resize',
+			resizeRotation
+			// const rotationBackButton = document.querySelector('#rotation_backButton')
+			// if (rotationBackButton) {
+			// 	rotationBackButton.remove()
+			// }
+			// ArreglarLineas()
+			// createBackButton('rotation')
+		)
+
+		createBackButton('rotationPage')
+
+		setTimeout(() => {
+			const centerContainerMade = document.createElement('div')
+			centerContainerMade.classList.add('centerContainer')
+			centerContainerMade.setAttribute('id', 'centerContainer_model')
+			const model = document.createElement('div')
+			model.classList.add('Sirv')
+
+			model.setAttribute('data-src', rotationContent[currentButton])
+
+			rotation.appendChild(model)
+		}, 0)
+	}
+
+	function resizeRotation() {
+		const rotationBackButton = document.querySelector('#rotation_backButton')
+		if (rotationBackButton) {
+			rotationBackButton.remove()
+		}
+		ArreglarLineas()
+		createBackButton('rotation')
+	}
 	function createSubVideoBackLoop() {
 		subVideoBackLoop = document.createElement('video')
 		subVideoBackLoop.src = `assets/${parent}/${parent}BackLoop.mp4`
@@ -759,6 +821,9 @@ function createContent(
 		threesixty = document.createElement('img')
 		threesixty.classList.add('threesixty')
 		threesixty.src = '../assets/icons/360logo.png'
+		threesixty.addEventListener('click', () => {
+			createRotation()
+		})
 		buttonGridContainer.appendChild(threesixty)
 	}
 
@@ -899,18 +964,18 @@ function backButtonFunctionFront() {
 		video2.classList.remove('short-vanish')
 		showCont.innerHTML = ''
 		console.log('back from back')
-		console.log(buttonContent[buttonsText[0]].content)
+		console.log(buttonContent[dataId[0]].content)
 		pageIndex = 'mainMenuFront'
 		createContent(
-			buttonContent[buttonsText[0]].textLeft,
-			buttonContent[buttonsText[0]].textTop,
-			buttonContent[buttonsText[0]].textRight,
-			buttonContent[buttonsText[0]].textBottom,
-			buttonContent[buttonsText[0]].title,
-			buttonContent[buttonsText[0]].content,
-			buttonContent[buttonsText[0]].subTitle,
-			buttonContent[buttonsText[0]].inputButtonGrid,
-			buttonsText[0]
+			buttonContent[dataId[0]].textLeft,
+			buttonContent[dataId[0]].textTop,
+			buttonContent[dataId[0]].textRight,
+			buttonContent[dataId[0]].textBottom,
+			buttonContent[dataId[0]].title,
+			buttonContent[dataId[0]].content,
+			buttonContent[dataId[0]].subTitle,
+			buttonContent[dataId[0]].inputButtonGrid,
+			dataId[0]
 		)
 		animations()
 		backButton.style.pointerEvents = 'all'
@@ -935,14 +1000,14 @@ function backButtonFunctionBack() {
 		showCont.innerHTML = ''
 		pageIndex = 'mainMenuBack'
 		createContent(
-			buttonContent[buttonsText[1]].textLeft,
-			buttonContent[buttonsText[1]].textTop,
-			buttonContent[buttonsText[1]].textRight,
-			buttonContent[buttonsText[1]].textBottom,
-			buttonContent[buttonsText[1]].title,
-			buttonContent[buttonsText[1]].content,
-			buttonContent[buttonsText[1]].inputButtonGrid,
-			buttonsText[1]
+			buttonContent[dataId[1]].textLeft,
+			buttonContent[dataId[1]].textTop,
+			buttonContent[dataId[1]].textRight,
+			buttonContent[dataId[1]].textBottom,
+			buttonContent[dataId[1]].title,
+			buttonContent[dataId[1]].content,
+			buttonContent[dataId[1]].inputButtonGrid,
+			dataId[1]
 		)
 		backButton.style.pointerEvents = 'all'
 
@@ -954,46 +1019,54 @@ function backButtonFunctionBack() {
 	})
 }
 
-function createBackButton() {
+function createBackButton(param) {
 	console.log(pageIndex)
-	// const centerContainerMade = document.createElement('div')
-	// centerContainerMade.classList.add('centerContainer')
-	// centerContainerMade.setAttribute('id', 'centerContainer_backButton')
-	// buttonContainerMade = document.createElement('div')
-	// buttonContainerMade.classList.add('buttonContainer')
-	// buttonContainerMade.style.width = containVideoWidth + 'px'
-	// buttonContainerMade.style.height = containVideoHeight + 'px'
-	backButton = document.createElement('button')
-	backButton.classList.add('backButton')
-	backButton.style.fontSize = buttonFontvar
-	backButton.style.width = `calc(47px + (147 - 47) * ((${
-		containVideoWidth + 'px'
-	} - 320px) / (1440 - 320)))`
-	// if (buttonDimensions !== 0) {
+	if (param === 'rotationPage') {
+	} else {
+		const centerContainerMade = document.createElement('div')
+		centerContainerMade.classList.add('centerContainer')
+		centerContainerMade.setAttribute('id', 'centerContainer_backButton')
+		// buttonContainerMade = document.createElement('div')
+		// buttonContainerMade.classList.add('buttonContainer')
+		// buttonContainerMade.style.width = containVideoWidth + 'px'
+		// buttonContainerMade.style.height = containVideoHeight + 'px'
+		backButton = document.createElement('button')
+		backButton.classList.add('backButton')
+		backButton.style.fontSize = buttonFontvar
+		backButton.style.width = `calc(47px + (147 - 47) * ((${
+			containVideoWidth + 'px'
+		} - 320px) / (1440 - 320)))`
+		// if (buttonDimensions !== 0) {
 
-	// 	backButton.style.width = buttonDimensions.offsetWidth + 'px'
-	// 	backButton.style.height = buttonDimensions.offsetHeight + 'px'
-	// }
+		// 	backButton.style.width = buttonDimensions.offsetWidth + 'px'
+		// 	backButton.style.height = buttonDimensions.offsetHeight + 'px'
+		// }
 
-	backButton.classList.add('button')
+		backButton.classList.add('button')
 
-	backButton.textContent = 'Back'
-	backButtonContainer = document.createElement('div')
-	brandIcon = document.createElement('img')
-	brandIcon.src = '../assets/icons/150logo.png'
-	brandIcon.classList.add('brandIcon')
-	backButtonContainer.classList.add('viewR_container')
-	// if (pos) {
-	// 	backButtonContainer.style.justifyContent = 'flex-end'
-	// 	backButton.style.marginRight = '4%'
-	// }
-	// showCont.appendChild(centerContainerMade)
-	// centerContainerMade.append(buttonContainerMade)
-	firstPage.appendChild(backButtonContainer)
+		backButton.textContent = 'Back'
+		backButtonContainer = document.createElement('div')
+		brandIcon = document.createElement('img')
+		brandIcon.src = '../assets/icons/150logo.png'
+		brandIcon.classList.add('brandIcon')
+		backButtonContainer.classList.add('viewR_container')
+		// if (pos) {
+		// 	backButtonContainer.style.justifyContent = 'flex-end'
+		// 	backButton.style.marginRight = '4%'
+		// }
+		// showCont.appendChild(centerContainerMade)
+		// centerContainerMade.append(buttonContainerMade)
+		firstPage.appendChild(backButtonContainer)
 
-	backButtonContainer.appendChild(backButton)
-	backButtonContainer.appendChild(brandIcon)
-	if (
+		backButtonContainer.appendChild(backButton)
+		backButtonContainer.appendChild(brandIcon)
+	}
+
+	if (param === 'rotation') {
+		rotation.appendChild(centerContainerMade)
+		backButton.style.pointerEvents = 'all'
+		centerContainerMade.setAttribute('id', 'rotation_backButton')
+	} else if (
 		pageIndex === 'standardO' ||
 		pageIndex === 'piggybackingP' ||
 		pageIndex === 'emergencyE' ||
@@ -1008,9 +1081,7 @@ function createBackButton() {
 	) {
 		backButton.addEventListener('click', backButtonFunctionBack)
 	} else if (pageIndex === 'mainMenuFront') {
-		console.log('mainmenu')
 		backButton.addEventListener('click', backButtonFunction)
-		console.log('wtf???')
 	} else if (pageIndex === 'mainMenuBack') {
 		backButton.addEventListener('click', backButtonFunctionFromBack)
 	}
@@ -1145,18 +1216,19 @@ fullscreen_button.addEventListener('click', function (e) {
 
 mainMenuB.forEach((e, i) => {
 	e.addEventListener('click', function (e) {
-		if (buttonsText[i] === 'view3') {
+		if (dataId[i] === 'view3') {
 			console.log('perraje')
 			return
 		}
-		console.log(buttonsText[i])
+		console.log(dataId[i])
 		pageIndex = 'mainMenuFront'
+		currentButton = dataId[i]
 		HideShowMainButtons()
 
 		createVideos(
-			`assets/${buttonsText[i]}/${buttonsText[i]}1.mp4`,
-			`assets/${buttonsText[i]}/${buttonsText[i]}2.mp4`,
-			`assets/${buttonsText[i]}/${buttonsText[i]}3.mp4`
+			`assets/${dataId[i]}/${dataId[i]}1.mp4`,
+			`assets/${dataId[i]}/${dataId[i]}2.mp4`,
+			`assets/${dataId[i]}/${dataId[i]}3.mp4`
 		)
 		/////////////////////////// CURRENT
 
@@ -1167,15 +1239,15 @@ mainMenuB.forEach((e, i) => {
 		}
 
 		createContent(
-			buttonContent[buttonsText[i]].textLeft,
-			buttonContent[buttonsText[i]].textTop,
-			buttonContent[buttonsText[i]].textRight,
-			buttonContent[buttonsText[i]].textBottom,
-			buttonContent[buttonsText[i]].title,
-			buttonContent[buttonsText[i]].content,
-			buttonContent[buttonsText[i]].subTitle,
-			buttonContent[buttonsText[i]].inputButtonGrid,
-			buttonsText[i]
+			buttonContent[dataId[i]].textLeft,
+			buttonContent[dataId[i]].textTop,
+			buttonContent[dataId[i]].textRight,
+			buttonContent[dataId[i]].textBottom,
+			buttonContent[dataId[i]].title,
+			buttonContent[dataId[i]].content,
+			buttonContent[dataId[i]].subTitle,
+			buttonContent[dataId[i]].inputButtonGrid,
+			dataId[i]
 		)
 
 		window.addEventListener('resize', function (e) {
@@ -1193,15 +1265,15 @@ mainMenuB.forEach((e, i) => {
 					console.log(globalParent)
 					console.log(buttonContent[globalParent])
 					createContent(
-						buttonContent[buttonsText[i]].textLeft,
-						buttonContent[buttonsText[i]].textTop,
-						buttonContent[buttonsText[i]].textRight,
-						buttonContent[buttonsText[i]].textBottom,
-						buttonContent[buttonsText[i]].title,
-						buttonContent[buttonsText[i]].content,
-						buttonContent[buttonsText[i]].subTitle,
-						buttonContent[buttonsText[i]].inputButtonGrid,
-						buttonsText[i]
+						buttonContent[dataId[i]].textLeft,
+						buttonContent[dataId[i]].textTop,
+						buttonContent[dataId[i]].textRight,
+						buttonContent[dataId[i]].textBottom,
+						buttonContent[dataId[i]].title,
+						buttonContent[dataId[i]].content,
+						buttonContent[dataId[i]].subTitle,
+						buttonContent[dataId[i]].inputButtonGrid,
+						dataId[i]
 					)
 				} else {
 					console.log(globalParent)
@@ -1266,9 +1338,9 @@ mainMenuB.forEach((e, i) => {
 
 							InterpolateVideo(loop, video1, video2)
 							if (
-								buttonsText[i] === 'whyF' ||
-								buttonsText[i] === 'in-houseT' ||
-								buttonsText[i] === 'useC'
+								dataId[i] === 'whyF' ||
+								dataId[i] === 'in-houseT' ||
+								dataId[i] === 'useC'
 							) {
 								console.log(video2, video3)
 								video2.loop = false
@@ -1297,7 +1369,7 @@ var SirvOptions = {
 			loader.style.zIndex = '-100'
 			setTimeout(() => {
 				initial.style.zIndex = '-200'
-			}, 0)
+			}, 300)
 		},
 	},
 }
