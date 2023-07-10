@@ -14,6 +14,7 @@ let videoloop,
 	subVideoBackLoop,
 	buttonDimensions,
 	firstPage,
+	rotationPage,
 	textContent,
 	label,
 	labelCont,
@@ -26,8 +27,10 @@ let videoloop,
 	svg1,
 	circle,
 	backButton,
+	backButtonRotation,
 	brandIcon,
 	backButtonContainer,
+	backButtonContainerRotation,
 	buttonGridContainer,
 	buttonFontvar,
 	globalFontvar,
@@ -663,7 +666,7 @@ function createContent(
 									buttonContent[parent].boxInfo[pageIndex].subTitle,
 									buttonContent[parent].boxInfo[pageIndex].inputButtonGrid,
 									parent,
-									[0, 3, 7]
+									[0, 5, 8, 14, 17]
 								)
 								video2.classList.add('short-vanish')
 								subVideo1.style.opacity = 1
@@ -686,56 +689,6 @@ function createContent(
 		})
 	}
 
-	function createRotation() {
-		console.log(pageIndex)
-		if (rotation) {
-			rotation.innerHTML = ''
-		}
-		loader.classList.remove('short-vanish')
-		loader.style.zIndex = '1'
-		initial.style.zIndex = '0'
-		initial.classList.remove('short-vanish')
-		initial.classList.add('show')
-
-		// HideShowMainButtons()
-		HideShowCont()
-		rotation.classList.toggle('show')
-		rotation.classList.toggle('hidden')
-
-		window.addEventListener(
-			'resize',
-			resizeRotation
-			// const rotationBackButton = document.querySelector('#rotation_backButton')
-			// if (rotationBackButton) {
-			// 	rotationBackButton.remove()
-			// }
-			// ArreglarLineas()
-			// createBackButton('rotation')
-		)
-
-		createBackButton('rotationPage')
-
-		setTimeout(() => {
-			const centerContainerMade = document.createElement('div')
-			centerContainerMade.classList.add('centerContainer')
-			centerContainerMade.setAttribute('id', 'centerContainer_model')
-			const model = document.createElement('div')
-			model.classList.add('Sirv')
-
-			model.setAttribute('data-src', rotationContent[currentButton])
-
-			rotation.appendChild(model)
-		}, 0)
-	}
-
-	function resizeRotation() {
-		const rotationBackButton = document.querySelector('#rotation_backButton')
-		if (rotationBackButton) {
-			rotationBackButton.remove()
-		}
-		ArreglarLineas()
-		createBackButton('rotation')
-	}
 	function createSubVideoBackLoop() {
 		subVideoBackLoop = document.createElement('video')
 		subVideoBackLoop.src = `assets/${parent}/${parent}BackLoop.mp4`
@@ -874,11 +827,69 @@ function setFontSizes() {
 		} - 320px) / (1440 - 320)))`
 	}
 }
+function createRotation() {
+	console.log(pageIndex)
+	if (rotation) {
+		rotation.innerHTML = ''
+	}
+	loader.classList.remove('short-vanish')
+	loader.style.zIndex = '1'
+	initial.style.zIndex = '0'
+	initial.classList.remove('short-vanish')
+	initial.classList.add('show')
 
+	// HideShowMainButtons()
+	HideShowCont()
+	rotation.classList.toggle('show')
+	rotation.classList.toggle('hidden')
+
+	window.addEventListener('resize', resizeRotation)
+
+	setTimeout(() => {
+		const centerContainerMade = document.createElement('div')
+		centerContainerMade.classList.add('centerContainer')
+		centerContainerMade.setAttribute('id', 'centerContainer_model')
+		const model = document.createElement('div')
+		model.classList.add('Sirv')
+
+		model.setAttribute('data-src', rotationContent[currentButton])
+
+		rotation.appendChild(model)
+		createBackButton('rotationPage')
+	}, 0)
+}
+
+function resizeRotation() {
+	const rotationBackButton = document.querySelector('#rotation_backButton')
+	if (rotationBackButton) {
+		rotationBackButton.remove()
+	}
+	ArreglarLineas()
+	createBackButton('rotationPage')
+}
+
+function exitRotation() {
+	ArreglarLineas()
+	backButtonRotation.style.pointerEvents = 'none'
+	// const centerContainerBackButton = document.querySelector(
+	// 	'#centerContainer_backButton'
+	// )
+	// centerContainerBackButton.remove()
+	console.log('remove show')
+	rotation.classList.remove('show')
+	rotation.classList.add('short-vanish')
+	// rotation.innerHTML = ''
+
+	// createBackButton()
+	HideShowCont()
+	window.removeEventListener('resize', resizeRotation)
+}
 function backButtonFunction() {
 	console.log('backbuttonfunction')
-	ArreglarLineas()
+	console.log(buttonGridContainer)
 
+	ArreglarLineas()
+	buttonGrid.style.pointerEvents = 'none'
 	backButton.style.pointerEvents = 'none'
 
 	InterpolateVideo(video2, video2, video3)
@@ -911,7 +922,7 @@ function backButtonFunction() {
 			subVideoTurn = ''
 		}
 
-		showCont.innerHTML = ''
+		// showCont.innerHTML = ''
 	})
 }
 function backButtonFunctionFromBack() {
@@ -1022,10 +1033,44 @@ function backButtonFunctionBack() {
 function createBackButton(param) {
 	console.log(pageIndex)
 	if (param === 'rotationPage') {
-	} else {
 		const centerContainerMade = document.createElement('div')
 		centerContainerMade.classList.add('centerContainer')
-		centerContainerMade.setAttribute('id', 'centerContainer_backButton')
+		centerContainerMade.setAttribute('id', 'centerContainer_text')
+		const textContainerMade = document.createElement('div')
+		textContainerMade.classList.add('textContainer')
+		textContainerMade.style.width = containVideoWidth + 'px'
+		textContainerMade.style.height = containVideoHeight + 'px'
+		rotationPage = document.createElement('div')
+		rotationPage.classList.add('rotationPage')
+
+		backButtonRotation = document.createElement('button')
+		backButtonRotation.classList.add('backButton')
+		backButtonRotation.style.fontSize = buttonFontvar
+		backButtonRotation.style.width = `calc(47px + (147 - 47) * ((${
+			containVideoWidth + 'px'
+		} - 320px) / (1440 - 320)))`
+
+		backButtonRotation.classList.add('button')
+		backButtonRotation.addEventListener('click', exitRotation)
+		console.log(backButtonRotation)
+		backButtonRotation.textContent = 'Back'
+		backButtonContainer = document.createElement('div')
+		brandIcon = document.createElement('img')
+		brandIcon.src = '../assets/icons/150logo.png'
+		brandIcon.classList.add('brandIcon', 'brandIconR')
+		backButtonContainer.classList.add('viewRContainer')
+		rotation.appendChild(centerContainerMade)
+		centerContainerMade.appendChild(textContainerMade)
+
+		textContainerMade.appendChild(rotationPage)
+		rotationPage.appendChild(backButtonContainer)
+		backButtonContainer.appendChild(backButtonRotation)
+		backButtonContainer.appendChild(brandIcon)
+		centerContainerMade.setAttribute('id', 'rotation_backButton')
+	} else {
+		// const centerContainerMade = document.createElement('div')
+		// centerContainerMade.classList.add('centerContainer')
+		// centerContainerMade.setAttribute('id', 'centerContainer_backButton')
 		// buttonContainerMade = document.createElement('div')
 		// buttonContainerMade.classList.add('buttonContainer')
 		// buttonContainerMade.style.width = containVideoWidth + 'px'
@@ -1049,7 +1094,7 @@ function createBackButton(param) {
 		brandIcon = document.createElement('img')
 		brandIcon.src = '../assets/icons/150logo.png'
 		brandIcon.classList.add('brandIcon')
-		backButtonContainer.classList.add('viewR_container')
+		backButtonContainer.classList.add('backButtonContainer')
 		// if (pos) {
 		// 	backButtonContainer.style.justifyContent = 'flex-end'
 		// 	backButton.style.marginRight = '4%'
@@ -1060,30 +1105,30 @@ function createBackButton(param) {
 
 		backButtonContainer.appendChild(backButton)
 		backButtonContainer.appendChild(brandIcon)
-	}
-
-	if (param === 'rotation') {
-		rotation.appendChild(centerContainerMade)
-		backButton.style.pointerEvents = 'all'
-		centerContainerMade.setAttribute('id', 'rotation_backButton')
-	} else if (
-		pageIndex === 'standardO' ||
-		pageIndex === 'piggybackingP' ||
-		pageIndex === 'emergencyE' ||
-		pageIndex === 'finishO'
-	) {
-		console.log('submenu')
-		backButton.addEventListener('click', backButtonFunctionFront)
-	} else if (
-		pageIndex === 'easyR' ||
-		pageIndex === 'ex78934S' ||
-		pageIndex === 'kr-bkzdinB'
-	) {
-		backButton.addEventListener('click', backButtonFunctionBack)
-	} else if (pageIndex === 'mainMenuFront') {
-		backButton.addEventListener('click', backButtonFunction)
-	} else if (pageIndex === 'mainMenuBack') {
-		backButton.addEventListener('click', backButtonFunctionFromBack)
+		if (param === 'rotation') {
+			// rotation.appendChild(centerContainerMade)
+			// rotation.appendChild(centerContainerMade)
+			// backButton.style.pointerEvents = 'all'
+			// centerContainerMade.setAttribute('id', 'rotation_backButton')
+		} else if (
+			pageIndex === 'standardO' ||
+			pageIndex === 'piggybackingP' ||
+			pageIndex === 'emergencyE' ||
+			pageIndex === 'finishO'
+		) {
+			console.log('submenu')
+			backButton.addEventListener('click', backButtonFunctionFront)
+		} else if (
+			pageIndex === 'easyR' ||
+			pageIndex === 'ex78934S' ||
+			pageIndex === 'kr-bkzdinB'
+		) {
+			backButton.addEventListener('click', backButtonFunctionBack)
+		} else if (pageIndex === 'mainMenuFront') {
+			backButton.addEventListener('click', backButtonFunction)
+		} else if (pageIndex === 'mainMenuBack') {
+			backButton.addEventListener('click', backButtonFunctionFromBack)
+		}
 	}
 }
 
@@ -1367,9 +1412,10 @@ var SirvOptions = {
 			initial.classList.remove('show')
 			initial.classList.add('short-vanish')
 			loader.style.zIndex = '-100'
+
 			setTimeout(() => {
 				initial.style.zIndex = '-200'
-			}, 300)
+			}, 400)
 		},
 	},
 }
