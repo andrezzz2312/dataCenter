@@ -144,6 +144,79 @@ const buttonContent = {
 			standardO: {
 				textLeft: '0%',
 				textTop: '0%',
+				title: `<span style = 'font-weight:bold' data-subId = 'standardO'>Standard Operation</span>`,
+
+				content: [
+					`Credential or biometric`,
+					`Valid credential turns LED green`,
+					`Turnstile rotates 120\u00B0, relocks, and sends a door closure signal,\nlogging the user into the space  `,
+					`An authorized user can exit after the authorized user has entered`,
+					`Exiting can also be set up as free out, requiring no credentials`,
+					`Turnstile does not allow tailgating as it only rotates 120\u00B0 then relocks`,
+				],
+				delay: [1, 5, 10, 16],
+			},
+			piggybackingP: {
+				textLeft: '0%',
+				textTop: '0%',
+				title: `<span style = 'font-weight:bold' data-subId = 'piggybackingP'>Piggybacking Prevention</span>`,
+				content: [
+					`Piggybacking is an attempt to enter in same compartment`,
+					`Credential or biometric is presented`,
+					`Valid credential turns LED green, unlocks turnstile and provides audible tone/voice`,
+					`Door rotates about 30\u00B0, then stops as...`,
+					`BE Secure Overhead Sensor System detects two people`,
+					`Turnstile remains locked, forcing both people\nto exit the compartment backwards`,
+					`With optional BE Secure Overhead Sensor System, there is never a breach.\nUnauthorized user always exits to the unsecured side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
+				],
+				delay: [0, 5, 9, 14, 17, 19],
+			},
+			emergencyE: {
+				textLeft: '0%',
+				textTop: '0%',
+				title: `<span style = 'font-weight:bold' data-subId = 'emergencyE'>Emergency Egress</span>`,
+				content: [
+					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
+				],
+			},
+			finishO: {
+				textLeft: '0%',
+				textTop: '0%',
+				title: `<span style = 'font-weight:bold' data-subId = 'finishO'>Finish Options</span>`,
+				content: [
+					`Turnstile available in galvanized steel, powder-coated steel or stainless steel`,
+					3,
+					`Tandem space-saving models available`,
+					`Metal screens can be installed in addition to horizontal bars`,
+				],
+			},
+		},
+		// src: buttonsText[1],
+	},
+	tourlock18: {
+		textLeft: '0%',
+		textBottom: '0%',
+		title: `<span><span style = 'font-weight:bold'>SECURITY</span> <span>REVOLVING DOOR</span></span>`,
+		subTitle: `Tourlock 180`,
+		content: [
+			`Prevent unauthorized entry`,
+			`In and out simultaneous 2-way traffic`,
+			`High Throughput - 10 min. Peak of 150 people, each way`,
+			`Integrates with any ACS or multi-factor schema`,
+			`Risk Score - 2.7%, Efficiency Score - 97.3%`,
+		],
+		inputButtonGrid: [
+			`Standard \nOperation`,
+			`Piggybacking \n Prevention`,
+			`Tailgating \nPrevention 1`,
+			`Tailgating \nPrevention 2`,
+			`Emergency \nEgress`,
+			`Glass \nOptions`,
+		],
+		boxInfo: {
+			standardO: {
+				textLeft: '0%',
+				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Standard Operation</span>`,
 
 				content: [
@@ -191,28 +264,7 @@ const buttonContent = {
 				],
 			},
 		},
-		// src: buttonsText[1],
-	},
-	tourlock18: {
-		textLeft: '0%',
-		textBottom: '0%',
-		title: `<span><span style = 'font-weight:bold'>SECURITY</span> <span>REVOLVING DOOR</span></span>`,
-		subTitle: `Tourlock 180`,
-		content: [
-			`Prevent unauthorized entry`,
-			`In and out simultaneous 2-way traffic`,
-			`High Throughput - 10 min. Peak of 150 people, each way`,
-			`Integrates with any ACS or multi-factor schema`,
-			`Risk Score - 2.7%, Efficiency Score - 97.3%`,
-		],
-		inputButtonGrid: [
-			`Standard \nOperation`,
-			`Piggybacking \n Prevention`,
-			`Tailgating \nPrevention 1`,
-			`Tailgating \nPrevention 2`,
-			`Emergency \nEgress`,
-			`Glass \nOptions`,
-		],
+
 		// src: buttonsText[1],
 	},
 }
@@ -513,7 +565,7 @@ function createContent(
 				? (buttonShort[i] =
 						splitText[0].toLowerCase() + splitText[1].substring(0, 1))
 				: (buttonShort[i] = splitText[0].toLowerCase())
-
+			console.log(e)
 			const subButton = document.createElement('button')
 			subButton.classList.add('pageButton')
 			subButton.style.width = `calc(60px + (145 - 60) * ((${
