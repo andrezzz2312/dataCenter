@@ -84,7 +84,10 @@ let buttonShort = []
 let pageIndex = ''
 
 var buttonsText = []
+var dataId = []
 mainMenuB.forEach((e, i) => {
+	dataId[i] = e.dataset.id
+	console.log(dataId[i])
 	// const splitText = e.textContent.trim().split('\n')
 	const splitText = e.textContent
 		.replace(/[\n\r]+|[\s]{2,}/g, ' ')
