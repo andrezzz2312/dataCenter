@@ -140,6 +140,7 @@ const buttonContent = {
 			`Emergency\nEgress`,
 			`Finish\nOptions`,
 		],
+		inputButtonId: [`standardO`, `piggibackingP`, `emergencyE`, `finishO`],
 		boxInfo: {
 			standardO: {
 				textLeft: '0%',
@@ -523,9 +524,21 @@ function createContent(
 	pContent,
 	subTitle,
 	inputButtonGrid,
+	inputButtonId,
 	parent,
 	delayInput
 ) {
+	// textLeft = obj.textLeft
+	// textTop = obj.textTop
+	// textRight = obj.textRight
+	// textBottom = obj.textBottom
+	// labelTitle = obj.labelTitle
+	// pContent = obj.pContent
+	// subTitle = obj.subTitle
+	// inputButtonGrid = obj.inputButtonGrid
+	// inputButtonId = obj.inputButtonId
+	// delayInput = obj.delay
+
 	console.trace()
 	delay = ''
 	const centerContainerMade = document.createElement('div')
@@ -556,16 +569,19 @@ function createContent(
 
 	if (inputButtonGrid) {
 		inputButtonGrid.forEach((e, i) => {
-			const splitText = e
-				.replace(/[\n\r]+|[\s]{2,}/g, ' ')
-				.trim()
-				.split(' ')
+			// console.log(e)
+			// const splitText = e
+			// 	.replace(/[\n\r]+|[\s]{2,}/g, ' ')
+			// 	.trim()
+			// 	.split(' ')
 
-			splitText[1]
-				? (buttonShort[i] =
-						splitText[0].toLowerCase() + splitText[1].substring(0, 1))
-				: (buttonShort[i] = splitText[0].toLowerCase())
-			console.log(e)
+			// splitText[1]
+			// 	? (buttonShort[i] =
+			// 			splitText[0].toLowerCase() + splitText[1].substring(0, 1))
+			// 	: (buttonShort[i] = splitText[0].toLowerCase())
+
+			buttonShort[i] = inputButtonId[i]
+
 			const subButton = document.createElement('button')
 			subButton.classList.add('pageButton')
 			subButton.style.width = `calc(60px + (145 - 60) * ((${
@@ -586,7 +602,6 @@ function createContent(
 
 				pageIndex = buttonShort[i]
 				// 	// Con esto veo que boton es /////////////////////////////////
-				console.log(pageIndex)
 
 				createSubVideos(
 					`assets/${parent}/${buttonShort[i]}/${buttonShort[i]}1.mp4`,
@@ -629,6 +644,7 @@ function createContent(
 								buttonContent[parent].boxInfo[pageIndex].content,
 								buttonContent[parent].boxInfo[pageIndex].subTitle,
 								buttonContent[parent].boxInfo[pageIndex].inputButtonGrid,
+								buttonContent[parent].boxInfo[pageIndex].inputButtonId,
 								parent,
 								buttonContent[parent].boxInfo[pageIndex].delay
 							)
@@ -963,6 +979,7 @@ function backButtonFunctionFront() {
 			buttonContent[dataId[0]].content,
 			buttonContent[dataId[0]].subTitle,
 			buttonContent[dataId[0]].inputButtonGrid,
+			buttonContent[dataId[0]].inputButtonId,
 			dataId[0]
 		)
 		animations()
@@ -995,6 +1012,7 @@ function backButtonFunctionBack() {
 			buttonContent[dataId[1]].title,
 			buttonContent[dataId[1]].content,
 			buttonContent[dataId[1]].inputButtonGrid,
+			buttonContent[dataId[0]].inputButtonId,
 			dataId[1]
 		)
 		// backButton.style.pointerEvents = 'all'
@@ -1259,7 +1277,7 @@ mainMenuB.forEach((e, i) => {
 				showCont.innerHTML = ''
 			}, 0)
 		}
-
+		console.log(buttonContent[dataId[i]])
 		createContent(
 			buttonContent[dataId[i]].textLeft,
 			buttonContent[dataId[i]].textTop,
@@ -1269,6 +1287,7 @@ mainMenuB.forEach((e, i) => {
 			buttonContent[dataId[i]].content,
 			buttonContent[dataId[i]].subTitle,
 			buttonContent[dataId[i]].inputButtonGrid,
+			buttonContent[dataId[i]].inputButtonId,
 			dataId[i]
 		)
 
@@ -1295,6 +1314,7 @@ mainMenuB.forEach((e, i) => {
 						buttonContent[dataId[i]].content,
 						buttonContent[dataId[i]].subTitle,
 						buttonContent[dataId[i]].inputButtonGrid,
+						buttonContent[dataId[i]].inputButtonId,
 						dataId[i]
 					)
 				} else {
@@ -1310,6 +1330,7 @@ mainMenuB.forEach((e, i) => {
 						buttonContent[globalParent].boxInfo[pageIndex].content,
 						buttonContent[globalParent].boxInfo[pageIndex].subTitle,
 						buttonContent[globalParent].boxInfo[pageIndex].inputButtonGrid,
+						buttonContent[globalParent].boxInfo[pageIndex].inputButtonId,
 						dataId[i]
 					)
 				}
