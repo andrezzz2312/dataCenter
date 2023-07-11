@@ -680,7 +680,7 @@ li:last-child {
 }
 
 #rotation_backButton {
-	/* pointer-events: none; */
+	pointer-events: none;
 }
 .sirv-spin-fullscreen {
 	background-color: #303030;
