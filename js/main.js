@@ -362,7 +362,7 @@ function animations() {
 			let inputArray = []
 			let bool = false
 			subVideo2.addEventListener('timeupdate', function () {
-				console.log(subVideo2.currentTime)
+				// console.log(subVideo2.currentTime)
 				//currentTime use second, if you want min *60
 
 				delay.forEach((element, i) => {
@@ -387,8 +387,9 @@ function animations() {
 							}
 						}
 					}
-					console.log(pageIndex)
-					if (pageIndex === 'piggybackingPP') {
+					// console.log(pageIndex)
+					if (pageIndex === 'piggybackingP') {
+						// console.log('ARISTOGATOS')
 					}
 				})
 
