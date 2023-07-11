@@ -716,7 +716,7 @@ function createContent(obj, parent) {
 							image.src = `assets/${parent}/${currentButton}/${currentButton}${
 								i + 1
 							}.png`
-							image.style.width = '20em'
+							image.style.width = '17em'
 						} else {
 							image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
 								i + 1
