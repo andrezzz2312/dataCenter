@@ -140,7 +140,7 @@ const buttonContent = {
 			`Emergency\nEgress`,
 			`Finish\nOptions`,
 		],
-		inputButtonId: [`standardO`, `piggibackingP`, `emergencyE`, `finishO`],
+		inputButtonId: [`standardO`, `piggybackingP`, `emergencyE`, `finishO`],
 		boxInfo: {
 			standardO: {
 				textLeft: '0%',
@@ -515,32 +515,23 @@ function createVideos(source1, source2, source3) {
 }
 
 // Create the content storaged in showCont div / Left and Top position of the container div, label title and content of the paragraph
-function createContent(
-	textLeft,
-	textTop,
-	textRight,
-	textBottom,
-	labelTitle,
-	pContent,
-	subTitle,
-	inputButtonGrid,
-	inputButtonId,
-	parent,
-	delayInput
-) {
-	// textLeft = obj.textLeft
-	// textTop = obj.textTop
-	// textRight = obj.textRight
-	// textBottom = obj.textBottom
-	// labelTitle = obj.labelTitle
-	// pContent = obj.pContent
-	// subTitle = obj.subTitle
-	// inputButtonGrid = obj.inputButtonGrid
-	// inputButtonId = obj.inputButtonId
-	// delayInput = obj.delay
-
+function createContent(obj, parent) {
 	console.trace()
 	delay = ''
+
+	textLeft = obj.textLeft
+	textTop = obj.textTop
+	textRight = obj.textRight
+	textBottom = obj.textBottom
+	labelTitle = obj.title
+	pContent = obj.content
+	subTitle = obj.subTitle
+	inputButtonGrid = obj.inputButtonGrid
+	inputButtonId = obj.inputButtonId
+	delayInput = obj.delay
+
+	console.log(obj)
+
 	const centerContainerMade = document.createElement('div')
 	centerContainerMade.classList.add('centerContainer')
 	centerContainerMade.setAttribute('id', 'centerContainer_text')
@@ -636,17 +627,9 @@ function createContent(
 							globalParent = parent
 
 							createContent(
-								buttonContent[parent].boxInfo[pageIndex].textLeft,
-								buttonContent[parent].boxInfo[pageIndex].textTop,
-								buttonContent[parent].boxInfo[pageIndex].textRight,
-								buttonContent[parent].boxInfo[pageIndex].textBottom,
-								buttonContent[parent].boxInfo[pageIndex].title,
-								buttonContent[parent].boxInfo[pageIndex].content,
-								buttonContent[parent].boxInfo[pageIndex].subTitle,
-								buttonContent[parent].boxInfo[pageIndex].inputButtonGrid,
-								buttonContent[parent].boxInfo[pageIndex].inputButtonId,
-								parent,
-								buttonContent[parent].boxInfo[pageIndex].delay
+								buttonContent[parent].boxInfo[pageIndex],
+
+								parent
 							)
 							textContent.style.height = '100%'
 							video2.classList.add('short-vanish')
@@ -971,15 +954,8 @@ function backButtonFunctionFront() {
 		console.log(buttonContent[dataId[0]].content)
 		pageIndex = 'mainMenuFront'
 		createContent(
-			buttonContent[dataId[0]].textLeft,
-			buttonContent[dataId[0]].textTop,
-			buttonContent[dataId[0]].textRight,
-			buttonContent[dataId[0]].textBottom,
-			buttonContent[dataId[0]].title,
-			buttonContent[dataId[0]].content,
-			buttonContent[dataId[0]].subTitle,
-			buttonContent[dataId[0]].inputButtonGrid,
-			buttonContent[dataId[0]].inputButtonId,
+			buttonContent[dataId[0]],
+
 			dataId[0]
 		)
 		animations()
@@ -1005,14 +981,8 @@ function backButtonFunctionBack() {
 		showCont.innerHTML = ''
 		pageIndex = 'mainMenuBack'
 		createContent(
-			buttonContent[dataId[1]].textLeft,
-			buttonContent[dataId[1]].textTop,
-			buttonContent[dataId[1]].textRight,
-			buttonContent[dataId[1]].textBottom,
-			buttonContent[dataId[1]].title,
-			buttonContent[dataId[1]].content,
-			buttonContent[dataId[1]].inputButtonGrid,
-			buttonContent[dataId[0]].inputButtonId,
+			buttonContent[dataId[1]],
+
 			dataId[1]
 		)
 		// backButton.style.pointerEvents = 'all'
@@ -1279,15 +1249,8 @@ mainMenuB.forEach((e, i) => {
 		}
 		console.log(buttonContent[dataId[i]])
 		createContent(
-			buttonContent[dataId[i]].textLeft,
-			buttonContent[dataId[i]].textTop,
-			buttonContent[dataId[i]].textRight,
-			buttonContent[dataId[i]].textBottom,
-			buttonContent[dataId[i]].title,
-			buttonContent[dataId[i]].content,
-			buttonContent[dataId[i]].subTitle,
-			buttonContent[dataId[i]].inputButtonGrid,
-			buttonContent[dataId[i]].inputButtonId,
+			buttonContent[dataId[i]],
+
 			dataId[i]
 		)
 
@@ -1306,15 +1269,8 @@ mainMenuB.forEach((e, i) => {
 					console.log(globalParent)
 					console.log(buttonContent[globalParent])
 					createContent(
-						buttonContent[dataId[i]].textLeft,
-						buttonContent[dataId[i]].textTop,
-						buttonContent[dataId[i]].textRight,
-						buttonContent[dataId[i]].textBottom,
-						buttonContent[dataId[i]].title,
-						buttonContent[dataId[i]].content,
-						buttonContent[dataId[i]].subTitle,
-						buttonContent[dataId[i]].inputButtonGrid,
-						buttonContent[dataId[i]].inputButtonId,
+						buttonContent[dataId[i]],
+
 						dataId[i]
 					)
 				} else {
@@ -1322,15 +1278,8 @@ mainMenuB.forEach((e, i) => {
 					console.log(buttonContent[globalParent])
 
 					createContent(
-						buttonContent[globalParent].boxInfo[pageIndex].textLeft,
-						buttonContent[globalParent].boxInfo[pageIndex].textTop,
-						buttonContent[globalParent].boxInfo[pageIndex].textRight,
-						buttonContent[globalParent].boxInfo[pageIndex].textBottom,
-						buttonContent[globalParent].boxInfo[pageIndex].title,
-						buttonContent[globalParent].boxInfo[pageIndex].content,
-						buttonContent[globalParent].boxInfo[pageIndex].subTitle,
-						buttonContent[globalParent].boxInfo[pageIndex].inputButtonGrid,
-						buttonContent[globalParent].boxInfo[pageIndex].inputButtonId,
+						buttonContent[globalParent].boxInfo[pageIndex],
+
 						dataId[i]
 					)
 				}
