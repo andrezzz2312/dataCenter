@@ -37,6 +37,7 @@ let videoloop,
 	containVideoWidth,
 	containVideoHeight,
 	pCont,
+	pCont2,
 	list,
 	globalParent,
 	pageIndex
@@ -205,6 +206,7 @@ const buttonContent = {
 			`High Throughput - 10 min. Peak of 150 people, each way`,
 			`Integrates with any ACS or multi-factor schema`,
 			`Risk Score - 2.7%, Efficiency Score - 97.3%`,
+			1,
 		],
 		inputButtonGrid: [
 			`Standard \nOperation`,
@@ -214,38 +216,53 @@ const buttonContent = {
 			`Emergency \nEgress`,
 			`Glass \nOptions`,
 		],
+		inputButtonId: [
+			`standardOP`,
+			`piggybackingPP`,
+			`tailgatingP1P`,
+			`tailgatingP2P`,
+			`emergencyEP`,
+			`glassOP`,
+		],
 		boxInfo: {
-			standardO: {
+			standardOP: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Standard Operation</span>`,
 
 				content: [
-					`Credential or biometric`,
-					`Valid credential turns LED green`,
-					`Turnstile rotates 120\u00B0, relocks, and sends a door closure signal,\nlogging the user into the space  `,
-					`An authorized user can exit after the authorized user has entered`,
-					`Exiting can also be set up as free out, requiring no credentials`,
-					`Turnstile does not allow tailgating as it only rotates 120\u00B0 then relocks`,
+					`Credential or biometric is presented`,
+					`Valid credential turns inbound LEDs green\nand provides tone/voice on authorized user side only`,
+
+					`Door does not start rotating until the authorized user\nenters and is detected`,
+					`Door rotates 180\u00B0, then stops and relocks `,
+					`Authorized users can exit while authorzed users enter`,
+					`Exiting can be free out`,
 				],
-				delay: [1, 5, 10, 16],
+				delay: [1, 5, 11, 16, 24],
 			},
-			piggybackingP: {
+			piggybackingPP: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Piggybacking Prevention</span>`,
 				content: [
-					`Piggybacking is an attempt to enter in same compartment`,
+					`Piggybacking is an attempt to enter in same compartment\n as an authorized user`,
 					`Credential or biometric is presented`,
-					`Valid credential turns LED green, unlocks turnstile and provides audible tone/voice`,
-					`Door rotates about 30\u00B0, then stops as...`,
-					`BE Secure Overhead Sensor System detects two people`,
-					`Turnstile remains locked, forcing both people\nto exit the compartment backwards`,
-					`With optional BE Secure Overhead Sensor System, there is never a breach.\nUnauthorized user always exits to the unsecured side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
+					`Valid credential turns inbound LEDs green\nand provides tone/voice on authorized user side only`,
+					`Door not start rotating until the authorized user enters and is detected `,
+					`Door rotates 45\u00B0, StereoVision samples for one person only\n(door continues to rotate during StereoVision scanning)`,
+					`Door rotates another 30\u00B0; StereoVision re-samples for one person only\n(door continues to rotate during StereoVision scanning)`,
+					`If StereoVision detects authorized person alone, door rotates to 180\u00B0`,
 				],
-				delay: [0, 5, 9, 14, 17, 19],
+				content2: [
+					`If StereoVision detects unauthorized person, door stops at 90\u00B0`,
+					`LEDs turn red and provide audible message\non the unauthorized user side of the door only`,
+					`Door reverses 45\u00B0, forcing both people to exit the compartment`,
+					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention).\nAlways in compliance`,
+				],
+				delay: [0, 5, 9, 15, 19, 25, 30, 38],
 			},
-			emergencyE: {
+			emergencyEP: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Emergency Egress</span>`,
@@ -253,7 +270,7 @@ const buttonContent = {
 					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
 				],
 			},
-			finishO: {
+			finishOP: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Finish Options</span>`,
@@ -367,12 +384,11 @@ function animations() {
 								elementContainers[i].style.animation =
 									'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
 								inputArray.push(Math.floor(subVideo2.currentTime))
-								console.log(inputArray)
-								console.log(inputArray.length)
-								console.log(delay)
-								console.log(delay.length)
 							}
 						}
+					}
+					console.log(pageIndex)
+					if (pageIndex === 'piggybackingPP') {
 					}
 				})
 
@@ -525,6 +541,7 @@ function createContent(obj, parent) {
 	textBottom = obj.textBottom
 	labelTitle = obj.title
 	pContent = obj.content
+	pContent2 = obj.content2
 	subTitle = obj.subTitle
 	inputButtonGrid = obj.inputButtonGrid
 	inputButtonId = obj.inputButtonId
@@ -591,7 +608,7 @@ function createContent(obj, parent) {
 
 				pageIndex = buttonShort[i]
 				// 	// Con esto veo que boton es /////////////////////////////////
-
+				console.log(buttonShort[i])
 				createSubVideos(
 					`assets/${parent}/${buttonShort[i]}/${buttonShort[i]}1.mp4`,
 					`assets/${parent}/${buttonShort[i]}/${buttonShort[i]}2.mp4`,
@@ -650,33 +667,6 @@ function createContent(obj, parent) {
 		})
 	}
 
-	// function createSubVideoBackLoop() {
-	// 	subVideoBackLoop = document.createElement('video')
-	// 	subVideoBackLoop.src = `assets/${parent}/${parent}BackLoop.mp4`
-	// 	subVideoBackLoop.muted = true
-	// 	subVideoBackLoop.autoplay = true
-	// 	subVideoBackLoop.setAttribute('playsinline', 'playsinline')
-	// 	subVideoBackLoop.controls = false
-	// 	subVideoBackLoop.classList.add('subVideo')
-	// 	// subVideoBackLoop.classList.add('short-vanish')
-	// 	subVideoBackLoop.style.opacity = 0
-	// 	subVideoBackLoop.pause()
-	// 	subVideoBackLoopContainer.appendChild(subVideoBackLoop)
-	// }
-	// function createSubVideoTurn() {
-	// 	subVideoTurn = document.createElement('video')
-	// 	subVideoTurn.src = `assets/${parent}/${parent}Turn.mp4`
-	// 	subVideoTurn.muted = true
-	// 	subVideoTurn.autoplay = true
-	// 	subVideoTurn.setAttribute('playsinline', 'playsinline')
-	// 	subVideoTurn.controls = false
-	// 	subVideoTurn.classList.add('subVideo')
-	// 	subVideoTurn.style.opacity = 0
-	// 	subVideoTurn.currentTime = 0
-	// 	subVideoTurn.pause()
-	// 	subVideoTurnContainer.appendChild(subVideoTurn)
-	// }
-
 	if (pContent) {
 		pCont = document.createElement('div')
 		pCont.classList.add('pCont')
@@ -708,15 +698,25 @@ function createContent(obj, parent) {
 			if (delayInput) {
 				delay = delayInput
 			}
-
-			pContent.forEach((e, i) => {
+			console.log(currentButton)
+			pContent.forEach((e) => {
 				if (Number.isInteger(e)) {
 					elementContainer = document.createElement('span')
 					elementContainer.classList.add('elementContainer', 'imageContainer')
 					for (let i = 0; i < e; i++) {
 						let image = document.createElement('img')
-						image.src = `assets/${parent}/${pageIndex}/${pageIndex}${i + 1}.png`
-						image.style.width = '7em'
+						if (currentButton === 'tourlock18') {
+							image.src = `assets/${parent}/${currentButton}/${currentButton}${
+								i + 1
+							}.png`
+							image.style.width = '20em'
+						} else {
+							image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
+								i + 1
+							}.png`
+							image.style.width = '7em'
+						}
+
 						elementContainer.appendChild(image)
 						paragraph.appendChild(elementContainer)
 					}
@@ -740,6 +740,74 @@ function createContent(obj, parent) {
 		pCont.appendChild(titleH2)
 		pCont.appendChild(paragraph)
 		textContent.appendChild(pCont)
+	}
+	if (pContent2) {
+		// pCont2 = document.createElement('div')
+		// pCont2.classList.add('pCont2')
+		// // list = document.createElement('ul')
+		// titleH2 = document.createElement('span')
+		// titleH2.classList.add('title1')
+		// titleH2.style.fontSize = globalBigTitleFontvar
+		// titleH2.innerHTML = labelTitle
+		// greenLine = document.createElement('hr')
+		// paragraph = document.createElement('p')
+		// titleH2.appendChild(greenLine)
+		// // paragraph.textContent = pContent
+		// // titleH2.style.fontSize = globalFontvar
+		// paragraph.style.fontSize = globalFontvar
+		// if (subTitle) {
+		// 	createdSubTitle = document.createElement('span')
+		// 	createdSubTitle.classList.add('createdSubtitle')
+		// 	createdSubTitle.textContent = subTitle
+		// 	createdSubTitle.style.fontWeight = 'bold'
+		// 	createdSubTitle.style.fontSize = globalMediumTitleFontvar
+		// 	titleH2.appendChild(createdSubTitle)
+		// }
+		// // el unico vivo
+		// createBackButton()
+		// if (Array.isArray(pContent)) {
+		// 	if (delayInput) {
+		// 		delay = delayInput
+		// 	}
+		// 	console.log(currentButton)
+		// 	pContent.forEach((e) => {
+		// 		if (Number.isInteger(e)) {
+		// 			elementContainer = document.createElement('span')
+		// 			elementContainer.classList.add('elementContainer', 'imageContainer')
+		// 			for (let i = 0; i < e; i++) {
+		// 				let image = document.createElement('img')
+		// 				if (currentButton === 'tourlock18') {
+		// 					image.src = `assets/${parent}/${currentButton}/${currentButton}${
+		// 						i + 1
+		// 					}.png`
+		// 					image.style.width = '20em'
+		// 				} else {
+		// 					image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
+		// 						i + 1
+		// 					}.png`
+		// 					image.style.width = '7em'
+		// 				}
+		// 				elementContainer.appendChild(image)
+		// 				paragraph.appendChild(elementContainer)
+		// 			}
+		// 		} else {
+		// 			elementContainer = document.createElement('span')
+		// 			elementContainer.classList.add('elementContainer')
+		// 			icon = document.createElement('img')
+		// 			icon.src = 'assets/icons/bp.png'
+		// 			icon.style.width = '1.3em'
+		// 			element = document.createElement('span')
+		// 			element.textContent = e
+		// 			element.style.fontSize = globalFontvar
+		// 			elementContainer.appendChild(icon)
+		// 			elementContainer.appendChild(element)
+		// 			paragraph.appendChild(elementContainer)
+		// 		}
+		// 	})
+		// }
+		// pCont2.appendChild(titleH2)
+		// pCont2.appendChild(paragraph)
+		// textContent.appendChild(pCont2)
 	}
 
 	firstPage.appendChild(textContent)
@@ -951,11 +1019,8 @@ function backButtonFunctionFront() {
 		console.log('back from back')
 		console.log(buttonContent[dataId[0]].content)
 		pageIndex = 'mainMenuFront'
-		createContent(
-			buttonContent[dataId[0]],
-
-			dataId[0]
-		)
+		console.log(currentButton)
+		createContent(buttonContent[currentButton], currentButton)
 		animations()
 		// backButton.style.pointerEvents = 'all'
 
@@ -1077,7 +1142,9 @@ function createBackButton(param) {
 			pageIndex === 'standardO' ||
 			pageIndex === 'piggybackingP' ||
 			pageIndex === 'emergencyE' ||
-			pageIndex === 'finishO'
+			pageIndex === 'finishO' ||
+			pageIndex === 'standardOP' ||
+			pageIndex === 'piggybackingPP'
 		) {
 			console.log('submenu')
 			backButton.addEventListener('click', backButtonFunctionFront)

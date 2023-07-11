@@ -552,6 +552,14 @@ a {
 	/* transform: scale(0); */
 	overflow: hidden;
 }
+.pCont2 {
+	color: white;
+	width: 60%;
+	height: 100%;
+
+	overflow: hidden;
+	display: none;
+}
 
 p {
 	white-space: pre-line;
