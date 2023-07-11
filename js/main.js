@@ -530,8 +530,6 @@ function createContent(obj, parent) {
 	inputButtonId = obj.inputButtonId
 	delayInput = obj.delay
 
-	console.log(obj)
-
 	const centerContainerMade = document.createElement('div')
 	centerContainerMade.classList.add('centerContainer')
 	centerContainerMade.setAttribute('id', 'centerContainer_text')
@@ -1247,12 +1245,8 @@ mainMenuB.forEach((e, i) => {
 				showCont.innerHTML = ''
 			}, 0)
 		}
-		console.log(buttonContent[dataId[i]])
-		createContent(
-			buttonContent[dataId[i]],
 
-			dataId[i]
-		)
+		createContent(buttonContent[dataId[i]], dataId[i])
 
 		window.addEventListener('resize', function (e) {
 			if (showCont.hasChildNodes()) {
