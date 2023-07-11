@@ -130,7 +130,7 @@ const buttonContent = {
 		subTitle: `Turnlock 100`,
 		content: [
 			`Deter unauthorized entry`,
-			`Prevent unauthorized entry with optional\n BE Secure Optional Overhead Sensor System`,
+			`Prevent unauthorized entry with optional\nBE Secure Overhead Sensor System`,
 			`2-way traffic, one direction at a time`,
 			`High capacity - 200 people in 10 minutes (in one direction)`,
 			`Integrates with any ACS or multi-factor schema`,
@@ -381,6 +381,12 @@ function animations() {
 								})
 							) {
 							} else {
+								if (pageIndex === 'piggybackingP') {
+									if (Math.floor(subVideo2.currentTime) === '40') {
+										console.log('40 LUCAS')
+									}
+								}
+
 								elementContainers[i].style.animation =
 									'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
 								inputArray.push(Math.floor(subVideo2.currentTime))
