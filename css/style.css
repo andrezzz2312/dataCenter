@@ -552,12 +552,10 @@ a {
 	/* transform: scale(0); */
 	overflow: hidden;
 }
-.pCont2 {
-	color: white;
-	width: 60%;
-	height: 100%;
-
-	overflow: hidden;
+#pCont2 {
+	display: none;
+}
+.elementContainerSecond {
 	display: none;
 }
 
@@ -606,6 +604,7 @@ li:last-child {
 	/* padding: 1% 1%; */
 	/* pointer-events: all; */
 	height: 80%;
+
 	/* position: absolute; */
 	/* margin-left: 5%;
 	margin-top: 3%; */

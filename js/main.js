@@ -217,15 +217,15 @@ const buttonContent = {
 			`Glass \nOptions`,
 		],
 		inputButtonId: [
-			`standardOP`,
-			`piggybackingPP`,
-			`tailgatingP1P`,
-			`tailgatingP2P`,
-			`emergencyEP`,
-			`glassOP`,
+			`standardO`,
+			`piggybackingP`,
+			`tailgatingP1`,
+			`tailgatingP2`,
+			`emergencyE`,
+			`glassO`,
 		],
 		boxInfo: {
-			standardOP: {
+			standardO: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Standard Operation</span>`,
@@ -241,7 +241,7 @@ const buttonContent = {
 				],
 				delay: [1, 5, 11, 16, 24],
 			},
-			piggybackingPP: {
+			piggybackingP: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Piggybacking Prevention</span>`,
@@ -262,7 +262,7 @@ const buttonContent = {
 				],
 				delay: [0, 5, 9, 15, 19, 25, 30, 38],
 			},
-			emergencyEP: {
+			emergencyE: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Emergency Egress</span>`,
@@ -270,7 +270,7 @@ const buttonContent = {
 					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
 				],
 			},
-			finishOP: {
+			finishO: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Finish Options</span>`,
@@ -737,77 +737,54 @@ function createContent(obj, parent) {
 			})
 		}
 
+		if (pContent2) {
+			if (Array.isArray(pContent2)) {
+				if (delayInput) {
+					delay = delayInput
+				}
+				console.log(currentButton)
+				pContent2.forEach((e) => {
+					if (Number.isInteger(e)) {
+						elementContainer = document.createElement('span')
+						elementContainer.classList.add('elementContainer', 'imageContainer')
+						for (let i = 0; i < e; i++) {
+							let image = document.createElement('img')
+							if (currentButton === 'tourlock18') {
+								image.src = `assets/${parent}/${currentButton}/${currentButton}${
+									i + 1
+								}.png`
+								image.style.width = '20em'
+							} else {
+								image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
+									i + 1
+								}.png`
+								image.style.width = '7em'
+							}
+
+							elementContainer.appendChild(image)
+							paragraph.appendChild(elementContainer)
+						}
+					} else {
+						elementContainer = document.createElement('span')
+						elementContainer.classList.add('elementContainer')
+						elementContainer.setAttribute('id', 'pCont2')
+						icon = document.createElement('img')
+						icon.src = 'assets/icons/bp.png'
+						icon.style.width = '1.3em'
+
+						element = document.createElement('span')
+						element.textContent = e
+						element.style.fontSize = globalFontvar
+						elementContainer.appendChild(icon)
+						elementContainer.appendChild(element)
+						paragraph.appendChild(elementContainer)
+					}
+				})
+			}
+		}
 		pCont.appendChild(titleH2)
 		pCont.appendChild(paragraph)
 		textContent.appendChild(pCont)
-	}
-	if (pContent2) {
-		// pCont2 = document.createElement('div')
-		// pCont2.classList.add('pCont2')
-		// // list = document.createElement('ul')
-		// titleH2 = document.createElement('span')
-		// titleH2.classList.add('title1')
-		// titleH2.style.fontSize = globalBigTitleFontvar
-		// titleH2.innerHTML = labelTitle
-		// greenLine = document.createElement('hr')
-		// paragraph = document.createElement('p')
-		// titleH2.appendChild(greenLine)
-		// // paragraph.textContent = pContent
-		// // titleH2.style.fontSize = globalFontvar
-		// paragraph.style.fontSize = globalFontvar
-		// if (subTitle) {
-		// 	createdSubTitle = document.createElement('span')
-		// 	createdSubTitle.classList.add('createdSubtitle')
-		// 	createdSubTitle.textContent = subTitle
-		// 	createdSubTitle.style.fontWeight = 'bold'
-		// 	createdSubTitle.style.fontSize = globalMediumTitleFontvar
-		// 	titleH2.appendChild(createdSubTitle)
-		// }
-		// // el unico vivo
-		// createBackButton()
-		// if (Array.isArray(pContent)) {
-		// 	if (delayInput) {
-		// 		delay = delayInput
-		// 	}
-		// 	console.log(currentButton)
-		// 	pContent.forEach((e) => {
-		// 		if (Number.isInteger(e)) {
-		// 			elementContainer = document.createElement('span')
-		// 			elementContainer.classList.add('elementContainer', 'imageContainer')
-		// 			for (let i = 0; i < e; i++) {
-		// 				let image = document.createElement('img')
-		// 				if (currentButton === 'tourlock18') {
-		// 					image.src = `assets/${parent}/${currentButton}/${currentButton}${
-		// 						i + 1
-		// 					}.png`
-		// 					image.style.width = '20em'
-		// 				} else {
-		// 					image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
-		// 						i + 1
-		// 					}.png`
-		// 					image.style.width = '7em'
-		// 				}
-		// 				elementContainer.appendChild(image)
-		// 				paragraph.appendChild(elementContainer)
-		// 			}
-		// 		} else {
-		// 			elementContainer = document.createElement('span')
-		// 			elementContainer.classList.add('elementContainer')
-		// 			icon = document.createElement('img')
-		// 			icon.src = 'assets/icons/bp.png'
-		// 			icon.style.width = '1.3em'
-		// 			element = document.createElement('span')
-		// 			element.textContent = e
-		// 			element.style.fontSize = globalFontvar
-		// 			elementContainer.appendChild(icon)
-		// 			elementContainer.appendChild(element)
-		// 			paragraph.appendChild(elementContainer)
-		// 		}
-		// 	})
-		// }
-		// pCont2.appendChild(titleH2)
-		// pCont2.appendChild(paragraph)
-		// textContent.appendChild(pCont2)
 	}
 
 	firstPage.appendChild(textContent)
@@ -895,9 +872,8 @@ function createRotation() {
 		model.classList.add('Sirv')
 
 		model.setAttribute('data-src', rotationContent[currentButton])
-
-		rotation.appendChild(model)
 		createBackButton('rotationPage')
+		rotation.appendChild(model)
 	}, 0)
 }
 
@@ -1063,6 +1039,7 @@ function createBackButton(param) {
 	if (param === 'rotationPage') {
 		const centerContainerMade = document.createElement('div')
 		centerContainerMade.classList.add('centerContainer')
+		// centerContainerMade.style.pointerEvents = 'none'
 		centerContainerMade.setAttribute('id', 'centerContainer_text')
 		const textContainerMade = document.createElement('div')
 		textContainerMade.classList.add('textContainer')
@@ -1082,6 +1059,7 @@ function createBackButton(param) {
 		backButtonRotation.addEventListener('click', exitRotation)
 		console.log(backButtonRotation)
 		backButtonRotation.textContent = 'Back'
+		backButtonRotation.style.pointerEvents = 'all'
 		backButtonContainer = document.createElement('div')
 		brandIcon = document.createElement('img')
 		brandIcon.src = '../assets/icons/150logo.png'
@@ -1106,6 +1084,7 @@ function createBackButton(param) {
 		backButton = document.createElement('button')
 		backButton.classList.add('backButton')
 		backButton.style.fontSize = buttonFontvar
+
 		backButton.style.width = `calc(47px + (147 - 47) * ((${
 			containVideoWidth + 'px'
 		} - 320px) / (1440 - 320)))`
@@ -1142,9 +1121,7 @@ function createBackButton(param) {
 			pageIndex === 'standardO' ||
 			pageIndex === 'piggybackingP' ||
 			pageIndex === 'emergencyE' ||
-			pageIndex === 'finishO' ||
-			pageIndex === 'standardOP' ||
-			pageIndex === 'piggybackingPP'
+			pageIndex === 'finishO'
 		) {
 			console.log('submenu')
 			backButton.addEventListener('click', backButtonFunctionFront)
