@@ -262,24 +262,45 @@ const buttonContent = {
 				],
 				delay: [0, 5, 9, 15, 19, 24, 30, 36, 44, 51, 58],
 			},
-			emergencyE: {
+			tailgatingP1: {
 				textLeft: '0%',
 				textTop: '0%',
-				title: `<span style = 'font-weight:bold'>Emergency Egress</span>`,
+				title: `<span style = 'font-weight:bold'>Tailgating Prevention 1</span>`,
+
 				content: [
-					`Upon signal from alarm system, turnstile unlocks outbound\nallowing egress only`,
+					`An attempt to enter an empty compartment\nas an authorized user is entering`,
+					`Credential or biometric is presented`,
+					`Valid credential turns inbound LEDs green;\nprivdes tone/voice on authorized user side only`,
+					`Door does not start rotating until the authorized user enters\n and is detected`,
+					`Overhead sensor detects the second person after door\nhas rotated 90\u00B0, stops and locks the door; turns LEDs red;\nprovides audible signal within the violating compartment only`,
 				],
+				content2: [
+					`Door continues to rotate another 45\u00B0, then stops and relocks`,
+					`Authorized user has successfully entered.\nUnauthorized user prevented entry`,
+					`When compartment is empty, door rotates forward an additional\n45\u00B0, repositioned to the "x" rest of home position`,
+					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention).\nAlways in compliance`,
+				],
+				delay: [0, 6, 10, 18, 23, 35, 41, 47, 53],
 			},
-			finishO: {
+			tailgatingP2: {
 				textLeft: '0%',
 				textTop: '0%',
-				title: `<span style = 'font-weight:bold'>Finish Options</span>`,
+				title: `<span style = 'font-weight:bold'>Tailgating Prevention 2</span>`,
+
 				content: [
-					`Turnstile available in galvanized steel, powder-coated steel or stainless steel`,
-					3,
-					`Tandem space-saving models available`,
-					`Metal screens can be installed in addition to horizontal bars`,
+					`An unauthorized user attempting to enter as an\nauthorized user is exiting from the secured side`,
+					`Free exiting; or credential or biometric is presented`,
+					`Valid credential turns outbound LEDs green and provides\naudible tone/voice on the authorized user side of the door only`,
+					`Door does not start rotating until the authorized user enters\n and is detected`,
+					`Overhead sensor detects the unauthorized person after\ndoor has rotated 45\u00B0`,
 				],
+				content2: [
+					`Unauthorized user prevented entry; authorized user\nprevented from exiting. Authorized user annd the unauthorized\nuser must exit the door. Once compartments are cleared ...`,
+					`Door rotates 45\u00B0, then stops and relocks `,
+					`Authorized user re-attempts to exit`,
+					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention).\nAlways in compliance`,
+				],
+				delay: [0, 6, 10, 18, 25, 28, 40, 44, 47],
 			},
 		},
 
@@ -381,7 +402,6 @@ function animations() {
 								})
 							) {
 							} else {
-								console.log(inputArray)
 								if (pageIndex === 'piggybackingP') {
 									if (Math.floor(subVideo2.currentTime) === 36) {
 										const elementContainersId =
@@ -410,6 +430,63 @@ function animations() {
 										inputArray.push(Math.floor(subVideo2.currentTime))
 									}
 								}
+								if (pageIndex === 'tailgatingP1') {
+									if (Math.floor(subVideo2.currentTime) === 35) {
+										const elementContainersId =
+											document.querySelectorAll('#pCont1')
+										console.log(elementContainersId)
+										elementContainersId.forEach((element) => {
+											element.style.animation =
+												'vanishpCont 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards '
+											setTimeout(() => {
+												element.style.display = 'none'
+												const elementContainersId2 =
+													document.querySelectorAll('#pCont2')
+												elementContainersId2.forEach((element) => {
+													element.style.display = 'flex'
+												})
+											}, 800)
+										})
+										elementContainers[i].style.animation =
+											'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
+
+										inputArray.push(Math.floor(subVideo2.currentTime))
+									} else {
+										elementContainers[i].style.animation =
+											'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
+
+										inputArray.push(Math.floor(subVideo2.currentTime))
+									}
+								}
+								if (pageIndex === 'tailgatingP2') {
+									if (Math.floor(subVideo2.currentTime) === 28) {
+										const elementContainersId =
+											document.querySelectorAll('#pCont1')
+										console.log(elementContainersId)
+										elementContainersId.forEach((element) => {
+											element.style.animation =
+												'vanishpCont 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards '
+											setTimeout(() => {
+												element.style.display = 'none'
+												const elementContainersId2 =
+													document.querySelectorAll('#pCont2')
+												elementContainersId2.forEach((element) => {
+													element.style.display = 'flex'
+												})
+											}, 800)
+										})
+										elementContainers[i].style.animation =
+											'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
+
+										inputArray.push(Math.floor(subVideo2.currentTime))
+									} else {
+										elementContainers[i].style.animation =
+											'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
+
+										inputArray.push(Math.floor(subVideo2.currentTime))
+									}
+								}
+								console.log(inputArray)
 							}
 						}
 					}
@@ -1147,7 +1224,9 @@ function createBackButton(param) {
 			pageIndex === 'standardO' ||
 			pageIndex === 'piggybackingP' ||
 			pageIndex === 'emergencyE' ||
-			pageIndex === 'finishO'
+			pageIndex === 'finishO' ||
+			pageIndex === 'tailgatingP1' ||
+			pageIndex === 'tailgatingP2'
 		) {
 			console.log('submenu')
 			backButton.addEventListener('click', backButtonFunctionFront)
