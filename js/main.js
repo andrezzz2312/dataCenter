@@ -209,12 +209,12 @@ const buttonContent = {
 			1,
 		],
 		inputButtonGrid: [
-			`Standard \nOperation`,
-			`Piggybacking \n Prevention`,
-			`Tailgating \nPrevention 1`,
-			`Tailgating \nPrevention 2`,
-			`Emergency \nEgress`,
-			`Glass \nOptions`,
+			`Standard\nOperation`,
+			`Piggybacking\n Prevention`,
+			`Tailgating\nPrevention 1`,
+			`Tailgating\nPrevention 2`,
+			`Emergency\nEgress`,
+			`Glass\nOptions`,
 		],
 		inputButtonId: [
 			`standardO`,
@@ -270,7 +270,7 @@ const buttonContent = {
 				content: [
 					`An attempt to enter an empty compartment\nas an authorized user is entering`,
 					`Credential or biometric is presented`,
-					`Valid credential turns inbound LEDs green;\nprivdes tone/voice on authorized user side only`,
+					`Valid credential turns inbound LEDs green,\nprovides tone/voice on authorized user side only`,
 					`Door does not start rotating until the authorized user enters\n and is detected`,
 					`Overhead sensor detects the second person after door\nhas rotated 90\u00B0, stops and locks the door; turns LEDs red;\nprovides audible signal within the violating compartment only`,
 				],
@@ -345,12 +345,12 @@ const buttonContent = {
 			1,
 		],
 		inputButtonGrid: [
-			`Standard \nOperation`,
-			`Piggybacking \n Prevention`,
-			`Tailgating \nPrevention 1`,
-			`Tailgating \nPrevention 2`,
-			`Emergency \nEgress`,
-			`Glass \nOptions`,
+			`Standard\nOperation`,
+			`Piggybacking\n Prevention`,
+			`Tailgating\nPrevention 1`,
+			`Tailgating\nPrevention 2`,
+			`Emergency\nEgress`,
+			`Glass\nOptions`,
 		],
 		inputButtonId: [
 			`standardO`,
@@ -406,7 +406,7 @@ const buttonContent = {
 				content: [
 					`An attempt to enter an empty compartment\nas an authorized user is entering`,
 					`Credential or biometric is presented`,
-					`Valid credential turns inbound LEDs green;\nprivdes tone/voice on authorized user side only`,
+					`Valid credential turns inbound LEDs green,\nprovides tone/voice on authorized user side only`,
 					`Door does not start rotating until the authorized user enters\n and is detected`,
 					`Overhead sensor detects the second person after door\nhas rotated 90\u00B0, stops and locks the door; turns LEDs red;\nprovides audible signal within the violating compartment only`,
 				],
@@ -481,11 +481,11 @@ const buttonContent = {
 			1,
 		],
 		inputButtonGrid: [
-			`Standard \nOperation`,
-			`Piggybacking \n Prevention 1`,
-			`Piggybacking \n Prevention 2`,
-			`Emergency \nEgress`,
-			`Glass \nOptions`,
+			`Standard\nOperation`,
+			`Piggybacking\n Prevention 1`,
+			`Piggybacking\n Prevention 2`,
+			`Emergency\nEgress`,
+			`Glass\nOptions`,
 		],
 		inputButtonId: [
 			`standardO`,
@@ -586,11 +586,11 @@ const buttonContent = {
 			1,
 		],
 		inputButtonGrid: [
-			`Standard \nOperation`,
-			`Piggybacking \n Prevention 1`,
-			`Piggybacking \n Prevention 2`,
-			`Emergency \nEgress`,
-			`Glass \nOptions`,
+			`Standard\nOperation`,
+			`Piggybacking\n Prevention 1`,
+			`Piggybacking\n Prevention 2`,
+			`Emergency\nEgress`,
+			`Glass\nOptions`,
 		],
 		inputButtonId: [
 			`standardO`,
@@ -681,102 +681,72 @@ const buttonContent = {
 		textLeft: '0%',
 		textBottom: '0%',
 		title: `<span><span style = 'font-weight:bold'>OPTICAL</span> <span>TURNSTILE</span></span>`,
-		subTitle: `Circlelock Solo`,
+		subTitle: `Lifeline Speedlane Swing`,
 		content: [
-			`Prevent unauthorized entry`,
+			`Detect unauthorized entry`,
 			`2-way traffic, one direction at a time`,
-			`Low capacity - 60 people in 10 minutes`,
+			`High capacity - 300 people in 10 minutes in one direction`,
 			`Integrates with any ACS or multi-factor schema`,
-			`Risk Score - 0.8%, Efficiency Score - 99.2%`,
-			1,
 		],
 		inputButtonGrid: [
-			`Standard \nOperation`,
-			`Piggybacking \n Prevention 1`,
-			`Piggybacking \n Prevention 2`,
-			`Emergency \nEgress`,
-			`Glass \nOptions`,
+			`Standard\nOperation`,
+			`Tailgating\nPrevention`,
+			`Emergency\nEgress`,
+			`Glass\nOptions`,
 		],
-		inputButtonId: [
-			`standardO`,
-			`piggybackingP1`,
-			`piggybackingP2`,
-			`emergencyE`,
-			`glassO`,
-		],
+		inputButtonId: [`standardO`, `tailgatingP`, `emergencyE`, `glassO`],
 		boxInfo: {
 			standardO: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Standard Operation</span>`,
-
 				content: [
 					`Credential or biometric is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
-					`StereoVision takes sampling 1`,
-					`Door starts to close. Just prior to closure, StereoVision takes sampling 2`,
-					`An optional, internal biometric device is activated upon door closure.\nThis validates user and prevets substitution`,
-					`Interior door opens, then closes`,
+					`Valid credential turns LEDs green,\nand provides audible signal (tone or voice)`,
+					`Volumetric sensor system detects authorized user`,
+					`Turnstile glass panels swing in, then close`,
+					`An authorized user can exit after the authorized user has entered`,
+					`Turnstile glass panels swing out, then close`,
+					`Exiting can also be set up as free out, requiring no credentials`,
 				],
-				delay: [1, 5, 17, 21, 26, 31],
+				delay: [2, 5, 11, 15, 19, 24, 30],
 			},
-			piggybackingP1: {
+			tailgatingP: {
 				textLeft: '0%',
 				textTop: '0%',
-				title: `<span style = 'font-weight:bold'>Piggybacking Prevention 1</span>`,
+				title: `<span style = 'font-weight:bold'>Tailgating Prevention</span>`,
 				content: [
-					`Piggybacking is an attempt for two people to enter`,
-					`Credential or push button is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
-					`StereoVision takes sampling 1`,
-					`StereoVision detects two people`,
-					`Door remains open, and voice command prompts both people\nto exit. Turns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED turns red until the\npassage is completed or terminated `,
-					`After exiting, outer door closes`,
-					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
+					`Tailgating is an attempt to follow an authorized user`,
+					`Credential or biometric is presented`,
+					`Valid credential turns inbound LEDs green, unlocks turnstile\nand provides audible tone/voice`,
+					`Volumetric sensor system detecs authorized user`,
+					`Turnstile glass panels swing in`,
+					`Volumetric sensor system detects unauthorized person`,
+					`Unauthorized user detected, sounding alarm`,
+					`Glass panels close, provided safety sensor system not engaged`,
+					`No DHO or DFO, Automated resolution. Compliance maintained`,
 				],
-				delay: [2, 5, 10, 21, 25, 28, 41, 45],
+				delay: [2, 6, 10, 15, 18, 22, 26, 31, 37],
 			},
-			piggybackingP2: {
-				textLeft: '0%',
-				textTop: '0%',
-				title: `<span style = 'font-weight:bold'>Piggybacking Prevention 2</span>`,
-				content: [
-					`Piggybacking is an attempt for two people to enter`,
-					`Credential or push button is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
-					`StereoVision takes sampling 1. Door closes, StereoVision takes sampling 2`,
-					`StereoVision detects two people`,
-					`Door re-opens, and voice command prompts both people to exit.\nTurns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED turns red until the\npassage is completed or terminated `,
-					`After exiting, outer door closes`,
-					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
-				],
-				delay: [2, 7, 11, 21, 30, 35, 49, 53],
-			},
+
 			emergencyE: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Emergency Egress</span>`,
 				content: [
-					`Upon signal from alarm system, outer door opens`,
-					`Inner Door typically remains closed and locked`,
-					`No entrapment`,
-					`No open door`,
-					`Inner door can be programmed to open also`,
-					`A side swing door is typically required to meet code`,
+					`Upon signal from alarm system, turnstile panels unlock or swing out`,
 				],
-				delay: [1, 5, 9, 11, 13, 15],
 			},
 			glassO: {
 				textLeft: '0%',
 				textTop: '0%',
 				title: `<span style = 'font-weight:bold'>Glass Options</span>`,
 				content: [
-					`Door panel glass is \u00BC" curved clear tempered`,
-					`Wall panel glass is \u00BC" curved clear tempered `,
-					`All glass can be enhanced with vandal resistant or bullet resistant glass film`,
-					`All glass can be replaced by BR level 1 laminated glass`,
+					`Glass is \u00BC" flat clear tempered`,
+					`Glass can be cabinet height or tall`,
+					`All glass can be enhanced with vandal resistant glass film`,
 				],
-				delay: [0, 4, 9, 16],
+				delay: [2, 6, 10],
 			},
 		},
 
@@ -823,7 +793,7 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 	videoToPlay.style.opacity = 1
 	setTimeout(() => {
 		videoToPlay.play()
-	}, 0)
+	}, 500)
 }
 
 // loop.currentTime = 60
@@ -1044,11 +1014,16 @@ function createSubVideos(source1, source2, source3) {
 	if (source2) {
 		subVideo2 = document.createElement('video')
 		subVideo2.src = source2
-		if (currentButton === 'tourlock180' || currentButton === 'tourlock182') {
+		if (
+			currentButton === 'tourlock180' ||
+			currentButton === 'tourlock182' ||
+			currentButton === 'circlelockSo'
+		) {
+			if (pageIndex === 'emergencyE') {
+				subVideo2.loop = true
+			}
 		}
-		if (pageIndex === 'emergencyE') {
-			subVideo2.loop = true
-		}
+
 		subVideo2.muted = true
 		subVideo2.setAttribute('playsinline', 'playsinline')
 		subVideo2.controls = false
@@ -1722,6 +1697,7 @@ function createBackButton(param) {
 			pageIndex === 'piggybackingP' ||
 			pageIndex === 'emergencyE' ||
 			pageIndex === 'finishO' ||
+			pageIndex === 'tailgatingP' ||
 			pageIndex === 'tailgatingP1' ||
 			pageIndex === 'tailgatingP2' ||
 			pageIndex === 'glassO' ||
