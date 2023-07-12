@@ -150,7 +150,7 @@ const buttonContent = {
 
 				content: [
 					`Credential or biometric presented`,
-					`Valid credential turns LED green`,
+					`Valid credential turns LED green,\nunlocks turnstile and provides tone/voice`,
 					`Turnstile rotates 120\u00B0, relocks, and sends a door closure signal,\nlogging the user into the space  `,
 					`An authorized user can exit after the authorized user has entered`,
 					`Exiting can also be set up as free out, requiring no credentials`,
