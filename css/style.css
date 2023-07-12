@@ -735,6 +735,14 @@ li:last-child {
 		opacity: 0;
 	}
 }
+@keyframes vanishpCont {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
 
 @keyframes show {
 	0% {
