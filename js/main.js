@@ -248,11 +248,11 @@ const buttonContent = {
 				content: [
 					`Piggybacking is an attempt to enter in same compartment\n as an authorized user`,
 					`Credential or biometric is presented`,
-					`Valid credential turns inbound LEDs green\nand provides tone/voice on authorized user side only`,
 					`Door not start rotating until the authorized user enters and is detected `,
 					`Door rotates 45\u00B0, StereoVision samples for one person only\n(door continues to rotate during StereoVision scanning)`,
 					`Door rotates another 30\u00B0; StereoVision re-samples for one person only\n(door continues to rotate during StereoVision scanning)`,
 					`If StereoVision detects authorized person alone, door rotates to 180\u00B0`,
+					`Valid credential turns inbound LEDs green\nand provides tone/voice on authorized user side only`,
 				],
 				content2: [
 					`If StereoVision detects unauthorized person, door stops at 90\u00B0`,
@@ -260,7 +260,7 @@ const buttonContent = {
 					`Door reverses 45\u00B0, forcing both people to exit the compartment`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention).\nAlways in compliance`,
 				],
-				delay: [0, 5, 9, 15, 19, 25, 30, 38],
+				delay: [0, 5, 9, 15, 19, 24, 30, 36, 44, 51, 58],
 			},
 			emergencyE: {
 				textLeft: '0%',
@@ -362,7 +362,7 @@ function animations() {
 			let inputArray = []
 			let bool = false
 			subVideo2.addEventListener('timeupdate', function () {
-				// console.log(subVideo2.currentTime)
+				console.log(subVideo2.currentTime)
 				//currentTime use second, if you want min *60
 
 				delay.forEach((element, i) => {
@@ -381,22 +381,39 @@ function animations() {
 								})
 							) {
 							} else {
+								console.log(inputArray)
 								if (pageIndex === 'piggybackingP') {
-									if (Math.floor(subVideo2.currentTime) === '40') {
-										console.log('40 LUCAS')
+									if (Math.floor(subVideo2.currentTime) === 36) {
+										const elementContainersId =
+											document.querySelectorAll('#pCont1')
+										console.log(elementContainersId)
+										elementContainersId.forEach((element) => {
+											element.style.animation =
+												'vanishpCont 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards '
+											setTimeout(() => {
+												element.style.display = 'none'
+												const elementContainersId2 =
+													document.querySelectorAll('#pCont2')
+												elementContainersId2.forEach((element) => {
+													element.style.display = 'flex'
+												})
+											}, 800)
+										})
+										elementContainers[i].style.animation =
+											'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
+
+										inputArray.push(Math.floor(subVideo2.currentTime))
+									} else {
+										elementContainers[i].style.animation =
+											'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
+
+										inputArray.push(Math.floor(subVideo2.currentTime))
 									}
 								}
-
-								elementContainers[i].style.animation =
-									'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
-								inputArray.push(Math.floor(subVideo2.currentTime))
 							}
 						}
 					}
 					// console.log(pageIndex)
-					if (pageIndex === 'piggybackingP') {
-						// console.log('ARISTOGATOS')
-					}
 				})
 
 				if (inputArray.length === delay.length && !bool) {
@@ -730,6 +747,8 @@ function createContent(obj, parent) {
 				} else {
 					elementContainer = document.createElement('span')
 					elementContainer.classList.add('elementContainer')
+					elementContainer.setAttribute('id', 'pCont1')
+
 					icon = document.createElement('img')
 					icon.src = 'assets/icons/bp.png'
 					icon.style.width = '1.3em'
