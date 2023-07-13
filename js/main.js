@@ -1015,7 +1015,7 @@ function createSubVideos(source1, source2, source3) {
 		subVideo2 = document.createElement('video')
 		subVideo2.src = source2
 		if (
-			currentButton === 'tourlock10' ||
+			currentButton === 'turnlock10' ||
 			currentButton === 'tourlock18' ||
 			currentButton === 'tourlock182' ||
 			currentButton === 'circlelockSo' ||
