@@ -1015,6 +1015,7 @@ function createSubVideos(source1, source2, source3) {
 		subVideo2 = document.createElement('video')
 		subVideo2.src = source2
 		if (
+			currentButton === 'tourlock100' ||
 			currentButton === 'tourlock180' ||
 			currentButton === 'tourlock182' ||
 			currentButton === 'circlelockSo'
@@ -1471,6 +1472,8 @@ function exitRotation() {
 	console.log('remove show')
 	rotation.classList.remove('show')
 	rotation.classList.add('short-vanish')
+
+	// animations()
 	// rotation.innerHTML = ''
 
 	// createBackButton()
@@ -1887,23 +1890,21 @@ mainMenuB.forEach((e, i) => {
 				if (pageIndex === 'mainMenuFront') {
 					console.log(globalParent)
 					console.log(buttonContent[globalParent])
-					createContent(
-						buttonContent[dataId[i]],
-
-						dataId[i]
-					)
+					createContent(buttonContent[dataId[i]], dataId[i])
 				} else {
 					console.log(globalParent)
 					console.log(buttonContent[globalParent])
 
 					createContent(
 						buttonContent[globalParent].boxInfo[pageIndex],
-
 						dataId[i]
 					)
 				}
 
 				animations()
+				if (subVideo2) {
+					subVideo2.currentTime = 0
+				}
 
 				// if (buttonsText[i] === 'whyF') {
 				// 	createBackButton('pos')
