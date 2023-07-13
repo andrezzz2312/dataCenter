@@ -907,7 +907,7 @@ function animations() {
 										inputArray.push(Math.floor(subVideo2.currentTime))
 									}
 								} else if (pageIndex === 'tailgatingP2') {
-									if (Math.floor(subVideo2.currentTime) === 28) {
+									if (Math.floor(subVideo2.currentTime) === 30) {
 										const elementContainersId =
 											document.querySelectorAll('#pCont1')
 										console.log(elementContainersId)
