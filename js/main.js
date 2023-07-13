@@ -1155,7 +1155,7 @@ function createContent(obj, parent) {
 
 			const subButton = document.createElement('button')
 			subButton.classList.add('pageButton')
-			subButton.style.width = `calc(60px + (145 - 60) * ((${
+			subButton.style.width = `calc(55px + (145 - 55) * ((${
 				containVideoWidth + 'px'
 			} - 320px) / (1440 - 320)))`
 			subButton.textContent = e
