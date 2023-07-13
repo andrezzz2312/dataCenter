@@ -1515,14 +1515,15 @@ function backButtonFunction() {
 	loop.currentTime = 0
 	loop.pause()
 	video3.addEventListener('ended', () => {
-		video3.classList.add('short-vanish')
+		// video3.classList.add('short-vanish')
 		loop.classList.remove('short-vanish')
+		loop.classList.add('show')
+		loop.play()
 		setTimeout(() => {
-			loop.play()
 			video1.remove()
 			video2.remove()
 			video3.remove()
-		}, 0)
+		}, 500)
 
 		HideShowMainButtons()
 
@@ -1554,6 +1555,7 @@ function backButtonFunctionFromBack() {
 	subVideoTurn.addEventListener('ended', () => {
 		console.log('subVideoTurn ending')
 		loop.classList.remove('short-vanish')
+		loop.classList.add('show')
 		HideShowMainButtons()
 		setTimeout(() => {
 			loop.play()
@@ -1958,6 +1960,7 @@ mainMenuB.forEach((e, i) => {
 					clearInterval(clearcheck)
 
 					loop.classList.add('short-vanish')
+					loop.classList.remove('show')
 					video1.style.opacity = 1
 
 					setTimeout(() => {
