@@ -1279,12 +1279,20 @@ function createContent(obj, parent) {
 							image.src = `assets/${parent}/${currentButton}/${currentButton}${
 								i + 1
 							}.png`
-							image.style.width = '19em'
+							if (isMobile) {
+								image.style.width = '19em'
+							} else {
+								image.style.width = '24em'
+							}
 						} else {
 							image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
 								i + 1
 							}.png`
-							image.style.width = '7em'
+							if (isMobile) {
+								image.style.width = '7em'
+							} else {
+								image.style.width = '10em'
+							}
 						}
 
 						elementContainer.appendChild(image)
@@ -1330,12 +1338,20 @@ function createContent(obj, parent) {
 								image.src = `assets/${parent}/${currentButton}/${currentButton}${
 									i + 1
 								}.png`
-								image.style.width = '20em'
+								if (isMobile) {
+									image.style.width = '20em'
+								} else {
+									image.style.width = '25em'
+								}
 							} else {
 								image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
 									i + 1
 								}.png`
-								image.style.width = '7em'
+								if (isMobile) {
+									image.style.width = '7em'
+								} else {
+									image.style.width = '10em'
+								}
 							}
 
 							elementContainer.appendChild(image)
