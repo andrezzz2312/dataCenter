@@ -1019,6 +1019,7 @@ function createSubVideos(source1, source2, source3) {
 			currentButton === 'tourlock18' ||
 			currentButton === 'tourlock182' ||
 			currentButton === 'circlelockSo' ||
+			currentButton === 'circlelockSo2' ||
 			currentButton === 'lifelineSw'
 		) {
 			if (pageIndex === 'emergencyE') {
