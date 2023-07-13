@@ -548,7 +548,7 @@ const buttonContent = {
 				title: `<span style = 'font-weight:bold'>Emergency Egress</span>`,
 				content: [
 					`Upon signal from alarm system, outer door opens`,
-					`Inner Door typically remains closed and locked`,
+					`Inner door typically remains closed and locked`,
 					`No entrapment`,
 					`No open door`,
 					`Inner door can be programmed to open also`,
@@ -653,7 +653,7 @@ const buttonContent = {
 				title: `<span style = 'font-weight:bold'>Emergency Egress</span>`,
 				content: [
 					`Upon signal from alarm system, outer door opens`,
-					`Inner Door typically remains closed and locked`,
+					`Inner door typically remains closed and locked`,
 					`No entrapment`,
 					`No open door`,
 					`Inner door can be programmed to open also`,
