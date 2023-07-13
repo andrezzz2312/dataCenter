@@ -269,6 +269,7 @@ video::slotted::-webkit-media-controls-container {
 	text-align: center;
 	white-space: pre-line;
 	font-weight: bold;
+
 	/* border-radius: 10vh; */
 	/* position: absolute; */
 	border: none;
@@ -278,7 +279,7 @@ video::slotted::-webkit-media-controls-container {
 	border-radius: 10vh;
 	z-index: 2;
 	overflow: hidden;
-	height: 79%;
+	height: 90%;
 	padding: 0.5%;
 	background: #018c3c;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

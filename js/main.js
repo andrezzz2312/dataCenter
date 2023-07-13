@@ -203,7 +203,7 @@ const buttonContent = {
 		content: [
 			`Prevent unauthorized entry`,
 			`In and out simultaneous 2-way traffic`,
-			`High Throughput - 10 min. Peak of 150 people, each way`,
+			`High throughput - 10 min. peak of 150 people, each way`,
 			`Integrates with any ACS or multi-factor schema`,
 			`Risk Score - 2.7%, Efficiency Score - 97.3%`,
 			1,
@@ -248,11 +248,11 @@ const buttonContent = {
 				content: [
 					`Piggybacking is an attempt to enter in same compartment\n as an authorized user`,
 					`Credential or biometric is presented`,
+					`Valid credential turns inbound LEDs green\nand provides tone/voice on authorized user side only`,
 					`Door not start rotating until the authorized user enters and is detected `,
 					`Door rotates 45\u00B0, StereoVision samples for one person only\n(door continues to rotate during StereoVision scanning)`,
 					`Door rotates another 30\u00B0; StereoVision re-samples for one person only\n(door continues to rotate during StereoVision scanning)`,
 					`If StereoVision detects authorized person alone, door rotates to 180\u00B0`,
-					`Valid credential turns inbound LEDs green\nand provides tone/voice on authorized user side only`,
 				],
 				content2: [
 					`If StereoVision detects unauthorized person, door stops at 90\u00B0`,
@@ -277,7 +277,7 @@ const buttonContent = {
 				content2: [
 					`Door continues to rotate another 45\u00B0, then stops and relocks`,
 					`Authorized user has successfully entered.\nUnauthorized user prevented entry`,
-					`When compartment is empty, door rotates forward an additional\n45\u00B0, repositioned to the "x" rest of home position`,
+					`When compartment is empty, door rotates forward an additional\n45\u00B0, repositioned to the "x" rest or home position`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention).\nAlways in compliance`,
 				],
 				delay: [0, 6, 10, 18, 23, 35, 41, 47, 53],
@@ -295,12 +295,12 @@ const buttonContent = {
 					`Overhead sensor detects the unauthorized person after\ndoor has rotated 45\u00B0`,
 				],
 				content2: [
-					`Unauthorized user prevented entry; authorized user\nprevented from exiting. Authorized user annd the unauthorized\nuser must exit the door. Once compartments are cleared ...`,
+					`Unauthorized user prevented entry; authorized user\nprevented from exiting. Authorized user and the unauthorized\nuser must exit the door. Once compartments are cleared ...`,
 					`Door rotates 45\u00B0, then stops and relocks `,
 					`Authorized user re-attempts to exit`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention).\nAlways in compliance`,
 				],
-				delay: [0, 6, 10, 18, 25, 28, 40, 44, 47],
+				delay: [0, 6, 10, 18, 25, 30, 40, 44, 47],
 			},
 			emergencyE: {
 				textLeft: '0%',
@@ -325,7 +325,7 @@ const buttonContent = {
 					`All glass can be enhanced with vandal resistant or bullet resistant glass film`,
 					`All glass can be replaced by BR level 1 laminated glass`,
 				],
-				delay: [0, 4, 9, 16],
+				delay: [1, 5, 10, 17],
 			},
 		},
 
@@ -384,11 +384,11 @@ const buttonContent = {
 				content: [
 					`Piggybacking is an attempt to enter in same compartment\n as an authorized user`,
 					`Credential or biometric is presented`,
+					`Valid credential turns inbound LEDs green\nand provides tone/voice on authorized user side only`,
 					`Door not start rotating until the authorized user enters and is detected `,
 					`Door rotates 45\u00B0, StereoVision samples for one person only\n(door continues to rotate during StereoVision scanning)`,
 					`Door rotates another 30\u00B0; StereoVision re-samples for one person only\n(door continues to rotate during StereoVision scanning)`,
 					`If StereoVision detects authorized person alone, door rotates to 180\u00B0`,
-					`Valid credential turns inbound LEDs green\nand provides tone/voice on authorized user side only`,
 				],
 				content2: [
 					`If StereoVision detects unauthorized person, door stops at 90\u00B0`,
@@ -413,7 +413,7 @@ const buttonContent = {
 				content2: [
 					`Door continues to rotate another 45\u00B0, then stops and relocks`,
 					`Authorized user has successfully entered.\nUnauthorized user prevented entry`,
-					`When compartment is empty, door rotates forward an additional\n45\u00B0, repositioned to the "x" rest of home position`,
+					`When compartment is empty, door rotates forward an additional\n45\u00B0, repositioned to the "x" rest or home position`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention).\nAlways in compliance`,
 				],
 				delay: [0, 6, 10, 18, 23, 35, 41, 47, 53],
@@ -431,12 +431,12 @@ const buttonContent = {
 					`Overhead sensor detects the unauthorized person after\ndoor has rotated 45\u00B0`,
 				],
 				content2: [
-					`Unauthorized user prevented entry; authorized user\nprevented from exiting. Authorized user annd the unauthorized\nuser must exit the door. Once compartments are cleared ...`,
+					`Unauthorized user prevented entry; authorized user\nprevented from exiting. Authorized user and the unauthorized\nuser must exit the door. Once compartments are cleared ...`,
 					`Door rotates 45\u00B0, then stops and relocks `,
 					`Authorized user re-attempts to exit`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention).\nAlways in compliance`,
 				],
-				delay: [0, 6, 10, 18, 25, 28, 40, 44, 47],
+				delay: [0, 6, 10, 18, 25, 30, 40, 44, 47],
 			},
 			emergencyE: {
 				textLeft: '0%',
@@ -461,7 +461,7 @@ const buttonContent = {
 					`All glass can be enhanced with vandal resistant or bullet resistant glass film`,
 					`All glass can be replaced by BR level 1 laminated glass`,
 				],
-				delay: [0, 4, 9, 16],
+				delay: [1, 5, 10, 17],
 			},
 		},
 
@@ -501,8 +501,8 @@ const buttonContent = {
 				title: `<span style = 'font-weight:bold'>Standard Operation</span>`,
 
 				content: [
-					`Credential or biometric is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
+					`Credential or push button is presented`,
+					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`StereoVision takes sampling 1`,
 					`Door starts to close. Just prior to closure, StereoVision takes sampling 2`,
 					`An optional, internal biometric device is activated upon door closure.\nThis validates user and prevets substitution`,
@@ -517,10 +517,10 @@ const buttonContent = {
 				content: [
 					`Piggybacking is an attempt for two people to enter`,
 					`Credential or push button is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
+					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`StereoVision takes sampling 1`,
 					`StereoVision detects two people`,
-					`Door remains open, and voice command prompts both people\nto exit. Turns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED turns red until the\npassage is completed or terminated `,
+					`Door remains open, and voice command prompts both people\nto exit. Turns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`After exiting, outer door closes`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
 				],
@@ -533,10 +533,10 @@ const buttonContent = {
 				content: [
 					`Piggybacking is an attempt for two people to enter`,
 					`Credential or push button is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
+					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`StereoVision takes sampling 1. Door closes, StereoVision takes sampling 2`,
 					`StereoVision detects two people`,
-					`Door re-opens, and voice command prompts both people to exit.\nTurns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED turns red until the\npassage is completed or terminated `,
+					`Door re-opens, and voice command prompts both people to exit.\nTurns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`After exiting, outer door closes`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
 				],
@@ -606,8 +606,8 @@ const buttonContent = {
 				title: `<span style = 'font-weight:bold'>Standard Operation</span>`,
 
 				content: [
-					`Credential or biometric is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
+					`Credential or push button is presented`,
+					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`StereoVision takes sampling 1`,
 					`Door starts to close. Just prior to closure, StereoVision takes sampling 2`,
 					`An optional, internal biometric device is activated upon door closure.\nThis validates user and prevets substitution`,
@@ -622,10 +622,10 @@ const buttonContent = {
 				content: [
 					`Piggybacking is an attempt for two people to enter`,
 					`Credential or push button is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
+					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`StereoVision takes sampling 1`,
 					`StereoVision detects two people`,
-					`Door remains open, and voice command prompts both people\nto exit. Turns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED turns red until the\npassage is completed or terminated `,
+					`Door remains open, and voice command prompts both people\nto exit. Turns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`After exiting, outer door closes`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
 				],
@@ -638,10 +638,10 @@ const buttonContent = {
 				content: [
 					`Piggybacking is an attempt for two people to enter`,
 					`Credential or push button is presented`,
-					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes `,
+					`Valid credential turns LEDs green on the vertical entry post and internal\nmidpost, opens outer door and provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`StereoVision takes sampling 1. Door closes, StereoVision takes sampling 2`,
 					`StereoVision detects two people`,
-					`Door re-opens, and voice command prompts both people to exit.\nTurns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED turns red until the\npassage is completed or terminated `,
+					`Door re-opens, and voice command prompts both people to exit.\nTurns LEDs red on the vertical entry post and internal midpost,\nand provides audible signal. Opposite side LED\nturns red until the user exits the door, and the outer door closes`,
 					`After exiting, outer door closes`,
 					`Never a breach. Unauthorized user always exits to the unsecure side.\nEliminate DHO (door held open) and DFO (door forced open) alarms.\nAutomated resolution of issues (no human intervention). Always in compliance`,
 				],
@@ -724,7 +724,7 @@ const buttonContent = {
 					`Volumetric sensor system detects unauthorized person`,
 					`Unauthorized user detected, sounding alarm`,
 					`Glass panels close, provided safety sensor system not engaged`,
-					`No DHO or DFO, Automated resolution. Compliance maintained`,
+					`No DHO or DFO. Automated resolution. Compliance maintained`,
 				],
 				delay: [2, 6, 10, 15, 18, 22, 26, 31, 37],
 			},
@@ -793,7 +793,7 @@ function InterpolateVideo(videoToPause, videoToVanish, videoToPlay) {
 	videoToPlay.style.opacity = 1
 	setTimeout(() => {
 		videoToPlay.play()
-	}, 500)
+	}, 0)
 }
 
 // loop.currentTime = 60
@@ -1015,10 +1015,11 @@ function createSubVideos(source1, source2, source3) {
 		subVideo2 = document.createElement('video')
 		subVideo2.src = source2
 		if (
-			currentButton === 'tourlock100' ||
-			currentButton === 'tourlock180' ||
+			currentButton === 'tourlock10' ||
+			currentButton === 'tourlock18' ||
 			currentButton === 'tourlock182' ||
-			currentButton === 'circlelockSo'
+			currentButton === 'circlelockSo' ||
+			currentButton === 'lifelineSw'
 		) {
 			if (pageIndex === 'emergencyE') {
 				subVideo2.loop = true
@@ -1448,9 +1449,13 @@ function createRotation() {
 		model.classList.add('Sirv')
 
 		model.setAttribute('data-src', rotationContent[currentButton])
+
 		createBackButton('rotationPage')
 		rotation.appendChild(model)
 	}, 0)
+	setTimeout(() => {
+		showCont.innerHTML = ''
+	}, 300)
 }
 
 function resizeRotation() {
@@ -1472,8 +1477,8 @@ function exitRotation() {
 	console.log('remove show')
 	rotation.classList.remove('show')
 	rotation.classList.add('short-vanish')
-
-	// animations()
+	createContent(buttonContent[currentButton], currentButton)
+	animations()
 	// rotation.innerHTML = ''
 
 	// createBackButton()
@@ -1856,7 +1861,7 @@ mainMenuB.forEach((e, i) => {
 		// 	console.log('perraje')
 		// 	return
 		// }
-		console.log(dataId[i])
+
 		pageIndex = 'mainMenuFront'
 		currentButton = dataId[i]
 		HideShowMainButtons()
@@ -1875,7 +1880,7 @@ mainMenuB.forEach((e, i) => {
 		}
 
 		createContent(buttonContent[dataId[i]], dataId[i])
-
+		console.log(dataId[i])
 		window.addEventListener('resize', function (e) {
 			if (showCont.hasChildNodes()) {
 				const textContainer = document.querySelector('#centerContainer_text')
