@@ -1277,7 +1277,7 @@ function createContent(obj, parent) {
 							currentButton === 'circlelockSo' ||
 							currentButton === 'circlelockSo2'
 						) {
-							image.src = `assets/${parent}/${currentButton}/${currentButton}${
+							image.src = `../assets/${parent}/${currentButton}/${currentButton}${
 								i + 1
 							}.png`
 							if (isMobile) {
@@ -1286,7 +1286,7 @@ function createContent(obj, parent) {
 								image.style.width = '24em'
 							}
 						} else {
-							image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
+							image.src = `../assets/${parent}/${pageIndex}/${pageIndex}${
 								i + 1
 							}.png`
 							if (isMobile) {
@@ -1305,7 +1305,7 @@ function createContent(obj, parent) {
 					elementContainer.setAttribute('id', 'pCont1')
 
 					icon = document.createElement('img')
-					icon.src = 'assets/icons/bp.png'
+					icon.src = '../assets/icons/bp.png'
 					icon.style.width = '1.3em'
 
 					element = document.createElement('span')
@@ -1336,7 +1336,7 @@ function createContent(obj, parent) {
 								currentButton === 'circlelockSo' ||
 								currentButton === 'circlelockSo2'
 							) {
-								image.src = `assets/${parent}/${currentButton}/${currentButton}${
+								image.src = `../assets/${parent}/${currentButton}/${currentButton}${
 									i + 1
 								}.png`
 								if (isMobile) {
@@ -1345,7 +1345,7 @@ function createContent(obj, parent) {
 									image.style.width = '25em'
 								}
 							} else {
-								image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
+								image.src = `../assets/${parent}/${pageIndex}/${pageIndex}${
 									i + 1
 								}.png`
 								if (isMobile) {
@@ -1363,7 +1363,7 @@ function createContent(obj, parent) {
 						elementContainer.classList.add('elementContainer')
 						elementContainer.setAttribute('id', 'pCont2')
 						icon = document.createElement('img')
-						icon.src = 'assets/icons/bp.png'
+						icon.src = '../assets/icons/bp.png'
 						icon.style.width = '1.3em'
 
 						element = document.createElement('span')
@@ -1386,7 +1386,7 @@ function createContent(obj, parent) {
 	if (pageIndex === 'mainMenuFront') {
 		threesixty = document.createElement('img')
 		threesixty.classList.add('threesixty')
-		threesixty.src = '../assets/icons/360logo.png'
+		threesixty.src = '../assets/icons/threesixtyLogo.png'
 		threesixty.addEventListener('click', () => {
 			createRotation()
 		})
@@ -1664,7 +1664,7 @@ function createBackButton(param) {
 		backButtonRotation.style.pointerEvents = 'all'
 		backButtonContainer = document.createElement('div')
 		brandIcon = document.createElement('img')
-		brandIcon.src = '../assets/icons/150logo.png'
+		brandIcon.src = '../assets/icons/onefiftyLogo.png'
 		brandIcon.classList.add('brandIcon', 'brandIconR')
 		backButtonContainer.classList.add('viewRContainer')
 		rotation.appendChild(centerContainerMade)
@@ -1701,7 +1701,7 @@ function createBackButton(param) {
 		backButton.textContent = 'Back'
 		backButtonContainer = document.createElement('div')
 		brandIcon = document.createElement('img')
-		brandIcon.src = '../assets/icons/150logo.png'
+		brandIcon.src = '../assets/icons/onefiftyLogo.png'
 		brandIcon.classList.add('brandIcon')
 		backButtonContainer.classList.add('backButtonContainer')
 		// if (pos) {
