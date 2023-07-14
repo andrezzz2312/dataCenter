@@ -1277,7 +1277,7 @@ function createContent(obj, parent) {
 							currentButton === 'circlelockSo' ||
 							currentButton === 'circlelockSo2'
 						) {
-							image.src = `assets/${parent}/${currentButton}/${currentButton}${
+							image.src = `../assets/${parent}/${currentButton}/${currentButton}${
 								i + 1
 							}.png`
 							if (isMobile) {
@@ -1286,7 +1286,7 @@ function createContent(obj, parent) {
 								image.style.width = '24em'
 							}
 						} else {
-							image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
+							image.src = `../assets/${parent}/${pageIndex}/${pageIndex}${
 								i + 1
 							}.png`
 							if (isMobile) {
@@ -1305,7 +1305,7 @@ function createContent(obj, parent) {
 					elementContainer.setAttribute('id', 'pCont1')
 
 					icon = document.createElement('img')
-					icon.src = 'assets/icons/bp.png'
+					icon.src = '../assets/icons/bp.png'
 					icon.style.width = '1.3em'
 
 					element = document.createElement('span')
@@ -1336,7 +1336,7 @@ function createContent(obj, parent) {
 								currentButton === 'circlelockSo' ||
 								currentButton === 'circlelockSo2'
 							) {
-								image.src = `assets/${parent}/${currentButton}/${currentButton}${
+								image.src = `../assets/${parent}/${currentButton}/${currentButton}${
 									i + 1
 								}.png`
 								if (isMobile) {
@@ -1345,7 +1345,7 @@ function createContent(obj, parent) {
 									image.style.width = '25em'
 								}
 							} else {
-								image.src = `assets/${parent}/${pageIndex}/${pageIndex}${
+								image.src = `../assets/${parent}/${pageIndex}/${pageIndex}${
 									i + 1
 								}.png`
 								if (isMobile) {
@@ -1363,7 +1363,7 @@ function createContent(obj, parent) {
 						elementContainer.classList.add('elementContainer')
 						elementContainer.setAttribute('id', 'pCont2')
 						icon = document.createElement('img')
-						icon.src = 'assets/icons/bp.png'
+						icon.src = '../assets/icons/bp.png'
 						icon.style.width = '1.3em'
 
 						element = document.createElement('span')
