@@ -1281,7 +1281,7 @@ function createContent(obj, parent) {
 								i + 1
 							}.png`
 							if (isMobile) {
-								image.style.width = '19em'
+								image.style.width = '20em'
 							} else {
 								image.style.width = '24em'
 							}
@@ -1418,7 +1418,7 @@ function setFontSizes() {
 	globalMediumTitleFontvar = `calc(7px + (35 - 7) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
-	globalBigTitleFontvar = `calc(8px + (45 - 8) * ((${
+	globalBigTitleFontvar = `calc(8px + (35 - 8) * ((${
 		containVideoWidth + 'px'
 	} - 320px) / (1440 - 320)))`
 
