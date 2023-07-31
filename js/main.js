@@ -756,17 +756,21 @@ const buttonContent = {
 
 const rotationContent = {
 	turnlock10:
-		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock100/Turnlock100.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock100/Turnlock100.spin?fullscreen=false',
+	turnlock15:
+		'https://rotation.marketscale.com/Companies/BoonEdam/Turnlock150/Turnlock150.spin?fullscreen=false',
 	tourlock18:
-		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin?fullscreen=false',
 	tourlock182:
-		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/Tourlock180/Tourlock180.spin?fullscreen=false',
 	lifelineSw:
-		'https://rotation.marketscale.com/Companies/BoonEdam/LifeLineSwing/LifeLineSwing.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/LifeLineSwing/LifeLineSwing.spin?fullscreen=false',
 	circlelockSo:
-		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin?fullscreen=false',
 	circlelockSo2:
-		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin',
+		'https://rotation.marketscale.com/Companies/BoonEdam/CirclelockSolo/CirclelockSolo.spin?fullscreen=false',
+	trilock60:
+		'https://rotation.marketscale.com/Companies/BoonEdam/TriLock60/TriLock60.spin?fullscreen=false',
 }
 // Display fullscreen button
 if (!isMobile) {
