@@ -45,6 +45,7 @@ let videoloop,
 let boxVideo = []
 let buttonShort = []
 let dataId = []
+let dataVariant = []
 let video1check = false
 let video2check = false
 let video3check = false
@@ -104,23 +105,27 @@ window.mobileCheck = function () {
 	console.log(isMobile)
 }
 mobileCheck()
+let isIOS
+if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+	isIOS = true
+} else {
+	isIOS = false
+}
 
 // var buttonsText = []
 
-mainMenuB.forEach((e, i) => {
-	dataId[i] = e.dataset.id
-	console.log(dataId[i])
-	// const splitText = e.textContent.trim().split('\n')
-	// const splitText = e.textContent
-	// 	.replace(/[\n\r]+|[\s]{2,}/g, ' ')
-	// 	.trim()
-	// 	.split(' ')
-	// splitText[1]
-	// 	? (buttonsText[i] =
-	// 			splitText[0].toLowerCase() + splitText[1].substring(0, 2))
-	// 	: (buttonsText[i] = splitText[0].toLowerCase())
-	// console.log(buttonsText[i])
-})
+// mainMenuB.forEach((e, i) => {
+// const splitText = e.textContent.trim().split('\n')
+// const splitText = e.textContent
+// 	.replace(/[\n\r]+|[\s]{2,}/g, ' ')
+// 	.trim()
+// 	.split(' ')
+// splitText[1]
+// 	? (buttonsText[i] =
+// 			splitText[0].toLowerCase() + splitText[1].substring(0, 2))
+// 	: (buttonsText[i] = splitText[0].toLowerCase())
+// console.log(buttonsText[i])
+// })
 
 const buttonContent = {
 	turnlock10: {
@@ -682,7 +687,10 @@ const rotationContent = {
 // Display fullscreen button
 if (!isMobile) {
 	fullscreen_button.style.display = 'none'
+} else if (isIOS) {
+	fullscreen_button.style.display = 'none'
 }
+
 // else {
 // if (isIOS) {
 // 	fullscreen_button.style.display = 'none'
@@ -739,6 +747,7 @@ function animations() {
 			'fadein 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards'
 		createdSubTitle.style.animationDelay = '0.4s'
 		let counter = 0.3
+		console.log(delay)
 		if (delay) {
 			console.log(delay)
 			let inputArray = []
@@ -907,61 +916,6 @@ function animations() {
 }
 
 // Create the video tags storaged in videoContainer div
-function createSubVideos(source1, source2, source3) {
-	if (source1) {
-		subVideo1 = document.createElement('video')
-		subVideo1.src = source1
-		subVideo1.muted = true
-		subVideo1.setAttribute('playsinline', 'playsinline')
-		subVideo1.controls = false
-		subVideo1.autoplay = true
-		subVideo1.classList.add('video')
-		subVideo1.style.opacity = 0
-		subVideo1.pause()
-		// loopContainer.appendChild(subVideo1)
-		subVideo1Container.appendChild(subVideo1)
-	}
-
-	if (source2) {
-		subVideo2 = document.createElement('video')
-		subVideo2.src = source2
-		if (
-			currentButton === 'turnlock10' ||
-			currentButton === 'tourlock18' ||
-			currentButton === 'tourlock182' ||
-			currentButton === 'circlelockSo' ||
-			currentButton === 'circlelockSo2' ||
-			currentButton === 'lifelineSw'
-		) {
-			if (pageIndex === 'emergencyE') {
-				subVideo2.loop = true
-			}
-		}
-
-		subVideo2.muted = true
-		subVideo2.setAttribute('playsinline', 'playsinline')
-		subVideo2.controls = false
-		subVideo2.autoplay = true
-		subVideo2.classList.add('subVideo')
-		subVideo2.style.opacity = 0
-		subVideo2.pause()
-		// loopContainer.appendChild(subVideo2)
-		subVideo2Container.appendChild(subVideo2)
-	}
-	if (source3) {
-		subVideo3 = document.createElement('video')
-		subVideo3.src = source3
-		subVideo3.muted = true
-		subVideo3.autoplay = true
-		subVideo3.setAttribute('playsinline', 'playsinline')
-		subVideo3.controls = false
-		subVideo3.classList.add('subVideo')
-		subVideo3.style.opacity = 0
-		subVideo3.pause()
-		// loopContainer.appendChild(subVideo3)
-		subVideo3Container.appendChild(subVideo3)
-	}
-}
 function createVideos(source1, source2, source3) {
 	if (source1) {
 		video1 = document.createElement('video')
@@ -1004,6 +958,64 @@ function createVideos(source1, source2, source3) {
 		video3.pause()
 
 		video3Container.appendChild(video3)
+	}
+}
+
+function createSubVideos(source1, source2, source3) {
+	if (source1) {
+		subVideo1 = document.createElement('video')
+		subVideo1.src = source1
+		subVideo1.muted = true
+		subVideo1.setAttribute('playsinline', 'playsinline')
+		subVideo1.controls = false
+		subVideo1.autoplay = true
+		subVideo1.classList.add('video')
+		subVideo1.style.opacity = 0
+		subVideo1.pause()
+		// loopContainer.appendChild(subVideo1)
+		subVideo1Container.appendChild(subVideo1)
+	}
+
+	if (source2) {
+		subVideo2 = document.createElement('video')
+		subVideo2.src = source2
+		if (
+			currentButton === 'turnlock10' ||
+			currentButton === 'turnlock15' ||
+			currentButton === 'tourlock18' ||
+			currentButton === 'tourlock182' ||
+			currentButton === 'circlelockSo' ||
+			currentButton === 'circlelockSo2' ||
+			currentButton === 'lifelineSw' ||
+			currentButton === 'trilock60'
+		) {
+			if (pageIndex === 'emergencyE') {
+				subVideo2.loop = true
+			}
+		}
+
+		subVideo2.muted = true
+		subVideo2.setAttribute('playsinline', 'playsinline')
+		subVideo2.controls = false
+		subVideo2.autoplay = true
+		subVideo2.classList.add('subVideo')
+		subVideo2.style.opacity = 0
+		subVideo2.pause()
+		// loopContainer.appendChild(subVideo2)
+		subVideo2Container.appendChild(subVideo2)
+	}
+	if (source3) {
+		subVideo3 = document.createElement('video')
+		subVideo3.src = source3
+		subVideo3.muted = true
+		subVideo3.autoplay = true
+		subVideo3.setAttribute('playsinline', 'playsinline')
+		subVideo3.controls = false
+		subVideo3.classList.add('subVideo')
+		subVideo3.style.opacity = 0
+		subVideo3.pause()
+		// loopContainer.appendChild(subVideo3)
+		subVideo3Container.appendChild(subVideo3)
 	}
 }
 
@@ -1182,6 +1194,7 @@ function createContent(obj, parent) {
 					elementContainer.classList.add('elementContainer', 'imageContainer')
 					for (let i = 0; i < e; i++) {
 						let image = document.createElement('img')
+						image.classList.add('tableImg')
 						if (
 							currentButton === 'tourlock18' ||
 							currentButton === 'tourlock182' ||
@@ -1201,9 +1214,9 @@ function createContent(obj, parent) {
 								i + 1
 							}.png`
 							if (isMobile) {
-								image.style.width = '7em'
+								image.style.width = '6em'
 							} else {
-								image.style.width = '10em'
+								image.style.width = '6em'
 							}
 						}
 
@@ -1241,6 +1254,7 @@ function createContent(obj, parent) {
 						elementContainer.classList.add('elementContainer', 'imageContainer')
 						for (let i = 0; i < e; i++) {
 							let image = document.createElement('img')
+							image.classList.add('extraImg')
 							if (
 								currentButton === 'tourlock18' ||
 								currentButton === 'tourlock182' ||
@@ -1260,9 +1274,9 @@ function createContent(obj, parent) {
 									i + 1
 								}.png`
 								if (isMobile) {
-									image.style.width = '7em'
+									image.style.width = '8em'
 								} else {
-									image.style.width = '10em'
+									image.style.width = '6em'
 								}
 							}
 
@@ -1311,7 +1325,7 @@ function createContent(obj, parent) {
 	centerContainerMade.appendChild(textContainerMade)
 	textContainerMade.appendChild(firstPage)
 }
-
+// asd
 // Create the svgs for the showCont div / 4 first parameters are the x and y points of the first and second point respectively, last 2 are the x and y points of the dot
 function setFontSizes() {
 	const button = document.querySelectorAll('.button')
@@ -1346,9 +1360,9 @@ function setFontSizes() {
 
 	for (let i = 0; i < button.length; i++) {
 		button[i].style.fontSize = globalFontvar
-		button[i].style.width = `calc(85px + (220 - 85) * ((${
-			containVideoWidth + 'px'
-		} - 320px) / (1440 - 320)))`
+		// button[i].style.width = `calc(85px + (220 - 85) * ((${
+		// 	containVideoWidth + 'px'
+		// } - 320px) / (1440 - 320)))`
 	}
 }
 function createRotation() {
@@ -1506,14 +1520,14 @@ function backButtonFunctionFront() {
 		video2.classList.remove('short-vanish')
 		showCont.innerHTML = ''
 		console.log('back from back')
-		console.log(buttonContent[dataId[0]].content)
+
+		video2.currentTime = 0
 		pageIndex = 'mainMenuFront'
 		console.log(currentButton)
 		createContent(buttonContent[currentButton], currentButton)
-		animations()
-		// backButton.style.pointerEvents = 'all'
 
-		// createBackButton()
+		animations()
+
 		HideShowCont()
 		subVideo1.remove()
 		subVideo2.remove()
@@ -1531,12 +1545,9 @@ function backButtonFunctionBack() {
 		subVideo3.classList.add('short-vanish')
 		subVideoTurn.classList.remove('short-vanish')
 		showCont.innerHTML = ''
-		pageIndex = 'mainMenuBack'
-		createContent(
-			buttonContent[dataId[1]],
 
-			dataId[1]
-		)
+		pageIndex = 'mainMenuBack'
+		createContent(buttonContent[dataId[1]], dataId[1])
 		// backButton.style.pointerEvents = 'all'
 
 		// createBackButton()
@@ -1640,7 +1651,8 @@ function createBackButton(param) {
 			pageIndex === 'tailgatingP2' ||
 			pageIndex === 'glassO' ||
 			pageIndex === 'piggybackingP1' ||
-			pageIndex === 'piggybackingP2'
+			pageIndex === 'piggybackingP2' ||
+			pageIndex === 'operationW'
 		) {
 			console.log('submenu')
 			backButton.addEventListener('click', backButtonFunctionFront)
@@ -1786,6 +1798,10 @@ fullscreen_button.addEventListener('click', function (e) {
 })
 
 mainMenuB.forEach((e, i) => {
+	dataId[i] = e.dataset.id
+	dataVariant[i] = e.dataset.variant
+	console.log(dataId[i])
+	console.log(dataVariant)
 	e.addEventListener('click', function (e) {
 		// if (dataId[i] === 'view3') {
 		// 	console.log('perraje')
@@ -1795,12 +1811,21 @@ mainMenuB.forEach((e, i) => {
 		pageIndex = 'mainMenuFront'
 		currentButton = dataId[i]
 		HideShowMainButtons()
+		if (dataVariant[i]) {
+			createVideos(
+				`assets/${dataId[i]}${dataVariant[i]}/${dataId[i]}1.mp4`,
+				`assets/${dataId[i]}${dataVariant[i]}/${dataId[i]}2.mp4`,
+				`assets/${dataId[i]}${dataVariant[i]}/${dataId[i]}3.mp4`
+			)
+			// console.log(dataVariant[i])
+		} else {
+			createVideos(
+				`assets/${dataId[i]}/${dataId[i]}1.mp4`,
+				`assets/${dataId[i]}/${dataId[i]}2.mp4`,
+				`assets/${dataId[i]}/${dataId[i]}3.mp4`
+			)
+		}
 
-		createVideos(
-			`assets/${dataId[i]}/${dataId[i]}1.mp4`,
-			`assets/${dataId[i]}/${dataId[i]}2.mp4`,
-			`assets/${dataId[i]}/${dataId[i]}3.mp4`
-		)
 		/////////////////////////// CURRENT
 
 		if (showCont.innerHTML !== '') {
@@ -1827,9 +1852,6 @@ mainMenuB.forEach((e, i) => {
 					console.log(buttonContent[globalParent])
 					createContent(buttonContent[dataId[i]], dataId[i])
 				} else {
-					console.log(globalParent)
-					console.log(buttonContent[globalParent])
-
 					createContent(
 						buttonContent[globalParent].boxInfo[pageIndex],
 						dataId[i]
@@ -1839,6 +1861,7 @@ mainMenuB.forEach((e, i) => {
 				animations()
 				if (subVideo2) {
 					subVideo2.currentTime = 0
+					subVideo2.play()
 				}
 
 				// if (buttonsText[i] === 'whyF') {
