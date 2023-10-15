@@ -23,6 +23,11 @@
 		<link rel="dns-prefetch" href="https://listyara.sirv.com" />
 
 		<title>DATA CENTER</title>
+		<script>
+			window.jQuery ||
+				document.write('<script src="./js/jquery-3.7.1.min.js">\x3C/script>')
+		</script>
+		<script src="./js/jquery.reel.js"></script>
 	</head>
 
 	<body>
@@ -181,7 +186,22 @@
 			</div>
 
 			<div id="showCont" class="showCont hidden short-vanish"></div>
-			<div id="rotation" class="rotation hidden short-vanish"></div>
+			<div id="rotation" class="rotation hidden">
+				<div class="rotationContainer">
+					<img
+						src="/assets/lifelineSw/threesixty/lifelineSw_1.jpg"
+						class="reel"
+						id="product-reel"
+						data-responsive="true"
+						width="1000"
+						height="500"
+						data-images="/assets/lifelineSw/threesixty/lifelineSw_#.jpg|1..60"
+						data-frames="60"
+						data-footage="6"
+						data-revolution="800"
+					/>
+				</div>
+			</div>
 			<div class="warning">
 				<div class="modal">
 					<i class="fa-solid fa-circle-exclamation warnIcon"></i>

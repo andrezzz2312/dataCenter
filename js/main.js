@@ -1366,35 +1366,37 @@ function setFontSizes() {
 	}
 }
 function createRotation() {
+	console.log(currentButton)
 	console.log(pageIndex)
-	if (rotation) {
-		rotation.innerHTML = ''
-	}
+	// if (rotation) {
+	// 	rotation.innerHTML = ''
+	// }
 	loader.classList.remove('short-vanish')
-	loader.style.zIndex = '1'
-	initial.style.zIndex = '0'
+	loader.style.zIndex = '2'
+	initial.style.zIndex = '1'
 	initial.classList.remove('short-vanish')
-	initial.classList.add('show')
+	// initial.classList.add('show')
 
-	// HideShowMainButtons()
 	HideShowCont()
+	$('#product-reel')
+		.reel(
+			'images',
+			`/assets/${currentButton}/threesixty/${currentButton}_#.jpg`
+		)
+		.bind('loaded', function () {
+			initial.classList.remove('show')
+			initial.classList.add('short-vanish')
+			loader.style.zIndex = '-100'
+			setTimeout(() => {
+				initial.style.zIndex = '-200'
+			}, 400)
+		})
+
 	rotation.classList.toggle('show')
 	rotation.classList.toggle('hidden')
-
+	createBackButton('rotationPage')
 	window.addEventListener('resize', resizeRotation)
 
-	setTimeout(() => {
-		const centerContainerMade = document.createElement('div')
-		centerContainerMade.classList.add('centerContainer')
-		centerContainerMade.setAttribute('id', 'centerContainer_model')
-		const model = document.createElement('div')
-		model.classList.add('Sirv')
-
-		model.setAttribute('data-src', rotationContent[currentButton])
-
-		createBackButton('rotationPage')
-		rotation.appendChild(model)
-	}, 0)
 	setTimeout(() => {
 		showCont.innerHTML = ''
 	}, 300)
