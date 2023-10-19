@@ -1381,7 +1381,7 @@ function createRotation() {
 	$('#product-reel')
 		.reel(
 			'images',
-			`/assets/${currentButton}/threesixty/${currentButton}_#.jpg`
+			`./assets/${currentButton}/threesixty/${currentButton}_#.jpg`
 		)
 		.bind('loaded', function () {
 			initial.classList.remove('show')
