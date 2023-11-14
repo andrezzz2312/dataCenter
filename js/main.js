@@ -1142,7 +1142,7 @@ function createContent(obj, parent) {
 								subVideo1.play()
 								subVideo1.addEventListener('ended', () => {
 									console.log('subVideo1 ending')
-									// createBackButton()
+
 									animations()
 									InterpolateVideo(video3, subVideo1, subVideo2)
 
@@ -1181,7 +1181,7 @@ function createContent(obj, parent) {
 			createdSubTitle.style.fontSize = globalMediumTitleFontvar
 			titleH2.appendChild(createdSubTitle)
 		}
-		// el unico vivo
+
 		createBackButton()
 		if (Array.isArray(pContent)) {
 			if (delayInput) {
@@ -1414,18 +1414,11 @@ function resizeRotation() {
 function exitRotation() {
 	ArreglarLineas()
 	backButtonRotation.style.pointerEvents = 'none'
-	// const centerContainerBackButton = document.querySelector(
-	// 	'#centerContainer_backButton'
-	// )
-	// centerContainerBackButton.remove()
-	console.log('remove show')
 	rotation.classList.remove('show')
 	rotation.classList.add('short-vanish')
 	createContent(buttonContent[currentButton], currentButton)
 	animations()
-	// rotation.innerHTML = ''
 
-	// createBackButton()
 	HideShowCont()
 	window.removeEventListener('resize', resizeRotation)
 }
@@ -1550,17 +1543,16 @@ function backButtonFunctionBack() {
 
 		pageIndex = 'mainMenuBack'
 		createContent(buttonContent[dataId[1]], dataId[1])
-		// backButton.style.pointerEvents = 'all'
 
-		// createBackButton()
 		HideShowCont()
-		// subVideo1.remove()
-		// subVideo2.remove()
-		// subVideo3.remove()
 	})
 }
 
 function createBackButton(param) {
+	const rotationBackButton = document.querySelector('#rotation_backButton')
+	if (rotationBackButton) {
+		rotationBackButton.remove()
+	}
 	console.log(pageIndex)
 	if (param === 'rotationPage') {
 		const centerContainerMade = document.createElement('div')
@@ -1600,13 +1592,6 @@ function createBackButton(param) {
 		backButtonContainer.appendChild(brandIcon)
 		centerContainerMade.setAttribute('id', 'rotation_backButton')
 	} else {
-		// const centerContainerMade = document.createElement('div')
-		// centerContainerMade.classList.add('centerContainer')
-		// centerContainerMade.setAttribute('id', 'centerContainer_backButton')
-		// buttonContainerMade = document.createElement('div')
-		// buttonContainerMade.classList.add('buttonContainer')
-		// buttonContainerMade.style.width = containVideoWidth + 'px'
-		// buttonContainerMade.style.height = containVideoHeight + 'px'
 		backButton = document.createElement('button')
 		backButton.classList.add('backButton')
 		backButton.style.fontSize = buttonFontvar
@@ -1614,11 +1599,6 @@ function createBackButton(param) {
 		backButton.style.width = `calc(47px + (147 - 47) * ((${
 			containVideoWidth + 'px'
 		} - 320px) / (1440 - 320)))`
-		// if (buttonDimensions !== 0) {
-
-		// 	backButton.style.width = buttonDimensions.offsetWidth + 'px'
-		// 	backButton.style.height = buttonDimensions.offsetHeight + 'px'
-		// }
 
 		backButton.classList.add('button')
 
@@ -1628,21 +1608,12 @@ function createBackButton(param) {
 		brandIcon.src = 'assets/icons/onefiftyLogo.png'
 		brandIcon.classList.add('brandIcon')
 		backButtonContainer.classList.add('backButtonContainer')
-		// if (pos) {
-		// 	backButtonContainer.style.justifyContent = 'flex-end'
-		// 	backButton.style.marginRight = '4%'
-		// }
-		// showCont.appendChild(centerContainerMade)
-		// centerContainerMade.append(buttonContainerMade)
+
 		firstPage.appendChild(backButtonContainer)
 
 		backButtonContainer.appendChild(backButton)
 		backButtonContainer.appendChild(brandIcon)
 		if (param === 'rotation') {
-			// rotation.appendChild(centerContainerMade)
-			// rotation.appendChild(centerContainerMade)
-			// backButton.style.pointerEvents = 'all'
-			// centerContainerMade.setAttribute('id', 'rotation_backButton')
 		} else if (
 			pageIndex === 'standardO' ||
 			pageIndex === 'piggybackingP' ||
@@ -1865,12 +1836,6 @@ mainMenuB.forEach((e, i) => {
 					subVideo2.currentTime = 0
 					subVideo2.play()
 				}
-
-				// if (buttonsText[i] === 'whyF') {
-				// 	createBackButton('pos')
-				// } else {
-				// createBackButton()
-				// }
 			}
 		})
 		check1()
@@ -1903,12 +1868,6 @@ mainMenuB.forEach((e, i) => {
 					setTimeout(() => {
 						video1.play()
 						video1.addEventListener('ended', () => {
-							// if (buttonsText[i] === 'whyF') {
-							// 	createBackButton('pos')
-							// } else {
-							// createBackButton()
-							// }
-
 							animations()
 
 							InterpolateVideo(loop, video1, video2)
